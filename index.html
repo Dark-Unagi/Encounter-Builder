@@ -462,8 +462,8 @@
                     <div class="flex justify-between items-start">
                         <div class="text-sm flex-1 mr-3">
                             <strong>${monster.name}</strong> (Tier ${monster.tier})<br>
-                            HP: ${monster.hp}, Evasion: ${monster.evasion}, Damage: ${monster.damageDice}+${monster.attackMod}<br>
-                            Threshold: ${monster.thresholdLow}|${monster.thresholdHigh}
+                            HP: ${monster.hp}, Stress: ${monster.stress}, Evasion: ${monster.evasion} <br>
+                            Damage: ${monster.damageDice}+${monster.attackMod}, Threshold: ${monster.thresholdLow}|${monster.thresholdHigh}
                             ${featuresDisplay}
                         </div>
                         <button onclick="addMonsterToEncounter('${monster.name}')" class="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark whitespace-nowrap">Add</button>
