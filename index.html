@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encounter Balancer - D&D Custom System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="monsters.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4A49B8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tab-active {
+            background-color: #5D5CDE;
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #e5e7eb;
+            color: #374151;
+            transition: background-color 0.2s ease;
+        }
+        .tab-inactive:hover {
+            background-color: #d1d5db;
+        }
+        .dark .tab-inactive {
+            background-color: #374151;
+            color: #d1d5db;
+        }
+        .dark .tab-inactive:hover {
+            background-color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <h1 class="text-3xl font-bold text-center mb-8">Encounter Balancer</h1>
+        
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
+            <button onclick="showTab('party')" id="tab-party" class="px-4 py-2 rounded-t-lg tab-active transition-colors">Party Builder</button>
+            <button onclick="showTab('monsters')" id="tab-monsters" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Monster Library</button>
+            <button onclick="showTab('builder')" id="tab-builder" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Monster Builder</button>
+            <button onclick="showTab('encounter')" id="tab-encounter" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Encounter Calculator</button>
+        </div>
+
+        <!-- Party Builder Tab -->
+        <div id="party-tab" class="tab-content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Party Composition</h2>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Party Size</label>
+                        <select id="party-size" onchange="updatePartySize()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            <option value="1">1 Character</option>
+                            <option value="2">2 Characters</option>
+                            <option value="3">3 Characters</option>
+                            <option value="4" selected>4 Characters</option>
+                            <option value="5">5 Characters</option>
+                            <option value="6">6 Characters</option>
+                        </select>
+                    </div>
+                    <button onclick="useDefaultParty()" class="mb-4 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Quick Fill - Default Builds</button>
+                    <div id="party-members"></div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Character Builder</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Character Name</label>
+                            <input type="text" id="char-name" placeholder="Enter character name" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Level (1-10)</label>
+                            <input type="number" id="char-level" min="1" max="10" value="1" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Hit Points</label>
+                                <input type="number" id="char-hp" min="1" max="15" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Stress</label>
+                                <input type="number" id="char-stress" min="1" max="15" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Class Points</label>
+                                <input type="number" id="char-class" min="1" max="15" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Spell Points</label>
+                                <input type="number" id="char-spell" min="0" max="15" value="1" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Evasion</label>
+                                <input type="number" id="char-evasion" min="8" max="20" value="10" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Armor Points</label>
+                                <input type="number" id="char-armor" min="0" max="10" value="3" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Threshold Lower</label>
+                                <input type="number" id="char-threshold-low" min="1" max="20" value="7" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Threshold Upper</label>
+                                <input type="number" id="char-threshold-high" min="2" max="30" value="14" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Attack Modifier</label>
+                            <input type="number" id="char-attack" min="-2" max="10" value="3" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Special Abilities</label>
+                            <textarea id="char-abilities" placeholder="Describe powerful abilities, bonuses, special gear, etc." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base h-20"></textarea>
+                        </div>
+                        <button onclick="addCharacterToParty()" class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Add to Party</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monster Library Tab -->
+        <div id="monsters-tab" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Monster Library</h2>
+                    <div class="mb-4">
+                        <input type="text" id="monster-search" placeholder="Search monsters..." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base" oninput="filterMonsters()">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Filter by Tier</label>
+                        <select id="tier-filter" onchange="filterMonsters()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            <option value="">All Tiers</option>
+                            <option value="1">Tier 1</option>
+                            <option value="2">Tier 2</option>
+                            <option value="3">Tier 3</option>
+                            <option value="4">Tier 4</option>
+                            <option value="5">Tier 5</option>
+                        </select>
+                    </div>
+                    <div id="monster-list" class="space-y-2 max-h-96 overflow-y-auto"></div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Current Encounter</h2>
+                    <div id="current-encounter" class="space-y-2 mb-4"></div>
+                    <button onclick="clearEncounter()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Clear Encounter</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monster Builder Tab -->
+        <div id="builder-tab" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Monster Builder</h2>
+                    <div class="mb-4 p-3 bg-white dark:bg-gray-700 rounded-lg border">
+                        <label class="block text-sm font-medium mb-2">Load From Library</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <input type="text" id="builder-search" placeholder="Search library monsters..." class="p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base" oninput="filterBuilderMonsters()">
+                            <select id="builder-monster-select" class="p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                <option value="">Select monster...</option>
+                            </select>
+                            <button onclick="loadMonsterToBuilder()" class="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-base">Load Monster</button>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Monster Name</label>
+                            <input type="text" id="monster-name" placeholder="Enter monster name" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Tier (1-5)</label>
+                            <select id="monster-tier" onchange="updateMonsterGuidelines()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                <option value="1">Tier 1</option>
+                                <option value="2">Tier 2</option>
+                                <option value="3">Tier 3</option>
+                                <option value="4">Tier 4</option>
+                                <option value="5">Tier 5</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Hit Points</label>
+                                <input type="number" id="monster-hp" min="1" max="50" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Stress</label>
+                                <input type="number" id="monster-stress" min="0" max="20" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Evasion</label>
+                            <input type="number" id="monster-evasion" min="8" max="25" value="12" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Threshold Lower</label>
+                                <input type="number" id="monster-threshold-low" min="1" max="20" value="5" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Threshold Upper</label>
+                                <input type="number" id="monster-threshold-high" min="2" max="30" value="15" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Damage Dice</label>
+                                <select id="monster-damage-dice" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                    <option value="1d4">1d4</option>
+                                    <option value="1d6" selected>1d6</option>
+                                    <option value="1d8">1d8</option>
+                                    <option value="1d10">1d10</option>
+                                    <option value="1d12">1d12</option>
+                                    <option value="2d4">2d4</option>
+                                    <option value="2d6">2d6</option>
+                                    <option value="2d8">2d8</option>
+                                    <option value="2d10">2d10</option>
+                                    <option value="3d4">3d4</option>
+                                    <option value="3d6">3d6</option>
+                                    <option value="3d8">3d8</option>
+                                    <option value="3d10">3d10</option>
+                                    <option value="4d6">4d6</option>
+                                    <option value="4d8">4d8</option>
+                                    <option value="4d10">4d10</option>
+                                    <option value="5d6">5d6</option>
+                                    <option value="5d8">5d8</option>
+                                    <option value="6d6">6d6</option>
+                                    <option value="6d8">6d8</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Attack Modifier</label>
+                                <input type="number" id="monster-attack" min="-2" max="15" value="2" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Special Features</label>
+                            <textarea id="monster-features" placeholder="Describe special abilities, stress costs, etc." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base h-20"></textarea>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="saveCustomMonster()" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Save Monster</button>
+                            <button onclick="addMonsterToEncounter()" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">Add to Encounter</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Guidelines for Tier <span id="current-tier">1</span></h2>
+                    <div id="tier-guidelines" class="text-sm text-gray-600 dark:text-gray-400 space-y-2"></div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold mb-2">Power Estimation</h3>
+                        <div id="power-estimation" class="text-sm space-y-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Encounter Calculator Tab -->
+        <div id="encounter-tab" class="tab-content hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Encounter Setup</h2>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">Current Party (<span id="party-count">0</span> members)</h3>
+                        <div id="party-summary" class="text-sm text-gray-600 dark:text-gray-400"></div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold mb-2">Current Encounter</h3>
+                        <div id="encounter-summary" class="text-sm text-gray-600 dark:text-gray-400"></div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Desired Difficulty</label>
+                        <select id="difficulty-target" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            <option value="easy">Easy (1-2 rounds)</option>
+                            <option value="average" selected>Average (3-5 rounds)</option>
+                            <option value="hard">Hard (5+ rounds)</option>
+                        </select>
+                    </div>
+                    <button onclick="calculateEncounter()" class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Calculate Encounter Balance</button>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-4">Results</h2>
+                    <div id="calculation-results" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Global state
+        let party = [];
+        let encounter = [];
+        let customMonsters = [];
+
+        // Monster data is now loaded from monsters.js
+        // Access via window.defaultMonsters
+
+        // Tab management
+        function showTab(tabName) {
+            const tabs = ['party', 'monsters', 'builder', 'encounter'];
+            tabs.forEach(tab => {
+                const tabBtn = document.getElementById(`tab-${tab}`);
+                const tabContent = document.getElementById(`${tab}-tab`);
+                
+                if (tab === tabName) {
+                    tabBtn.className = tabBtn.className.replace('tab-inactive', 'tab-active');
+                    tabContent.classList.remove('hidden');
+                } else {
+                    tabBtn.className = tabBtn.className.replace('tab-active', 'tab-inactive');
+                    tabContent.classList.add('hidden');
+                }
+            });
+        }
+
+        // Party management
+        function updatePartySize() {
+            const size = parseInt(document.getElementById('party-size').value);
+            party = party.slice(0, size);
+            renderParty();
+        }
+
+        function addCharacterToParty() {
+            const character = {
+                name: document.getElementById('char-name').value || `Character ${party.length + 1}`,
+                level: parseInt(document.getElementById('char-level').value),
+                hp: parseInt(document.getElementById('char-hp').value),
+                stress: parseInt(document.getElementById('char-stress').value),
+                classPoints: parseInt(document.getElementById('char-class').value),
+                spellPoints: parseInt(document.getElementById('char-spell').value),
+                evasion: parseInt(document.getElementById('char-evasion').value),
+                armor: parseInt(document.getElementById('char-armor').value),
+                thresholdLow: parseInt(document.getElementById('char-threshold-low').value),
+                thresholdHigh: parseInt(document.getElementById('char-threshold-high').value),
+                attackMod: parseInt(document.getElementById('char-attack').value),
+                abilities: document.getElementById('char-abilities').value
+            };
+
+            const maxSize = parseInt(document.getElementById('party-size').value);
+            if (party.length < maxSize) {
+                party.push(character);
+                renderParty();
+                updateEncounterSummary();
+            }
+        }
+
+        function useDefaultParty() {
+            const size = parseInt(document.getElementById('party-size').value);
+            party = [];
+            
+            for (let i = 0; i < size; i++) {
+                party.push(createDefaultCharacter(3, i)); // Level 3 default
+            }
+            renderParty();
+            updateEncounterSummary();
+        }
+
+        function createDefaultCharacter(level, index) {
+            return {
+                name: `Character ${index + 1}`,
+                level: level,
+                hp: Math.min(2 + level, 10),
+                stress: Math.min(2 + level, 10),
+                classPoints: Math.min(2 + level, 10),
+                spellPoints: Math.min(1 + level, 10),
+                evasion: 10 + Math.floor(level/2),
+                armor: 3,
+                thresholdLow: 7 + level,
+                thresholdHigh: 14 + level,
+                attackMod: 3 + Math.floor(level/2)
+            };
+        }
+
+        function renderParty() {
+            const container = document.getElementById('party-members');
+            container.innerHTML = '';
+            
+            party.forEach((char, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-white dark:bg-gray-700 p-3 rounded border mb-2';
+                div.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="text-sm">
+                            <strong>${char.name}</strong> (Level ${char.level})<br>
+                            HP: ${char.hp}, Stress: ${char.stress}, Evasion: ${char.evasion}<br>
+                            Threshold: ${char.thresholdLow}|${char.thresholdHigh}, Attack: +${char.attackMod}
+                        </div>
+                        <button onclick="removeFromParty(${index})" class="text-red-500 hover:text-red-700">×</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function removeFromParty(index) {
+            party.splice(index, 1);
+            renderParty();
+            updateEncounterSummary();
+        }
+
+        // Monster library
+        function filterMonsters() {
+            const search = document.getElementById('monster-search').value.toLowerCase();
+            const tierFilter = document.getElementById('tier-filter').value;
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const filtered = allMonsters.filter(monster => {
+                const matchesSearch = monster.name.toLowerCase().includes(search);
+                const matchesTier = !tierFilter || monster.tier.toString() === tierFilter;
+                return matchesSearch && matchesTier;
+            });
+            
+            renderMonsterList(filtered);
+        }
+
+        function renderMonsterList(monsters) {
+            const container = document.getElementById('monster-list');
+            container.innerHTML = '';
+            
+            monsters.forEach(monster => {
+                const div = document.createElement('div');
+                div.className = 'bg-white dark:bg-gray-700 p-3 rounded border';
+                
+                let featuresDisplay = '';
+                if (monster.features && monster.features.trim().length > 0) {
+                    featuresDisplay = `<div class="mt-2 text-xs text-gray-600 dark:text-gray-400 border-t pt-2"><strong>Features:</strong> ${monster.features}</div>`;
+                }
+                
+                div.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="text-sm flex-1 mr-3">
+                            <strong>${monster.name}</strong> (Tier ${monster.tier})<br>
+                            HP: ${monster.hp}, Evasion: ${monster.evasion}, Damage: ${monster.damageDice}+${monster.attackMod}<br>
+                            Threshold: ${monster.thresholdLow}|${monster.thresholdHigh}
+                            ${featuresDisplay}
+                        </div>
+                        <button onclick="addMonsterToEncounter('${monster.name}')" class="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark whitespace-nowrap">Add</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function addMonsterToEncounter(monsterName) {
+            let monster;
+            
+            if (monsterName) {
+                // Adding from library
+                const allMonsters = [...defaultMonsters, ...customMonsters];
+                monster = allMonsters.find(m => m.name === monsterName);
+            } else {
+                // Adding from builder
+                monster = {
+                    name: document.getElementById('monster-name').value || 'Custom Monster',
+                    tier: parseInt(document.getElementById('monster-tier').value),
+                    hp: parseInt(document.getElementById('monster-hp').value),
+                    stress: parseInt(document.getElementById('monster-stress').value),
+                    evasion: parseInt(document.getElementById('monster-evasion').value),
+                    thresholdLow: parseInt(document.getElementById('monster-threshold-low').value),
+                    thresholdHigh: parseInt(document.getElementById('monster-threshold-high').value),
+                    damageDice: document.getElementById('monster-damage-dice').value,
+                    attackMod: parseInt(document.getElementById('monster-attack').value),
+                    gmTokens: parseInt(document.getElementById('monster-tokens').value),
+                    features: document.getElementById('monster-features').value
+                };
+            }
+            
+            if (monster) {
+                const existing = encounter.find(e => e.monster.name === monster.name);
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    encounter.push({ monster: monster, quantity: 1 });
+                }
+                renderCurrentEncounter();
+                updateEncounterSummary();
+                
+                if (!monsterName) {
+                    showCustomAlert(`${monster.name} added to encounter!`);
+                }
+            }
+        }
+
+        function renderCurrentEncounter() {
+            const container = document.getElementById('current-encounter');
+            container.innerHTML = '';
+            
+            encounter.forEach((entry, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-white dark:bg-gray-700 p-3 rounded border flex justify-between items-center';
+                div.innerHTML = `
+                    <div class="text-sm">
+                        <strong>${entry.quantity}x ${entry.monster.name}</strong> (Tier ${entry.monster.tier})<br>
+                        HP: ${entry.monster.hp}, Damage: ${entry.monster.damageDice}+${entry.monster.attackMod}
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="changeQuantity(${index}, -1)" class="px-2 py-1 bg-red-500 text-white rounded text-sm">-</button>
+                        <button onclick="changeQuantity(${index}, 1)" class="px-2 py-1 bg-green-500 text-white rounded text-sm">+</button>
+                        <button onclick="removeFromEncounter(${index})" class="px-2 py-1 bg-red-600 text-white rounded text-sm">×</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function changeQuantity(index, delta) {
+            encounter[index].quantity += delta;
+            if (encounter[index].quantity <= 0) {
+                encounter.splice(index, 1);
+            }
+            renderCurrentEncounter();
+            updateEncounterSummary();
+        }
+
+        function removeFromEncounter(index) {
+            encounter.splice(index, 1);
+            renderCurrentEncounter();
+            updateEncounterSummary();
+        }
+
+        function clearEncounter() {
+            encounter = [];
+            renderCurrentEncounter();
+            updateEncounterSummary();
+        }
+
+        // Monster builder
+        function updateMonsterGuidelines() {
+            const tier = parseInt(document.getElementById('monster-tier').value);
+            document.getElementById('current-tier').textContent = tier;
+            
+            // Auto-fill monster stats based on tier
+            autoFillMonsterStats(tier);
+            
+            const guidelines = {
+                1: {
+                    hp: "1-3 HP",
+                    threshold: "4|10 - 6|12",
+                    evasion: "10-14",
+                    damage: "1d4-1d8",
+                    stress: "1-3",
+                    tokens: "0-1",
+                    description: "Should be roughly equal to a single level 1 character (1d6+3 ≈ 7 avg dmg) in a 1v1 fight."
+                },
+                2: {
+                    hp: "3-6 HP",
+                    threshold: "8|16 - 12|20",
+                    evasion: "11-15",
+                    damage: "1d6-2d4",
+                    stress: "2-4",
+                    tokens: "1-2",
+                    description: "Should require 2 level 2-3 characters (3d6+4 ≈ 14 avg dmg)."
+                },
+                3: {
+                    hp: "6-10 HP",
+                    threshold: "15|25 - 20|30",
+                    evasion: "12-16",
+                    damage: "1d8-2d6",
+                    stress: "3-6",
+                    tokens: "2-3",
+                    description: "Should require 3 level 5-6 characters (6d6+5 ≈ 26 avg dmg)."
+                },
+                4: {
+                    hp: "10-15 HP",
+                    threshold: "18|30 - 25|35",
+                    evasion: "13-17",
+                    damage: "2d6-3d6",
+                    stress: "4-8",
+                    tokens: "3-4",
+                    description: "Should require 4 level 8-9 characters (6d6+6 ≈ 27 avg dmg)."
+                },
+                5: {
+                    hp: "15-25 HP",
+                    threshold: "22|35 - 30|45",
+                    evasion: "14-20",
+                    damage: "2d8-4d6",
+                    stress: "6-12",
+                    tokens: "4-6",
+                    description: "Boss-level encounters requiring 4-6 level 10 characters (6d6+8 ≈ 29 avg dmg)."
+                }
+            };
+            
+            const guide = guidelines[tier];
+            const container = document.getElementById('tier-guidelines');
+            container.innerHTML = `
+                <p><strong>Recommended Ranges:</strong></p>
+                <p>• Hit Points: ${guide.hp}</p>
+                <p>• Threshold: ${guide.threshold}</p>
+                <p>• Evasion: ${guide.evasion}</p>
+                <p>• Damage: ${guide.damage}</p>
+                <p>• Stress: ${guide.stress}</p>
+                <p>• GM Tokens: ${guide.tokens}</p>
+                <p class="mt-2"><strong>Design Goal:</strong></p>
+                <p>${guide.description}</p>
+            `;
+        }
+
+        function autoFillMonsterStats(tier) {
+            // Auto-fill stats based on tier (updated with tier-appropriate damage dice)
+            const tierDefaults = {
+                1: { hp: 2, stress: 2, evasion: 12, thresholdLow: 6, thresholdHigh: 12, damageDice: "1d6", attackMod: 2 },
+                2: { hp: 4, stress: 3, evasion: 13, thresholdLow: 11, thresholdHigh: 20, damageDice: "2d6", attackMod: 3 },
+                3: { hp: 8, stress: 4, evasion: 14, thresholdLow: 20, thresholdHigh: 31, damageDice: "3d6", attackMod: 5 },
+                4: { hp: 12, stress: 6, evasion: 15, thresholdLow: 24, thresholdHigh: 35, damageDice: "4d6", attackMod: 6 },
+                5: { hp: 20, stress: 10, evasion: 17, thresholdLow: 29, thresholdHigh: 44, damageDice: "5d6", attackMod: 8 }
+            };
+            
+            const defaults = tierDefaults[tier];
+            if (defaults) {
+                document.getElementById('monster-hp').value = defaults.hp;
+                document.getElementById('monster-stress').value = defaults.stress;
+                document.getElementById('monster-evasion').value = defaults.evasion;
+                document.getElementById('monster-threshold-low').value = defaults.thresholdLow;
+                document.getElementById('monster-threshold-high').value = defaults.thresholdHigh;
+                document.getElementById('monster-damage-dice').value = defaults.damageDice;
+                document.getElementById('monster-attack').value = defaults.attackMod;
+            }
+        }
+
+        function saveCustomMonster() {
+            const monster = {
+                name: document.getElementById('monster-name').value || 'Custom Monster',
+                tier: parseInt(document.getElementById('monster-tier').value),
+                hp: parseInt(document.getElementById('monster-hp').value),
+                stress: parseInt(document.getElementById('monster-stress').value),
+                evasion: parseInt(document.getElementById('monster-evasion').value),
+                thresholdLow: parseInt(document.getElementById('monster-threshold-low').value),
+                thresholdHigh: parseInt(document.getElementById('monster-threshold-high').value),
+                damageDice: document.getElementById('monster-damage-dice').value,
+                attackMod: parseInt(document.getElementById('monster-attack').value),
+                features: document.getElementById('monster-features').value
+            };
+            
+            customMonsters.push(monster);
+            filterMonsters();
+            
+            // Show confirmation
+            showCustomAlert(`${monster.name} saved to custom monsters!`);
+        }
+
+        // Encounter calculator
+        function calculateEncounter() {
+            if (party.length === 0) {
+                showCustomAlert('Please build a party first!');
+                return;
+            }
+            
+            if (encounter.length === 0) {
+                showCustomAlert('Please add monsters to the encounter!');
+                return;
+            }
+            
+            const results = simulateEncounter();
+            displayResults(results);
+        }
+
+        function simulateEncounter() {
+            const difficulty = document.getElementById('difficulty-target').value;
+            
+            // Calculate party effective level and power
+            const avgLevel = party.reduce((sum, char) => sum + char.level, 0) / party.length;
+            const partySize = party.length;
+            
+            // Base party power calculation (more linear scaling)
+            let partyPower = 0;
+            party.forEach(char => {
+                let charPower = char.level * 20; // Base power per level
+                charPower += char.hp * 8; // HP is important for survivability
+                charPower += char.stress * 4; // Stress for abilities
+                charPower += char.classPoints * 4; // Class abilities
+                charPower += char.spellPoints * 5; // Spells are powerful
+                charPower += char.attackMod * 10; // Attack modifier is crucial
+                charPower += char.armor * 5; // Armor saves HP
+                
+                // Abilities bonus - moderate if present
+                if (char.abilities && char.abilities.trim().length > 0) {
+                    charPower *= 1.2; // 20% bonus for having special abilities
+                }
+                
+                partyPower += charPower;
+            });
+            
+            // Calculate monster power based on tier expectations
+            let monsterPower = 0;
+            let tierAnalysis = [];
+            
+            encounter.forEach(entry => {
+                const monster = entry.monster;
+                const tier = monster.tier;
+                
+                // Base power calculation for monster
+                let basePower = 50; // Base monster power
+                
+                // Tier-based scaling (more dramatic)
+                if (tier === 1) basePower = 80;
+                else if (tier === 2) basePower = 180;
+                else if (tier === 3) basePower = 350;
+                else if (tier === 4) basePower = 650;
+                else if (tier === 5) basePower = 1200;
+                
+                // Add stat-based power
+                basePower += monster.hp * 10;
+                basePower += monster.stress * 6;
+                basePower += monster.attackMod * 15;
+                // No longer using GM tokens - they're session-based, not monster-specific
+                
+                // Features/abilities multiplier
+                if (monster.features && monster.features.trim().length > 0) {
+                    const featureCount = (monster.features.match(/\d+ Stress:|GM Token:/g) || []).length;
+                    basePower *= (1 + featureCount * 0.25); // 25% per special ability
+                }
+                
+                // Calculate balance based on new tier expectations
+                const expectedLevel = getTierExpectedLevel(tier);
+                const expectedPartySize = getTierExpectedPartySize(tier);
+                
+                // Level appropriateness modifier
+                const levelGap = avgLevel - expectedLevel;
+                let levelMod = 1.0;
+                if (levelGap < -4) levelMod = 3.5; // Much higher tier = very hard
+                else if (levelGap < -2) levelMod = 2.2; // Higher tier = harder
+                else if (levelGap < -1) levelMod = 1.5; // Slightly higher = bit harder
+                else if (levelGap > 3) levelMod = 0.4; // Much lower tier = easy
+                else if (levelGap > 1) levelMod = 0.7; // Lower tier = easier
+                
+                // Party size appropriateness modifier
+                const sizeGap = partySize - expectedPartySize;
+                let sizeMod = 1.0;
+                if (sizeGap < -2) sizeMod = 1.8; // Too few characters = much harder
+                else if (sizeGap < 0) sizeMod = 1.3; // Few characters = harder
+                else if (sizeGap > 2) sizeMod = 0.6; // Many characters = easier
+                else if (sizeGap > 0) sizeMod = 0.8; // More characters = bit easier
+                
+                basePower *= (levelMod * sizeMod);
+                
+                tierAnalysis.push({
+                    tier,
+                    expectedLevel,
+                    expectedPartySize,
+                    levelGap,
+                    sizeGap,
+                    levelMod,
+                    sizeMod
+                });
+                
+                monsterPower += basePower * entry.quantity;
+            });
+            
+            const powerRatio = monsterPower / partyPower;
+            
+            // Determine difficulty 
+            let expectedRounds, resourceUsage, winChance, difficulty_rating;
+            
+            if (powerRatio < 0.3) {
+                expectedRounds = "1-2";
+                resourceUsage = "10-20%";
+                winChance = "95%+";
+                difficulty_rating = "Easy";
+            } else if (powerRatio < 0.7) {
+                expectedRounds = "2-4";
+                resourceUsage = "30-50%";
+                winChance = "85-95%";
+                difficulty_rating = "Average";
+            } else if (powerRatio < 1.0) {
+                expectedRounds = "3-5";
+                resourceUsage = "50-70%";
+                winChance = "70-85%";
+                difficulty_rating = "Challenging";
+            } else if (powerRatio < 1.5) {
+                expectedRounds = "4-6";
+                resourceUsage = "70-90%";
+                winChance = "50-70%";
+                difficulty_rating = "Hard";
+            } else if (powerRatio < 2.5) {
+                expectedRounds = "5-8";
+                resourceUsage = "90%+";
+                winChance = "25-50%";
+                difficulty_rating = "Very Hard";
+            } else {
+                expectedRounds = "???";
+                resourceUsage = "All resources + deaths";
+                winChance = "5-25%";
+                difficulty_rating = "Deadly";
+            }
+            
+            return {
+                powerRatio,
+                expectedRounds,
+                resourceUsage,
+                winChance,
+                difficulty_rating,
+                partyPower,
+                monsterPower,
+                avgLevel,
+                tierAnalysis
+            };
+        }
+        
+        function getTierExpectedLevel(tier) {
+            const tierLevels = {
+                1: 1,   // T1: 1 vs 1 Level 1 character
+                2: 2.5, // T2: 1 vs 2 Level 2-3 characters
+                3: 5.5, // T3: 1 vs 3 Level 5-6 characters  
+                4: 8.5, // T4: 1 vs 4 Level 8-9 characters
+                5: 10   // T5: 1 vs 4-6 Level 10 characters
+            };
+            return tierLevels[tier] || 1;
+        }
+        
+        function getTierExpectedPartySize(tier) {
+            const tierPartySize = {
+                1: 1, // T1: 1 character
+                2: 2, // T2: 2 characters
+                3: 3, // T3: 3 characters
+                4: 4, // T4: 4 characters
+                5: 5  // T5: 4-6 characters (average 5)
+            };
+            return tierPartySize[tier] || 1;
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('calculation-results');
+            const target = document.getElementById('difficulty-target').value;
+            
+            let recommendationColor = "text-green-600 dark:text-green-400";
+            let recommendation = "Balanced encounter!";
+            
+            if ((target === "easy" && results.powerRatio > 0.6) ||
+                (target === "average" && (results.powerRatio < 0.6 || results.powerRatio > 1.1)) ||
+                (target === "hard" && results.powerRatio < 0.9)) {
+                recommendationColor = "text-yellow-600 dark:text-yellow-400";
+                if (results.powerRatio < 0.6) {
+                    recommendation = "Consider adding more monsters or using higher tier creatures.";
+                } else {
+                    recommendation = "Consider reducing monsters or using lower tier creatures.";
+                }
+            }
+            
+            container.innerHTML = `
+                <div class="space-y-3">
+                    <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
+                        <h3 class="font-semibold mb-2">Encounter Analysis</h3>
+                        <p><strong>Difficulty Rating:</strong> ${results.difficulty_rating}</p>
+                        <p><strong>Expected Duration:</strong> ${results.expectedRounds} rounds</p>
+                        <p><strong>Expected Resource Usage:</strong> ${results.resourceUsage}</p>
+                        <p><strong>Party Win Chance:</strong> ${results.winChance}</p>
+                        <p><strong>Power Ratio:</strong> ${results.powerRatio.toFixed(2)} (Monster/Party)</p>
+                    </div>
+                    
+                    <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
+                        <h3 class="font-semibold mb-2">Power Breakdown</h3>
+                        <p><strong>Party Power:</strong> ${results.partyPower}</p>
+                        <p><strong>Monster Power:</strong> ${results.monsterPower}</p>
+                    </div>
+                    
+                    <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
+                        <h3 class="font-semibold mb-2">Recommendation</h3>
+                        <p class="${recommendationColor}">${recommendation}</p>
+                    </div>
+                    
+                    <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
+                        <h3 class="font-semibold mb-2">Suggested Adjustments</h3>
+                        <div class="text-sm space-y-1">
+                            ${generateSuggestions(results)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateSuggestions(results) {
+            const target = document.getElementById('difficulty-target').value;
+            let suggestions = [];
+            
+            if (target === "easy" && results.powerRatio > 0.6) {
+                suggestions.push("• Reduce monster quantities by 1-2");
+                suggestions.push("• Use lower tier monsters");
+                suggestions.push("• Remove monsters with special abilities");
+            } else if (target === "average" && results.powerRatio < 0.6) {
+                suggestions.push("• Add 1-2 more monsters");
+                suggestions.push("• Use higher tier monsters");
+                suggestions.push("• Add monsters with interesting abilities");
+            } else if (target === "average" && results.powerRatio > 1.1) {
+                suggestions.push("• Reduce monster quantities");
+                suggestions.push("• Use lower tier monsters");
+                suggestions.push("• Consider environmental advantages for players");
+            } else if (target === "hard" && results.powerRatio < 0.9) {
+                suggestions.push("• Add 2-3 more monsters");
+                suggestions.push("• Use higher tier monsters");
+                suggestions.push("• Add boss-level creatures");
+                suggestions.push("• Include environmental hazards");
+            }
+            
+            if (suggestions.length === 0) {
+                suggestions.push("• Encounter appears well-balanced for the target difficulty");
+            }
+            
+            return suggestions.join('<br>');
+        }
+
+        function updateEncounterSummary() {
+            const partyContainer = document.getElementById('party-summary');
+            const encounterContainer = document.getElementById('encounter-summary');
+            
+            if (party.length === 0) {
+                partyContainer.innerHTML = 'No party members added yet.';
+            } else {
+                const avgLevel = Math.round(party.reduce((sum, char) => sum + char.level, 0) / party.length);
+                const totalHP = party.reduce((sum, char) => sum + char.hp, 0);
+                const names = party.map(char => char.name).join(', ');
+                partyContainer.innerHTML = `${party.length} characters (${names})<br>Average Level: ${avgLevel}, Total HP: ${totalHP}`;
+            }
+            
+            if (encounter.length === 0) {
+                encounterContainer.innerHTML = 'No monsters added yet.';
+            } else {
+                const totalMonsters = encounter.reduce((sum, entry) => sum + entry.quantity, 0);
+                const monsterNames = encounter.map(entry => {
+                    if (entry.quantity > 1) {
+                        return `${entry.quantity}x ${entry.monster.name}`;
+                    } else {
+                        return entry.monster.name;
+                    }
+                }).join(', ');
+                const tierBreakdown = encounter.map(entry => `${entry.quantity}x T${entry.monster.tier}`).join(', ');
+                encounterContainer.innerHTML = `${totalMonsters} monsters (${monsterNames})<br>Tiers: ${tierBreakdown}`;
+            }
+            
+            document.getElementById('party-count').textContent = party.length;
+        }
+
+        // Custom alert function
+        function showCustomAlert(message) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">${message}</p>
+                    <div class="flex justify-end">
+                        <button class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded" onclick="this.closest('.fixed').remove()">OK</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Monster builder search functions
+        function filterBuilderMonsters() {
+            const search = document.getElementById('builder-search').value.toLowerCase();
+            const select = document.getElementById('builder-monster-select');
+            
+            // Clear existing options except first
+            select.innerHTML = '<option value="">Select monster...</option>';
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const filtered = allMonsters.filter(monster => 
+                monster.name.toLowerCase().includes(search)
+            );
+            
+            filtered.forEach(monster => {
+                const option = document.createElement('option');
+                option.value = monster.name;
+                option.textContent = `${monster.name} (T${monster.tier})`;
+                select.appendChild(option);
+            });
+        }
+
+        function loadMonsterToBuilder() {
+            const selectedName = document.getElementById('builder-monster-select').value;
+            if (!selectedName) return;
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const monster = allMonsters.find(m => m.name === selectedName);
+            
+            if (monster) {
+                document.getElementById('monster-name').value = monster.name;
+                document.getElementById('monster-tier').value = monster.tier;
+                document.getElementById('monster-hp').value = monster.hp;
+                document.getElementById('monster-stress').value = monster.stress;
+                document.getElementById('monster-evasion').value = monster.evasion;
+                document.getElementById('monster-threshold-low').value = monster.thresholdLow;
+                document.getElementById('monster-threshold-high').value = monster.thresholdHigh;
+                document.getElementById('monster-damage-dice').value = monster.damageDice;
+                document.getElementById('monster-attack').value = monster.attackMod;
+                document.getElementById('monster-features').value = monster.features || '';
+                
+                // Update guidelines display
+                updateMonsterGuidelines();
+            }
+        }
+
+        // Initialize
+        updatePartySize();
+        updateMonsterGuidelines();
+        filterMonsters();
+        filterBuilderMonsters();
+        updateEncounterSummary();
+    </script>
+</body>
+</html>
