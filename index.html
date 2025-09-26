@@ -57,18 +57,43 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-4">Party Composition</h2>
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium mb-2">Party Size</label>
-                        <select id="party-size" onchange="updatePartySize()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
-                            <option value="1">1 Character</option>
-                            <option value="2">2 Characters</option>
-                            <option value="3">3 Characters</option>
-                            <option value="4" selected>4 Characters</option>
-                            <option value="5">5 Characters</option>
-                            <option value="6">6 Characters</option>
-                        </select>
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-2 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Party Size</label>
+                            <select id="party-size" onchange="updatePartySize()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                <option value="1">1 Char</option>
+                                <option value="2">2 Chars</option>
+                                <option value="3">3 Chars</option>
+                                <option value="4" selected>4 Chars</option>
+                                <option value="5">5 Chars</option>
+                                <option value="6">6 Chars</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="useDefaultParty()" class="w-full px-2 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors text-sm">Quick Fill</button>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="saveCurrentParty()" class="w-full px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors text-sm">Save</button>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="loadSavedParty()" class="w-full px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm">Load</button>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="deleteSavedParty()" class="w-full px-2 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-sm">Delete</button>
+                        </div>
                     </div>
-                    <button onclick="useDefaultParty()" class="mb-4 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Quick Fill - Default Builds</button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Party Name</label>
+                            <input type="text" id="party-name" placeholder="Enter party name to save..." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Select Saved Party</label>
+                            <select id="saved-parties" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                <option value="">Select saved party...</option>
+                            </select>
+                        </div>
+                    </div>
                     <div id="party-members"></div>
                 </div>
                 
@@ -325,8 +350,8 @@
         let encounter = [];
         let customMonsters = [];
 
-        // Monster data is now loaded from monsters.js
-        // Access via window.defaultMonsters
+        // Pre-built monsters (updated with 10% threshold increase and tier-appropriate damage dice)
+       
 
         // Tab management
         function showTab(tabName) {
@@ -417,7 +442,10 @@
                             HP: ${char.hp}, Stress: ${char.stress}, Evasion: ${char.evasion}<br>
                             Threshold: ${char.thresholdLow}|${char.thresholdHigh}, Attack: +${char.attackMod}
                         </div>
-                        <button onclick="removeFromParty(${index})" class="text-red-500 hover:text-red-700">×</button>
+                        <div class="flex gap-2">
+                            <button onclick="editCharacter(${index})" class="text-blue-500 hover:text-blue-700 text-sm" title="Edit Character">✏️</button>
+                            <button onclick="removeFromParty(${index})" class="text-red-500 hover:text-red-700">×</button>
+                        </div>
                     </div>
                 `;
                 container.appendChild(div);
@@ -428,6 +456,32 @@
             party.splice(index, 1);
             renderParty();
             updateEncounterSummary();
+        }
+
+        function editCharacter(index) {
+            const character = party[index];
+            
+            // Load character data into the Character Builder form
+            document.getElementById('char-name').value = character.name;
+            document.getElementById('char-level').value = character.level;
+            document.getElementById('char-hp').value = character.hp;
+            document.getElementById('char-stress').value = character.stress;
+            document.getElementById('char-class').value = character.classPoints;
+            document.getElementById('char-spell').value = character.spellPoints;
+            document.getElementById('char-evasion').value = character.evasion;
+            document.getElementById('char-armor').value = character.armor;
+            document.getElementById('char-threshold-low').value = character.thresholdLow;
+            document.getElementById('char-threshold-high').value = character.thresholdHigh;
+            document.getElementById('char-attack').value = character.attackMod;
+            document.getElementById('char-abilities').value = character.abilities || '';
+            
+            // Remove the character from the party (they'll re-add it with updates)
+            party.splice(index, 1);
+            renderParty();
+            updateEncounterSummary();
+            
+            // Show confirmation message
+            showCustomAlert(`${character.name} loaded into Character Builder for editing. Make your changes and click "Add to Party" to save them.`);
         }
 
         // Monster library
@@ -462,11 +516,14 @@
                     <div class="flex justify-between items-start">
                         <div class="text-sm flex-1 mr-3">
                             <strong>${monster.name}</strong> (Tier ${monster.tier})<br>
-                            HP: ${monster.hp}, Stress: ${monster.stress}, Evasion: ${monster.evasion} <br>
-                            Damage: ${monster.damageDice}+${monster.attackMod}, Threshold: ${monster.thresholdLow}|${monster.thresholdHigh}
+                            HP: ${monster.hp}, Evasion: ${monster.evasion}, Damage: ${monster.damageDice}+${monster.attackMod}<br>
+                            Threshold: ${monster.thresholdLow}|${monster.thresholdHigh}
                             ${featuresDisplay}
                         </div>
-                        <button onclick="addMonsterToEncounter('${monster.name}')" class="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark whitespace-nowrap">Add</button>
+                        <div class="flex flex-col gap-1">
+                            <button onclick="addMonsterToEncounter('${monster.name}')" class="px-3 py-1 bg-primary text-white rounded text-sm hover:bg-primary-dark whitespace-nowrap">Add</button>
+                            <button onclick="showMonsterDetails('${monster.name}')" class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 whitespace-nowrap">Show</button>
+                        </div>
                     </div>
                 `;
                 container.appendChild(div);
@@ -706,7 +763,7 @@
                 
                 // Abilities bonus - moderate if present
                 if (char.abilities && char.abilities.trim().length > 0) {
-                    charPower *= 1.25; // 20% bonus for having special abilities
+                    charPower *= 1.2; // 20% bonus for having special abilities
                 }
                 
                 partyPower += charPower;
@@ -1021,12 +1078,231 @@
             }
         }
 
+        // Monster details modal
+        function showMonsterDetails(monsterName) {
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const monster = allMonsters.find(m => m.name === monsterName);
+            
+            if (!monster) return;
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            
+            // Handle missing fields with defaults
+            const imagePath = monster.image || `monsters/placeholder.jpg`;
+            const description = monster.description || "No description available.";
+            const ecology = monster.ecology || "No ecology information available.";
+            const combat = monster.combat || "No combat information available.";
+            
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-2xl w-full max-h-full overflow-y-auto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">${monster.name}</h2>
+                            <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl">×</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Image Column -->
+                            <div>
+                                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mb-4">
+                                    <img src="${imagePath}" alt="${monster.name}" class="h-48 w-96 object-contain" 
+                                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y3ZjdmNyIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTk5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+Tm8gSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='">
+                                </div>
+                                
+                                <!-- Stats Box -->
+                                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                                    <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Stats</h3>
+                                    <div class="text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                                        <p><strong>Tier:</strong> ${monster.tier}</p>
+                                        <p><strong>Hit Points:</strong> ${monster.hp}</p>
+                                        <p><strong>Stress:</strong> ${monster.stress}</p>
+                                        <p><strong>Evasion:</strong> ${monster.evasion}</p>
+                                        <p><strong>Threshold:</strong> ${monster.thresholdLow}|${monster.thresholdHigh}</p>
+                                        <p><strong>Damage:</strong> ${monster.damageDice}+${monster.attackMod}</p>
+                                    </div>
+                                    
+                                    ${monster.features ? `
+                                        <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
+                                            <h4 class="font-medium mb-1 text-gray-900 dark:text-white">Special Features</h4>
+                                            <p class="text-xs text-gray-600 dark:text-gray-400">${monster.features}</p>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                            
+                            <!-- Details Column -->
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Description</h3>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">${description}</p>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Ecology</h3>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">${ecology}</p>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Combat</h3>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">${combat}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex gap-3 mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
+                            <button onclick="addMonsterToEncounter('${monster.name}'); this.closest('.fixed').remove();" 
+                                    class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">
+                                Add to Encounter
+                            </button>
+                            <button onclick="this.closest('.fixed').remove()" 
+                                    class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Saved party management
+        function saveCurrentParty() {
+            const partyName = document.getElementById('party-name').value.trim();
+            
+            if (!partyName) {
+                showCustomAlert('Please enter a party name!');
+                return;
+            }
+            
+            if (party.length === 0) {
+                showCustomAlert('Please add characters to the party first!');
+                return;
+            }
+            
+            // Get existing saved parties
+            const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
+            
+            // Save the current party
+            savedParties[partyName] = {
+                name: partyName,
+                size: party.length,
+                characters: [...party],
+                savedDate: new Date().toISOString()
+            };
+            
+            // Store back to localStorage
+            localStorage.setItem('encounterBalancer_savedParties', JSON.stringify(savedParties));
+            
+            // Clear the input and update dropdown
+            document.getElementById('party-name').value = '';
+            updateSavedPartiesDropdown();
+            
+            showCustomAlert(`Party "${partyName}" saved successfully!`);
+        }
+
+        function loadSavedParty() {
+            const selectedPartyName = document.getElementById('saved-parties').value;
+            
+            if (!selectedPartyName) {
+                showCustomAlert('Please select a saved party first!');
+                return;
+            }
+            
+            // Get saved parties from localStorage
+            const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
+            const savedParty = savedParties[selectedPartyName];
+            
+            if (!savedParty) {
+                showCustomAlert('Saved party not found!');
+                return;
+            }
+            
+            // Load the party data
+            party = [...savedParty.characters];
+            
+            // Update party size dropdown to match loaded party
+            document.getElementById('party-size').value = savedParty.size;
+            
+            // Re-render the party and update encounter summary
+            renderParty();
+            updateEncounterSummary();
+            
+            showCustomAlert(`Party "${selectedPartyName}" loaded successfully!`);
+        }
+
+        function updateSavedPartiesDropdown() {
+            const dropdown = document.getElementById('saved-parties');
+            const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
+            
+            // Clear existing options except the first one
+            dropdown.innerHTML = '<option value="">Select saved party...</option>';
+            
+            // Add saved parties to dropdown
+            Object.keys(savedParties).sort().forEach(partyName => {
+                const option = document.createElement('option');
+                option.value = partyName;
+                const party = savedParties[partyName];
+                const savedDate = new Date(party.savedDate).toLocaleDateString();
+                option.textContent = `${partyName} (${party.size} chars - ${savedDate})`;
+                dropdown.appendChild(option);
+            });
+        }
+
+        // Delete saved party function with confirmation
+        function deleteSavedParty() {
+            const selectedPartyName = document.getElementById('saved-parties').value;
+            
+            if (!selectedPartyName) {
+                showCustomAlert('Please select a saved party to delete!');
+                return;
+            }
+            
+            // Show confirmation modal
+            showConfirmDialog(
+                `Are you sure you want to delete the party "${selectedPartyName}"? This action cannot be undone.`,
+                () => {
+                    // User confirmed deletion
+                    const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
+                    delete savedParties[selectedPartyName];
+                    localStorage.setItem('encounterBalancer_savedParties', JSON.stringify(savedParties));
+                    
+                    // Update dropdown and clear selection
+                    updateSavedPartiesDropdown();
+                    document.getElementById('saved-parties').value = '';
+                    
+                    showCustomAlert(`Party "${selectedPartyName}" deleted successfully!`);
+                }
+            );
+        }
+
+        // Custom confirmation dialog
+        function showConfirmDialog(message, onConfirm) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Confirm Deletion</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">${message}</p>
+                    <div class="flex justify-end space-x-3">
+                        <button class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors" onclick="this.closest('.fixed').remove()">Cancel</button>
+                        <button class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded transition-colors" onclick="this.closest('.fixed').remove(); (${onConfirm.toString()})()">Delete</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
         // Initialize
         updatePartySize();
         updateMonsterGuidelines();
         filterMonsters();
         filterBuilderMonsters();
         updateEncounterSummary();
+        updateSavedPartiesDropdown(); // Load saved parties on startup
     </script>
 </body>
 </html>
