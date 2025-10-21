@@ -61,12 +61,12 @@
                         <div>
                             <label class="block text-sm font-medium mb-2">Party Size</label>
                             <select id="party-size" onchange="updatePartySize()" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
-                                <option value="1">1 Char</option>
-                                <option value="2">2 Chars</option>
-                                <option value="3">3 Chars</option>
-                                <option value="4" selected>4 Chars</option>
-                                <option value="5">5 Chars</option>
-                                <option value="6">6 Chars</option>
+                                <option value="1">1 Character</option>
+                                <option value="2">2 Characters</option>
+                                <option value="3">3 Characters</option>
+                                <option value="4" selected>4 Characters</option>
+                                <option value="5">5 Characters</option>
+                                <option value="6">6 Characters</option>
                             </select>
                         </div>
                         <div class="flex items-end">
@@ -795,8 +795,28 @@
                 
                 // Features/abilities multiplier
                 if (monster.features && monster.features.trim().length > 0) {
-                    const featureCount = (monster.features.match(/\d+ Stress:|GM Token:/g) || []).length;
-                    basePower *= (1 + featureCount * 0.25); // 25% per special ability
+                    let totalPowerBonus = 0;
+                    
+                    // Find all stress-based abilities and calculate power based on stress cost
+                    const stressMatches = monster.features.match(/(\d+) Stress:/g) || [];
+                    stressMatches.forEach(match => {
+                        const stressCost = parseInt(match.match(/(\d+)/)[1]);
+                        if (stressCost === 1) {
+                            totalPowerBonus += 0.25; // +25% for 1 Stress abilities
+                        } else if (stressCost === 2) {
+                            totalPowerBonus += 0.40; // +40% for 2 Stress abilities
+                        } else if (stressCost === 3) {
+                            totalPowerBonus += 0.60; // +60% for 3 Stress abilities
+                        } else if (stressCost >= 4) {
+                            totalPowerBonus += 0.80; // +80% for 4+ Stress abilities (very powerful)
+                        }
+                    });
+                    
+                    // Count GM Token abilities (flat +20% each)
+                    const gmTokenCount = (monster.features.match(/GM Token:/g) || []).length;
+                    totalPowerBonus += gmTokenCount * 0.20; // +20% per GM Token ability
+                    
+                    basePower *= (1 + totalPowerBonus);
                 }
                 
                 // Calculate balance based on new tier expectations
@@ -1107,7 +1127,7 @@
                             <!-- Image Column -->
                             <div>
                                 <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mb-4">
-                                    <img src="${imagePath}" alt="${monster.name}" class="h-48 w-96 object-contain" 
+                                    <img src="${imagePath}" alt="${monster.name}" class="w-full h-48 object-cover rounded-lg mb-2" 
                                          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y3ZjdmNyIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTk5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+Tm8gSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='">
                                 </div>
                                 
@@ -1262,38 +1282,44 @@
             }
             
             // Show confirmation modal
-            showConfirmDialog(
-                `Are you sure you want to delete the party "${selectedPartyName}"? This action cannot be undone.`,
-                () => {
-                    // User confirmed deletion
-                    const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
-                    delete savedParties[selectedPartyName];
-                    localStorage.setItem('encounterBalancer_savedParties', JSON.stringify(savedParties));
-                    
-                    // Update dropdown and clear selection
-                    updateSavedPartiesDropdown();
-                    document.getElementById('saved-parties').value = '';
-                    
-                    showCustomAlert(`Party "${selectedPartyName}" deleted successfully!`);
-                }
-            );
+            showDeleteConfirmDialog(selectedPartyName);
         }
 
-        // Custom confirmation dialog
-        function showConfirmDialog(message, onConfirm) {
+        // Custom confirmation dialog for party deletion
+        function showDeleteConfirmDialog(partyName) {
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
             modal.innerHTML = `
                 <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Confirm Deletion</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mb-6">${message}</p>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">Are you sure you want to delete the party "${partyName}"? This action cannot be undone.</p>
                     <div class="flex justify-end space-x-3">
-                        <button class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors" onclick="this.closest('.fixed').remove()">Cancel</button>
-                        <button class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded transition-colors" onclick="this.closest('.fixed').remove(); (${onConfirm.toString()})()">Delete</button>
+                        <button id="cancel-delete" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                        <button id="confirm-delete" class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded transition-colors">Delete</button>
                     </div>
                 </div>
             `;
             document.body.appendChild(modal);
+            
+            // Add event listeners
+            document.getElementById('cancel-delete').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            document.getElementById('confirm-delete').addEventListener('click', () => {
+                // User confirmed deletion
+                const savedParties = JSON.parse(localStorage.getItem('encounterBalancer_savedParties') || '{}');
+                delete savedParties[partyName];
+                localStorage.setItem('encounterBalancer_savedParties', JSON.stringify(savedParties));
+                
+                // Update dropdown and clear selection
+                updateSavedPartiesDropdown();
+                document.getElementById('saved-parties').value = '';
+                
+                // Close modal and show success message
+                modal.remove();
+                showCustomAlert(`Party "${partyName}" deleted successfully!`);
+            });
         }
 
         // Initialize
