@@ -47,8 +47,8 @@
         <!-- Tab Navigation -->
         <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
             <button onclick="showTab('party')" id="tab-party" class="px-4 py-2 rounded-t-lg tab-active transition-colors">Party Builder</button>
-            <button onclick="showTab('monsters')" id="tab-monsters" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Monster Library</button>
             <button onclick="showTab('builder')" id="tab-builder" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Monster Builder</button>
+            <button onclick="showTab('monsters')" id="tab-monsters" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Monster Library</button>
             <button onclick="showTab('encounter')" id="tab-encounter" class="px-4 py-2 rounded-t-lg tab-inactive transition-colors">Encounter Calculator</button>
         </div>
 
@@ -958,8 +958,8 @@
                     
                     <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
                         <h3 class="font-semibold mb-2">Power Breakdown</h3>
-                        <p><strong>Party Power:</strong> ${results.partyPower}</p>
-                        <p><strong>Monster Power:</strong> ${results.monsterPower}</p>
+                        <p><strong>Party Power:</strong> ${Math.round(results.partyPower)}</p>
+                        <p><strong>Monster Power:</strong> ${Math.round(results.monsterPower)}</p>
                     </div>
                     
                     <div class="p-4 bg-white dark:bg-gray-700 rounded-lg border">
