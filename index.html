@@ -38,6 +38,10 @@
         .dark .tab-inactive:hover {
             background-color: #4b5563;
         }
+        .current-turn {
+            border: 3px solid #10b981 !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
@@ -187,7 +191,24 @@
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
                     <h2 class="text-xl font-semibold mb-4">Current Encounter</h2>
                     <div id="current-encounter" class="space-y-2 mb-4"></div>
-                    <button onclick="clearEncounter()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Clear Encounter</button>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button onclick="clearEncounter()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Clear Encounter</button>
+                        <button onclick="saveCurrentEncounter()" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">Save</button>
+                        <button onclick="loadSavedEncounter()" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">Load</button>
+                        <button onclick="deleteSavedEncounter()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors">Delete</button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Encounter Name</label>
+                            <input type="text" id="encounter-name" placeholder="Enter encounter name to save..." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Select Saved Encounter</label>
+                            <select id="saved-encounters" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                <option value="">Select saved encounter...</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -304,7 +325,12 @@
         <div id="encounter-tab" class="tab-content hidden">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-4">Encounter Setup</h2>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold">Encounter Setup</h2>
+                        <button onclick="openInitiativeTracker()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+                            🎯 Initiative Tracker
+                        </button>
+                    </div>
                     <div class="mb-4">
                         <h3 class="font-semibold mb-2">Current Party (<span id="party-count">0</span> members)</h3>
                         <div id="party-summary" class="text-sm text-gray-600 dark:text-gray-400"></div>
@@ -332,6 +358,73 @@
         </div>
     </div>
 
+    <!-- Initiative Tracker Screen -->
+    <div id="initiativeScreen" class="screen hidden">
+        <div class="max-w-7xl mx-auto p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-white">🎯 Initiative Tracker</h1>
+                <div class="flex items-center gap-2 md:gap-3">
+                    <!-- Round Counter -->
+                    <div id="round-counter" class="px-2 py-2 md:px-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded border font-semibold hidden">
+                        <span class="hidden md:inline">Round </span><span id="round-number">1</span>
+                    </div>
+                    
+                    <!-- Combat Control Buttons -->
+                    <div id="combat-controls" class="flex gap-2">
+                        <button id="start-combat-btn" onclick="startCombat()" class="px-2 py-2 md:px-4 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+                            <span class="text-lg">▶️</span><span class="hidden md:inline ml-1">Start</span>
+                        </button>
+                        <button id="advance-turn-btn" onclick="advanceTurn()" class="px-2 py-2 md:px-4 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition-colors hidden">
+                            <span class="text-lg">⏭️</span><span class="hidden md:inline ml-1">Advance</span>
+                        </button>
+                        <button id="stop-combat-btn" onclick="stopCombat()" class="px-2 py-2 md:px-4 bg-red-600 text-white rounded hover:bg-red-700 transition-colors hidden">
+                            <span class="text-lg">⏹️</span><span class="hidden md:inline ml-1">Stop</span>
+                        </button>
+                    </div>
+                    
+                    <button onclick="showScreen('encounterScreen')" class="px-2 py-2 md:px-4 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                        <span class="text-lg">←</span><span class="hidden md:inline ml-1">Back to Encounter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Initiative List -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 sm:p-6">
+                <!-- Desktop Header (hidden on mobile) -->                
+                <div class="hidden md:grid grid-cols-10 gap-2 lg:gap-4 mb-4 text-sm font-semibold text-gray-600 dark:text-gray-300 border-b border-gray-300 dark:border-gray-600 pb-2">                          
+                    <div>Initiative</div>                    
+                    <div>Name</div>                    
+                    <div>Evasion</div>                    
+                    <div>HP</div>                    
+                    <div>Stress</div>                    
+                    <div>Threshold</div>                    
+                    <div>Damage</div>                    
+                    <div>Conditions</div>                    
+                    <div colspan="2">Actions</div>                
+                </div>
+                
+                <div id="initiativeList" class="space-y-2">
+                    <!-- Initiative entries will be populated here -->
+                </div>
+                
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <button onclick="rollInitiativeForAll()" class="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors">
+                        🎲 Roll Initiative for All
+                    </button>
+                    <button onclick="resetInitiative()" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
+                        Reset All Initiative
+                    </button>
+                    <button onclick="clearAllConditions()" class="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition-colors">
+                        Clear All Conditions
+                    </button>
+                    <button onclick="addCustomEntry()" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition-colors">
+                        + Add Custom Entry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Dark mode support
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -351,7 +444,7 @@
         let customMonsters = [];
 
         // Pre-built monsters (updated with 10% threshold increase and tier-appropriate damage dice)
-       
+
 
         // Tab management
         function showTab(tabName) {
@@ -798,8 +891,10 @@
                     let totalPowerBonus = 0;
                     
                     // Find all stress-based abilities and calculate power based on stress cost
-                    const stressMatches = monster.features.match(/(\d+) Stress:/g) || [];
+                    // This regex handles HTML tags that might split the pattern
+                    const stressMatches = monster.features.match(/(\d+)(?:\s*<[^>]*>\s*)*\s*Stress\s*(?:<[^>]*>\s*)*:/g) || [];
                     stressMatches.forEach(match => {
+                        // Extract just the number, ignoring any HTML tags
                         const stressCost = parseInt(match.match(/(\d+)/)[1]);
                         if (stressCost === 1) {
                             totalPowerBonus += 0.25; // +25% for 1 Stress abilities
@@ -1322,6 +1417,988 @@
             });
         }
 
+        // Initiative Tracker State
+        let initiativeEntries = [];
+        let nextEntryId = 1;
+        let combatActive = false;
+        let currentTurnIndex = 0;
+        let currentRound = 1;
+
+        // Common condition list
+        const conditions = [
+            'None',
+            'Blinded',
+            'Burning',
+            'Charmed', 
+            'Deafened',
+            'Diseased',
+            'Frightened',
+            'Grappled',
+            'Invisible',
+            'Paralyzed',
+            'Poisoned',
+            'Restrained',
+            'Stunned',
+            'Unconscious',
+        ];
+
+        // Show screens function
+        function showScreen(screenName) {
+            const mainContainer = document.querySelector('.container.mx-auto');
+            const initiativeScreen = document.getElementById('initiativeScreen');
+            
+            if (screenName === 'encounterScreen') {
+                // Hide initiative tracker and show main interface
+                initiativeScreen.classList.add('hidden');
+                mainContainer.classList.remove('hidden');
+                showTab('encounter'); // Make sure encounter tab is active
+            } else if (screenName === 'initiativeScreen') {
+                // Hide main interface and show initiative tracker
+                mainContainer.classList.add('hidden');
+                initiativeScreen.classList.remove('hidden');
+            }
+        }
+
+        // Combat Control Functions
+        function startCombat() {
+            if (initiativeEntries.length === 0) {
+                showCustomAlert('Please add creatures to the initiative tracker first!');
+                return;
+            }
+            
+            combatActive = true;
+            currentTurnIndex = 0;
+            currentRound = 1; // Reset round counter
+            
+            // Update button visibility
+            document.getElementById('start-combat-btn').classList.add('hidden');
+            document.getElementById('advance-turn-btn').classList.remove('hidden');
+            document.getElementById('stop-combat-btn').classList.remove('hidden');
+            
+            // Show round counter and update display
+            document.getElementById('round-counter').classList.remove('hidden');
+            document.getElementById('round-number').textContent = currentRound;
+            
+            // Re-render to apply highlighting
+            renderInitiativeList();
+            
+            // Scroll to current turn creature
+            setTimeout(() => scrollToCurrentTurn(), 100);
+        }
+
+        function advanceTurn() {
+            if (!combatActive || initiativeEntries.length === 0) return;
+
+            // Get the current sorted order
+            const sortedEntries = [...initiativeEntries].sort((a, b) => {
+                if (b.initiative !== a.initiative) {
+                    return b.initiative - a.initiative;
+                }
+                return a.type === 'player' ? -1 : 1;
+            });
+
+            if (sortedEntries.length === 0) return;
+
+            const previousTurnIndex = currentTurnIndex;
+            let nextTurnIndex = currentTurnIndex;
+            let attempts = 0;
+            const maxAttempts = sortedEntries.length;
+
+            // Find the next creature with HP > 0 and not hidden
+            do {
+                nextTurnIndex = (nextTurnIndex + 1) % sortedEntries.length;
+                attempts++;
+
+                // If we've checked everyone and they're all at 0 HP or hidden, stop combat
+                if (attempts > maxAttempts) {
+                    showCustomAlert('All creatures are at 0 HP or hidden. Combat has ended.');
+                    stopCombat();
+                    return;
+                }
+            } while (sortedEntries[nextTurnIndex].hp <= 0 || sortedEntries[nextTurnIndex].hidden);
+
+            currentTurnIndex = nextTurnIndex;
+
+            // Check if we've completed a full round (wrapped around past the starting position)
+            if (previousTurnIndex >= nextTurnIndex) {
+                currentRound++;
+                document.getElementById('round-number').textContent = currentRound;
+            }
+
+            renderInitiativeList();
+
+            // Scroll to the current turn creature
+            setTimeout(() => scrollToCurrentTurn(), 100);
+        }
+
+        function stopCombat() {
+            combatActive = false;
+            currentTurnIndex = 0;
+            currentRound = 1; // Reset round counter
+            
+            // Update button visibility
+            document.getElementById('start-combat-btn').classList.remove('hidden');
+            document.getElementById('advance-turn-btn').classList.add('hidden');
+            document.getElementById('stop-combat-btn').classList.add('hidden');
+            
+            // Hide round counter
+            document.getElementById('round-counter').classList.add('hidden');
+            
+            // Re-render to remove highlighting
+            renderInitiativeList();
+        }
+
+        // Open Initiative Tracker
+        function openInitiativeTracker() {
+            // Clear existing entries
+            initiativeEntries = [];
+            nextEntryId = 1;
+
+            // Add party members
+            party.forEach((character, index) => {
+                // Extract first name only (split by space and take first part)
+                const firstName = character.name.split(' ')[0] || character.name;
+                
+                initiativeEntries.push({
+                    id: nextEntryId++,
+                    initiative: 0,
+                    name: firstName,
+                    type: 'player',
+                    evasion: character.evasion,
+                    hp: character.hp,
+                    maxHp: character.hp,
+                    stress: character.stress,
+                    maxStress: character.stress,
+                    threshold: `${character.thresholdLow} | ${character.thresholdHigh}`,
+                    damage: character.damageDice,
+                    conditions: [],
+                    hidden: false
+                });
+            });
+
+            // Add monsters with numbering
+            encounter.forEach(entry => {
+                for (let i = 1; i <= entry.quantity; i++) {
+                    const monsterName = entry.quantity > 1 ? `${entry.monster.name} ${i}` : entry.monster.name;
+                    initiativeEntries.push({
+                        id: nextEntryId++,
+                        initiative: 0,
+                        name: monsterName,
+                        type: 'monster',
+                        evasion: entry.monster.evasion,
+                        hp: entry.monster.hp,
+                        maxHp: entry.monster.hp,
+                        stress: entry.monster.stress,
+                        maxStress: entry.monster.stress,
+                        threshold: `${entry.monster.thresholdLow} | ${entry.monster.thresholdHigh}`,
+                        damage: `${entry.monster.damageDice}+${entry.monster.attackMod}`,
+                        conditions: [],
+                        hidden: false
+                    });
+                }
+            });
+            
+            // Reset combat state when opening tracker
+            combatActive = false;
+            currentTurnIndex = 0;
+            
+            // Ensure correct button visibility
+            document.getElementById('start-combat-btn').classList.remove('hidden');
+            document.getElementById('advance-turn-btn').classList.add('hidden');
+            document.getElementById('stop-combat-btn').classList.add('hidden');
+
+            // Show the Initiative Tracker
+            showScreen('initiativeScreen');
+            renderInitiativeList();
+        }
+
+        // Toggle hidden status for an entry
+        function toggleHidden(entryId) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.hidden = !entry.hidden;
+                renderInitiativeList();
+            }
+        }
+
+        // Render the initiative list
+        function renderInitiativeList() {
+            const container = document.getElementById('initiativeList');
+            container.innerHTML = '';
+
+            // Sort by initiative (descending), then by type (players first for ties)
+            const sortedEntries = [...initiativeEntries].sort((a, b) => {
+                if (b.initiative !== a.initiative) {
+                    return b.initiative - a.initiative;
+                }
+                return a.type === 'player' ? -1 : 1;
+            });
+
+            sortedEntries.forEach((entry, sortedIndex) => {
+                const row = document.createElement('div');
+                // Add greyout styling when HP is 0 or hidden
+                const isDefeated = entry.hp === 0;
+                const isHidden = entry.hidden;
+                const baseColor = entry.type === 'player' ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-red-50 dark:bg-red-900/20';
+                const greyoutColor = 'bg-gray-200 dark:bg-gray-700 opacity-60';
+                let bgColor = (isDefeated || isHidden) ? greyoutColor : baseColor;
+                
+                // Add current turn highlighting
+                const isCurrentTurn = combatActive && sortedIndex === currentTurnIndex;
+                if (isCurrentTurn && !isDefeated && !isHidden) {
+                    bgColor += ' current-turn';
+                }
+                
+                // Desktop Grid Layout (md and up)
+                const desktopLayout = `
+                    <div class="hidden md:grid grid-cols-10 gap-2 lg:gap-4 p-3 rounded-lg ${bgColor} border">    
+                        <!-- Initiative -->
+                        <div>
+                            <input type="number" 
+                                   value="${entry.initiative}" 
+                                   onchange="updateInitiative(${entry.id}, this.value)"
+                                   class="w-14 lg:w-16 p-1 lg:p-2 text-center border rounded text-xl lg:text-base bg-white dark:bg-gray-700">
+                        </div>
+                        
+                        <!-- Name -->
+                        <div class="flex items-left">
+                            ${entry.type === 'monster' ? `
+                                <button onclick="showInitiativeMonsterDetails('${entry.name}')" class="font-medium text-red-800 dark:text-red-200 hover:text-red-600 dark:hover:text-red-400 text-left  cursor-pointer text-xl">
+                                    ${entry.name}
+                                </button>
+                            ` : `
+                                <span class="font-medium text-blue-800 dark:text-blue-200 text-base">
+                                    ${entry.name}
+                                </span>
+                            `}
+                        </div>
+                        
+                        <!-- Evasion -->
+                        <div class="flex items-center list-outside">
+                            <button onclick="openStatsModal(${entry.id})" class="text-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 px-2 py-1 rounded cursor-pointer " title="Click to edit">
+                                ${entry.evasion}
+                            </button>
+                        </div>
+                        
+                        <!-- HP -->
+                        <div>
+                            <div class="flex items-center gap-1">
+                                <input type="number" 
+                                       value="${entry.hp}" 
+                                       onchange="updateHP(${entry.id}, this.value)"
+                                       class="w-10 p-1 text-center border rounded text-xl bg-white dark:bg-gray-700">
+                                <span class="text-xl text-gray-600 dark:text-gray-400">/${entry.maxHp}</span>
+                                <div class="flex flex-col">
+                                    <button onclick="modifyHP(${entry.id}, 1)" 
+                                            class="px-1 py-0 bg-green-500 text-white rounded text-xs hover:bg-green-600 leading-tight"
+                                            title="+1 HP">+</button>
+                                    <button onclick="modifyHP(${entry.id}, -1)" 
+                                            class="px-1 py-0 bg-red-500 text-white rounded text-xs hover:bg-red-600 leading-tight mt-0.5"
+                                            title="-1 HP">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stress -->
+                        <div>
+                            <div class="flex items-center gap-1">
+                                <input type="number" 
+                                       value="${entry.stress}" 
+                                       max="${entry.maxStress}"
+                                       onchange="updateStress(${entry.id}, this.value)"
+                                       class="w-10 p-1 text-center border rounded text-xl bg-white dark:bg-gray-700">
+                                <span class="text-xl text-gray-600 dark:text-gray-400">/${entry.maxStress}</span>
+                                <div class="flex flex-col">
+                                    <button onclick="modifyStress(${entry.id}, 1)" 
+                                            class="px-1 py-0 bg-blue-500 text-white rounded text-xs hover:bg-blue-600 leading-tight"
+                                            title="+1 Stress">+</button>
+                                    <button onclick="modifyStress(${entry.id}, -1)" 
+                                            class="px-1 py-0 bg-orange-500 text-white rounded text-xs hover:bg-orange-600 leading-tight mt-0.5"
+                                            title="-1 Stress">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Threshold -->
+                        <div class="flex items-center list-outside">
+                            <button onclick="openStatsModal(${entry.id})" class="text-center text-xl hover:bg-gray-200 dark:hover:bg-gray-600 px-1 py-1 rounded cursor-pointer" title="Click to edit">
+                                ${entry.threshold}
+                            </button>
+                        </div>
+                        
+                        <!-- Damage -->                        
+                        <div class="flex items-center list-outside">
+                            <span class="text-center text-xl">${entry.damage}</span>                        
+                        </div> 
+
+                        <!-- Conditions -->
+                        <div id="conditions-${entry.id}-desktop">
+                            ${renderConditions(entry, 'desktop')}
+                        </div>
+                        
+                        <!-- Actions -->
+                        <div class="flex gap-1 items-start">
+                            <button onclick="rollInitiative(${entry.id})" 
+                                    class="px-2 py-1 bg-purple-500 text-white rounded text-xs hover:bg-purple-600" 
+                                    title="Roll Initiative">🎲</button>
+                            <button onclick="toggleHidden(${entry.id})" 
+                                    class="px-2 py-1 ${entry.hidden ? 'bg-gray-500' : 'bg-indigo-500'} text-white rounded text-xs hover:${entry.hidden ? 'bg-gray-600' : 'bg-indigo-600'}" 
+                                    title="${entry.hidden ? 'Show' : 'Hide'}">${entry.hidden ? '👻' : '👁️'}</button>
+                            <button onclick="removeEntry(${entry.id})" 
+                                    class="px-2 py-1 bg-red-500 text-white rounded text-xs hover:bg-red-600"
+                                    title="Remove">×</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Mobile Card Layout (smaller than md)
+                const mobileLayout = `
+                    <div class="md:hidden p-3 rounded-lg ${bgColor} border">
+                        <!-- Header Row: Initiative, Name, Actions -->
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-3">
+                                <div class="flex items-center gap-1">
+                                    <span class="text-xs font-medium text-gray-600 dark:text-gray-400">Init:</span>
+                                    <input type="number" 
+                                           value="${entry.initiative}" 
+                                           onchange="updateInitiative(${entry.id}, this.value)"
+                                           class="w-12 p-1 text-center border rounded text-base bg-white dark:bg-gray-700">
+                                </div>
+                                
+                                <div class="min-w-0 flex-1">
+                                    ${entry.type === 'monster' ? `
+                                        <button onclick="showInitiativeMonsterDetails('${entry.name}')" class="font-medium text-red-800 dark:text-red-200 hover:text-red-600 dark:hover:text-red-400 text-left  cursor-pointer text-base truncate block">
+                                            ${entry.name}
+                                        </button>
+                                    ` : `
+                                        <span class="font-medium text-blue-800 dark:text-blue-200 text-base truncate block">
+                                            ${entry.name}
+                                        </span>
+                                    `}
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-1">
+                                ${combatActive && isCurrentTurn ? `
+                                    <button onclick="advanceTurn()" 
+                                            class="px-2 py-1 bg-yellow-600 text-white rounded text-xs hover:bg-yellow-700" 
+                                            title="Advance Turn">⏭️</button>
+                                ` : `
+                                    <button onclick="rollInitiative(${entry.id})" 
+                                            class="px-2 py-1 bg-purple-500 text-white rounded text-xs hover:bg-purple-600" 
+                                            title="Roll Initiative">🎲</button>
+                                `}
+                                    <button 
+                                        onclick="toggleHidden(${entry.id})" 
+                                        class="px-2 py-1 bg-indigo-500 text-white rounded text-xs hover:bg-indigo-600" 
+                                        title="${entry.hidden ? 'Show' : 'Hide'}">${entry.hidden ? '👻' : '👁️'}</button>
+                                <button onclick="removeEntry(${entry.id})" 
+                                        class="px-2 py-1 bg-red-500 text-white rounded text-xs hover:bg-red-600"
+                                        title="Remove">×</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats Row: Evasion, HP, Stress, Threshold -->
+                        <div class="grid grid-cols-2 gap-3 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-0">Eva:</span>
+                                <button onclick="openStatsModal(${entry.id})" class="text-base hover:bg-gray-200 dark:hover:bg-gray-600 px-2 py-1 rounded cursor-pointer" title="Click to edit">
+                                    ${entry.evasion}
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-0">HP:</span>
+                                <input type="number" 
+                                       value="${entry.hp}" 
+                                       onchange="updateHP(${entry.id}, this.value)"
+                                       class="w-12 p-1 text-center border rounded text-base bg-white dark:bg-gray-700">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">/${entry.maxHp}</span>
+                                <div class="flex gap-1">
+                                    <button onclick="modifyHP(${entry.id}, 1)" 
+                                            class="px-1.5 py-0.5 bg-green-500 text-white rounded text-xs hover:bg-green-600"
+                                            title="+1 HP">+</button>
+                                    <button onclick="modifyHP(${entry.id}, -1)" 
+                                            class="px-1.5 py-0.5 bg-red-500 text-white rounded text-xs hover:bg-red-600"
+                                            title="-1 HP">-</button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-0">Stress:</span>
+                                <input type="number" 
+                                       value="${entry.stress}" 
+                                       max="${entry.maxStress}"
+                                       onchange="updateStress(${entry.id}, this.value)"
+                                       class="w-12 p-1 text-center border rounded text-base bg-white dark:bg-gray-700">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">/${entry.maxStress}</span>
+                                <div class="flex gap-1">
+                                    <button onclick="modifyStress(${entry.id}, 1)" 
+                                            class="px-1.5 py-0.5 bg-blue-500 text-white rounded text-xs hover:bg-blue-600"
+                                            title="+1 Stress">+</button>
+                                    <button onclick="modifyStress(${entry.id}, -1)" 
+                                            class="px-1.5 py-0.5 bg-orange-500 text-white rounded text-xs hover:bg-orange-600"
+                                            title="-1 Stress">-</button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-0">Threshold:</span>
+                                <button onclick="openStatsModal(${entry.id})" class="text-base hover:bg-gray-200 dark:hover:bg-gray-600 px-2 py-1 rounded cursor-pointer" title="Click to edit">
+                                    ${entry.threshold}
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Damage -->                        
+                        <div class="flex items-center">
+                            <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-0">Dmg:</span>
+                            <span class="text-center text-xs">${entry.damage}</span>                        
+                        </div> 
+                        
+                        <!-- Conditions Row -->
+                        <div>
+                            <div class="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Conditions:</div>
+                            <div id="conditions-${entry.id}-mobile">
+                                ${renderConditions(entry, 'mobile')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                row.innerHTML = desktopLayout + mobileLayout;
+                container.appendChild(row);
+            });
+        }
+
+        // Render conditions for an entry
+        function renderConditions(entry, mode = 'desktop') {
+            const selectSize = mode === 'mobile' ? 'text-sm' : 'text-xs';
+            
+            if (entry.conditions.length === 0) {
+                return `
+                    <select onchange="addCondition(${entry.id}, this.value); this.value = 'None';" 
+                            class="w-full p-1 ${selectSize} border rounded bg-white dark:bg-gray-700">
+                        ${conditions.map(condition => `<option value="${condition}">${condition}</option>`).join('')}
+                    </select>
+                `;
+            }
+
+            let html = '';
+            entry.conditions.forEach((condition, index) => {
+                html += `
+                    <div class="flex items-center gap-1 mb-1">
+                        <select onchange="updateCondition(${entry.id}, ${index}, this.value)" 
+                                class="flex-1 p-1 ${selectSize} border rounded bg-white dark:bg-gray-700">
+                            ${conditions.map(cond => `<option value="${cond}" ${cond === condition ? 'selected' : ''}>${cond}</option>`).join('')}
+                        </select>
+                        <button onclick="removeCondition(${entry.id}, ${index})" 
+                                class="px-1 py-1 bg-red-400 text-white rounded text-xs hover:bg-red-500">×</button>
+                    </div>
+                `;
+            });
+            
+            // Add dropdown for new condition
+            html += `
+                <select onchange="addCondition(${entry.id}, this.value); this.value = 'None';" 
+                        class="w-full p-1 ${selectSize} border rounded bg-white dark:bg-gray-700">
+                    ${conditions.map(condition => `<option value="${condition}">${condition}</option>`).join('')}
+                </select>
+            `;
+            
+            return html;
+        }
+
+        // Update initiative and re-sort
+        function updateInitiative(entryId, newInitiative) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.initiative = parseInt(newInitiative) || 0;
+                renderInitiativeList(); // Re-render to re-sort
+            }
+        }
+
+        // Update HP
+        function updateHP(entryId, newHP) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.hp = Math.max(0, parseInt(newHP) || 0); // Remove max HP constraint to allow over-healing
+                renderInitiativeList(); // Refresh the entire display to update greyout effect
+            }
+        }
+
+        // Modify HP by amount (+1 or -1)
+        function modifyHP(entryId, amount) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.hp = Math.max(0, entry.hp + amount);
+                renderInitiativeList();
+            }
+        }
+
+        // Update Stress
+        function updateStress(entryId, newStress) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.stress = Math.max(0, Math.min(parseInt(newStress) || 0, entry.maxStress));
+                renderInitiativeList(); // Refresh the entire display for consistency
+            }
+        }
+
+        // Modify Stress by amount (+1 or -1)
+        function modifyStress(entryId, amount) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                entry.stress = Math.max(0, Math.min(entry.stress + amount, entry.maxStress));
+                renderInitiativeList();
+            }
+        }
+
+
+        // Add condition
+        function addCondition(entryId, condition) {
+            if (condition === 'None') return;
+            
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry && !entry.conditions.includes(condition)) {
+                entry.conditions.push(condition);
+                // Update both desktop and mobile condition containers
+                const desktopContainer = document.getElementById(`conditions-${entryId}-desktop`);
+                const mobileContainer = document.getElementById(`conditions-${entryId}-mobile`);
+                if (desktopContainer) desktopContainer.innerHTML = renderConditions(entry, 'desktop');
+                if (mobileContainer) mobileContainer.innerHTML = renderConditions(entry, 'mobile');
+            }
+        }
+
+        // Update condition
+        function updateCondition(entryId, conditionIndex, newCondition) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry && conditionIndex < entry.conditions.length) {
+                if (newCondition === 'None') {
+                    entry.conditions.splice(conditionIndex, 1);
+                } else {
+                    entry.conditions[conditionIndex] = newCondition;
+                }
+                // Update both desktop and mobile condition containers
+                const desktopContainer = document.getElementById(`conditions-${entryId}-desktop`);
+                const mobileContainer = document.getElementById(`conditions-${entryId}-mobile`);
+                if (desktopContainer) desktopContainer.innerHTML = renderConditions(entry, 'desktop');
+                if (mobileContainer) mobileContainer.innerHTML = renderConditions(entry, 'mobile');
+            }
+        }
+
+        // Remove condition
+        function removeCondition(entryId, conditionIndex) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry && conditionIndex < entry.conditions.length) {
+                entry.conditions.splice(conditionIndex, 1);
+                // Update both desktop and mobile condition containers
+                const desktopContainer = document.getElementById(`conditions-${entryId}-desktop`);
+                const mobileContainer = document.getElementById(`conditions-${entryId}-mobile`);
+                if (desktopContainer) desktopContainer.innerHTML = renderConditions(entry, 'desktop');
+                if (mobileContainer) mobileContainer.innerHTML = renderConditions(entry, 'mobile');
+            }
+        }
+
+        // Roll initiative for single entry
+        function rollInitiative(entryId) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (entry) {
+                // Roll 1d20 for initiative
+                let roll = Math.floor(Math.random() * 20) + 1;
+                
+                // Add modifier for monsters (use attack modifier as initiative modifier)
+                if (entry.type === 'monster') {
+                    // Find the original monster to get attack modifier
+                    const baseName = entry.name.replace(/ \d+$/, '');
+                    const encounterEntry = encounter.find(e => e.monster.name === baseName);
+                    if (encounterEntry && encounterEntry.monster.attackMod) {
+                        roll += encounterEntry.monster.attackMod;
+                    } else {
+                        // Fallback: check monster libraries
+                        const allMonsters = [...defaultMonsters, ...customMonsters];
+                        const monster = allMonsters.find(m => m.name === baseName);
+                        if (monster && monster.attackMod) {
+                            roll += monster.attackMod;
+                        }
+                    }
+                }
+                
+                entry.initiative = Math.max(1, roll); // Minimum of 1
+                renderInitiativeList();
+            }
+        }
+
+        // Roll initiative for all entries
+        function rollInitiativeForAll() {
+            initiativeEntries.forEach(entry => {
+                let roll = Math.floor(Math.random() * 20) + 1;
+                
+                // Add modifier for monsters (use attack modifier as initiative modifier)
+                if (entry.type === 'monster') {
+                    // Find the original monster to get attack modifier
+                    const baseName = entry.name.replace(/ \d+$/, '');
+                    const encounterEntry = encounter.find(e => e.monster.name === baseName);
+                    if (encounterEntry && encounterEntry.monster.attackMod) {
+                        roll += encounterEntry.monster.attackMod;
+                    } else {
+                        // Fallback: check monster libraries
+                        const allMonsters = [...defaultMonsters, ...customMonsters];
+                        const monster = allMonsters.find(m => m.name === baseName);
+                        if (monster && monster.attackMod) {
+                            roll += monster.attackMod;
+                        }
+                    }
+                }
+                
+                entry.initiative = Math.max(1, roll); // Minimum of 1
+            });
+            renderInitiativeList();
+        }
+
+        // Reset all initiative to 0
+        function resetInitiative() {
+            initiativeEntries.forEach(entry => {
+                entry.initiative = 0;
+            });
+            renderInitiativeList();
+        }
+
+        // Clear all conditions
+        function clearAllConditions() {
+            initiativeEntries.forEach(entry => {
+                entry.conditions = [];
+            });
+            renderInitiativeList();
+        }
+
+        // Remove entry
+        function removeEntry(entryId) {
+            initiativeEntries = initiativeEntries.filter(entry => entry.id !== entryId);
+            renderInitiativeList();
+        }
+
+        // Add custom entry
+        function addCustomEntry() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Add Custom Entry</h3>
+                    <input type="text" id="custom-entry-name" placeholder="Enter name..." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base mb-4">
+                    <div class="flex justify-end space-x-3">
+                        <button id="cancel-custom-entry" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                        <button id="confirm-custom-entry" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors">Add</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Focus on input
+            document.getElementById('custom-entry-name').focus();
+            
+            // Add event listeners
+            document.getElementById('cancel-custom-entry').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            document.getElementById('confirm-custom-entry').addEventListener('click', () => {
+                const name = document.getElementById('custom-entry-name').value.trim();
+                if (name) {
+                    const customEntry = {
+                        id: nextEntryId++,
+                        initiative: 0,
+                        name: name,
+                        type: 'custom',
+                        evasion: 10,
+                        hp: 1,
+                        maxHp: 1,
+                        stress: 0,
+                        maxStress: 0,
+                        threshold: '1|1',
+                        damage: '1d4',
+                        conditions: [],
+                        hidden: false
+                    };
+
+                    initiativeEntries.push(customEntry);
+                    renderInitiativeList();
+                }
+                modal.remove();
+            });
+            
+            // Allow Enter key to confirm
+            modal.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('confirm-custom-entry').click();
+                } else if (e.key === 'Escape') {
+                    document.getElementById('cancel-custom-entry').click();
+                }
+            });
+        }
+
+        // Show monster details from initiative tracker
+        function showInitiativeMonsterDetails(entryName) {
+            // Remove numbering from the name to find the base monster
+            const baseName = entryName.replace(/ \d+$/, '');
+            
+            // Look for the monster in the encounter and monster libraries
+            let monster = null;
+            
+            // First check the current encounter
+            const encounterEntry = encounter.find(entry => entry.monster.name === baseName);
+            if (encounterEntry) {
+                monster = encounterEntry.monster;
+            } else {
+                // Check default monsters and custom monsters
+                const allMonsters = [...defaultMonsters, ...customMonsters];
+                monster = allMonsters.find(m => m.name === baseName);
+            }
+
+            if (monster) {
+                // Reuse the existing monster details function
+                showMonsterDetails(monster.name);
+            } else {
+                showCustomAlert(`Monster details not found for ${entryName}. This might be a custom entry or the monster was removed from the encounter.`);
+            }
+        }
+
+        // Scroll to current turn creature
+        function scrollToCurrentTurn() {
+            if (!combatActive || initiativeEntries.length === 0) return;
+            
+            // Find all initiative entry elements
+            const initiativeRows = document.querySelectorAll('#initiativeList > div');
+            
+            // The current turn is at the currentTurnIndex after sorting
+            if (currentTurnIndex < initiativeRows.length) {
+                const currentRow = initiativeRows[currentTurnIndex];
+                
+                // Scroll the element into view, centered in the viewport
+                if (currentRow) {
+                    currentRow.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center',
+                        inline: 'nearest'
+                    });
+                }
+            }
+        }
+
+        // Stats Modal for editing Evasion and Threshold
+        function openStatsModal(entryId) {
+            const entry = initiativeEntries.find(e => e.id === entryId);
+            if (!entry) return;
+            
+            // Parse threshold values
+            const thresholdParts = entry.threshold.split('|');
+            const thresholdLow = parseInt(thresholdParts[0]) || 0;
+            const thresholdHigh = parseInt(thresholdParts[1]) || 0;
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Edit Stats for ${entry.name}</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Evasion</label>
+                            <input type="number" id="modal-evasion" value="${entry.evasion}" min="1" max="30" 
+                                   class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Threshold Lower</label>
+                                <input type="number" id="modal-threshold-low" value="${thresholdLow}" min="1" max="50" 
+                                       class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Threshold Upper</label>
+                                <input type="number" id="modal-threshold-high" value="${thresholdHigh}" min="2" max="100" 
+                                       class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-3 mt-6">
+                        <button id="cancel-stats" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                        <button id="confirm-stats" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors">Confirm</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Focus on first input
+            document.getElementById('modal-evasion').focus();
+            
+            // Add event listeners
+            document.getElementById('cancel-stats').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            document.getElementById('confirm-stats').addEventListener('click', () => {
+                // Get new values
+                const newEvasion = parseInt(document.getElementById('modal-evasion').value) || entry.evasion;
+                const newThresholdLow = parseInt(document.getElementById('modal-threshold-low').value) || thresholdLow;
+                const newThresholdHigh = parseInt(document.getElementById('modal-threshold-high').value) || thresholdHigh;
+                
+                // Validate threshold values
+                if (newThresholdHigh <= newThresholdLow) {
+                    showCustomAlert('Threshold Upper must be greater than Threshold Lower!');
+                    return;
+                }
+                
+                // Update entry
+                entry.evasion = newEvasion;
+                entry.threshold = `${newThresholdLow}|${newThresholdHigh}`;
+                
+                // Close modal and re-render
+                modal.remove();
+                renderInitiativeList();
+            });
+            
+            // Allow Enter key to confirm
+            modal.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('confirm-stats').click();
+                } else if (e.key === 'Escape') {
+                    document.getElementById('cancel-stats').click();
+                }
+            });
+        }
+
+        // Saved encounter management
+        function saveCurrentEncounter() {
+            const encounterName = document.getElementById('encounter-name').value.trim();
+            
+            if (!encounterName) {
+                showCustomAlert('Please enter an encounter name!');
+                return;
+            }
+            
+            if (encounter.length === 0) {
+                showCustomAlert('Please add monsters to the encounter first!');
+                return;
+            }
+            
+            // Get existing saved encounters
+            const savedEncounters = JSON.parse(localStorage.getItem('encounterBalancer_savedEncounters') || '{}');
+            
+            // Save the current encounter
+            savedEncounters[encounterName] = {
+                name: encounterName,
+                monsters: [...encounter],
+                savedDate: new Date().toISOString()
+            };
+            
+            // Store back to localStorage
+            localStorage.setItem('encounterBalancer_savedEncounters', JSON.stringify(savedEncounters));
+            
+            // Clear the input and update dropdown
+            document.getElementById('encounter-name').value = '';
+            updateSavedEncountersDropdown();
+            
+            showCustomAlert(`Encounter "${encounterName}" saved successfully!`);
+        }
+
+        function loadSavedEncounter() {
+            const selectedEncounterName = document.getElementById('saved-encounters').value;
+            
+            if (!selectedEncounterName) {
+                showCustomAlert('Please select a saved encounter first!');
+                return;
+            }
+            
+            // Get saved encounters from localStorage
+            const savedEncounters = JSON.parse(localStorage.getItem('encounterBalancer_savedEncounters') || '{}');
+            const savedEncounter = savedEncounters[selectedEncounterName];
+            
+            if (!savedEncounter) {
+                showCustomAlert('Saved encounter not found!');
+                return;
+            }
+            
+            // Load the encounter data
+            encounter = [...savedEncounter.monsters];
+            
+            // Re-render the encounter and update summary
+            renderCurrentEncounter();
+            updateEncounterSummary();
+            
+            showCustomAlert(`Encounter "${selectedEncounterName}" loaded successfully!`);
+        }
+
+        function updateSavedEncountersDropdown() {
+            const dropdown = document.getElementById('saved-encounters');
+            const savedEncounters = JSON.parse(localStorage.getItem('encounterBalancer_savedEncounters') || '{}');
+            
+            // Clear existing options except the first one
+            dropdown.innerHTML = '<option value="">Select saved encounter...</option>';
+            
+            // Add saved encounters to dropdown
+            Object.keys(savedEncounters).sort().forEach(encounterName => {
+                const option = document.createElement('option');
+                option.value = encounterName;
+                const encounter = savedEncounters[encounterName];
+                const savedDate = new Date(encounter.savedDate).toLocaleDateString();
+                const totalMonsters = encounter.monsters.reduce((sum, entry) => sum + entry.quantity, 0);
+                option.textContent = `${encounterName} (${totalMonsters} monsters - ${savedDate})`;
+                dropdown.appendChild(option);
+            });
+        }
+
+        function deleteSavedEncounter() {
+            const selectedEncounterName = document.getElementById('saved-encounters').value;
+            
+            if (!selectedEncounterName) {
+                showCustomAlert('Please select a saved encounter to delete!');
+                return;
+            }
+            
+            // Show confirmation modal
+            showDeleteEncounterConfirmDialog(selectedEncounterName);
+        }
+
+        // Custom confirmation dialog for encounter deletion
+        function showDeleteEncounterConfirmDialog(encounterName) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Confirm Deletion</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">Are you sure you want to delete the encounter "${encounterName}"? This action cannot be undone.</p>
+                    <div class="flex justify-end space-x-3">
+                        <button id="cancel-delete-encounter" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                        <button id="confirm-delete-encounter" class="px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded transition-colors">Delete</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Add event listeners
+            document.getElementById('cancel-delete-encounter').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            document.getElementById('confirm-delete-encounter').addEventListener('click', () => {
+                // User confirmed deletion
+                const savedEncounters = JSON.parse(localStorage.getItem('encounterBalancer_savedEncounters') || '{}');
+                delete savedEncounters[encounterName];
+                localStorage.setItem('encounterBalancer_savedEncounters', JSON.stringify(savedEncounters));
+                
+                // Update dropdown and clear selection
+                updateSavedEncountersDropdown();
+                document.getElementById('saved-encounters').value = '';
+                
+                // Close modal and show success message
+                modal.remove();
+                showCustomAlert(`Encounter "${encounterName}" deleted successfully!`);
+            });
+        }
+
         // Initialize
         updatePartySize();
         updateMonsterGuidelines();
@@ -1329,6 +2406,7 @@
         filterBuilderMonsters();
         updateEncounterSummary();
         updateSavedPartiesDropdown(); // Load saved parties on startup
+        updateSavedEncountersDropdown(); // Load saved encounters on startup
     </script>
 </body>
 </html>
