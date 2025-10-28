@@ -1788,9 +1788,8 @@
                                             class="px-2 py-1 bg-purple-500 text-white rounded text-xs hover:bg-purple-600" 
                                             title="Roll Initiative">🎲</button>
                                 `}
-                                    <button 
-                                        onclick="toggleHidden(${entry.id})" 
-                                        class="px-2 py-1 bg-indigo-500 text-white rounded text-xs hover:bg-indigo-600" 
+                                <button onclick="toggleHidden(${entry.id})" 
+                                        class="px-2 py-1 ${entry.hidden ? 'bg-gray-500' : 'bg-indigo-500'} text-white rounded text-xs hover:${entry.hidden ? 'bg-gray-600' : 'bg-indigo-600'}" 
                                         title="${entry.hidden ? 'Show' : 'Hide'}">${entry.hidden ? '👻' : '👁️'}</button>
                                 <button onclick="removeEntry(${entry.id})" 
                                         class="px-2 py-1 bg-red-500 text-white rounded text-xs hover:bg-red-600"
@@ -2081,20 +2080,125 @@
         // Add custom entry
         function addCustomEntry() {
             const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
             modal.innerHTML = `
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Add Custom Entry</h3>
-                    <input type="text" id="custom-entry-name" placeholder="Enter name..." class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base mb-4">
-                    <div class="flex justify-end space-x-3">
-                        <button id="cancel-custom-entry" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
-                        <button id="confirm-custom-entry" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors">Add</button>
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full max-h-full overflow-y-auto">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Add Custom Entry</h3>
+                        
+                        <!-- Monster Search Section -->
+                        <div class="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border">
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Load From Monster Library</label>
+                            <div class="space-y-2">
+                                <input type="text" id="custom-monster-search" placeholder="Search monsters..." 
+                                       class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base" 
+                                       oninput="filterCustomMonsterSelect()">
+                                <div class="flex gap-2">
+                                    <select id="custom-monster-select" class="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                        <option value="">Select monster...</option>
+                                    </select>
+                                    <button type="button" onclick="loadSelectedMonsterToCustomForm()" class="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm">Load</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Manual Entry Form -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                <input type="text" id="custom-entry-name" placeholder="Enter name..." 
+                                       class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Evasion</label>
+                                <input type="number" id="custom-entry-evasion" value="10" min="1" max="30" 
+                                       class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Hit Points</label>
+                                    <input type="number" id="custom-entry-hp" value="1" min="1" max="50" 
+                                           class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Stress</label>
+                                    <input type="number" id="custom-entry-stress" value="0" min="0" max="20" 
+                                           class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Threshold Lower</label>
+                                    <input type="number" id="custom-entry-threshold-low" value="1" min="1" max="50" 
+                                           class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Threshold Upper</label>
+                                    <input type="number" id="custom-entry-threshold-high" value="10" min="2" max="100" 
+                                           class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Damage</label>
+                                <div class="grid grid-cols-3 gap-2 items-end">
+                                    <div>
+                                        <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Number of Dice</label>
+                                        <select id="custom-entry-dice-count" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Die Type</label>
+                                        <select id="custom-entry-die-type" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                            <option value="4">d4</option>
+                                            <option value="6" selected>d6</option>
+                                            <option value="8">d8</option>
+                                            <option value="10">d10</option>
+                                            <option value="12">d12</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Modifier</label>
+                                        <input type="number" id="custom-entry-damage-mod" value="0" min="-10" max="20" 
+                                               class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-base">
+                                    </div>
+                                </div>
+                                <div id="damage-preview" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                                    Damage: <span id="damage-display">1d6</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end space-x-3 mt-6">
+                            <button id="cancel-custom-entry" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                            <button id="confirm-custom-entry" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors">Add Entry</button>
+                        </div>
                     </div>
                 </div>
             `;
             document.body.appendChild(modal);
             
-            // Focus on input
+            // Populate monster dropdown
+            populateCustomMonsterDropdown();
+            
+            // Update damage display when inputs change
+            updateDamageDisplay();
+            document.getElementById('custom-entry-dice-count').addEventListener('change', updateDamageDisplay);
+            document.getElementById('custom-entry-die-type').addEventListener('change', updateDamageDisplay);
+            document.getElementById('custom-entry-damage-mod').addEventListener('change', updateDamageDisplay);
+            
+            // Focus on name input
             document.getElementById('custom-entry-name').focus();
             
             // Add event listeners
@@ -2104,37 +2208,156 @@
             
             document.getElementById('confirm-custom-entry').addEventListener('click', () => {
                 const name = document.getElementById('custom-entry-name').value.trim();
-                if (name) {
-                    const customEntry = {
-                        id: nextEntryId++,
-                        initiative: 0,
-                        name: name,
-                        type: 'custom',
-                        evasion: 10,
-                        hp: 1,
-                        maxHp: 1,
-                        stress: 0,
-                        maxStress: 0,
-                        threshold: '1|1',
-                        damage: '1d4',
-                        conditions: [],
-                        hidden: false
-                    };
-
-                    initiativeEntries.push(customEntry);
-                    renderInitiativeList();
+                if (!name) {
+                    showCustomAlert('Please enter a name for the custom entry!');
+                    return;
                 }
+                
+                const hp = parseInt(document.getElementById('custom-entry-hp').value) || 1;
+                const stress = parseInt(document.getElementById('custom-entry-stress').value) || 0;
+                const thresholdLow = parseInt(document.getElementById('custom-entry-threshold-low').value) || 1;
+                const thresholdHigh = parseInt(document.getElementById('custom-entry-threshold-high').value) || 10;
+                
+                // Validate threshold values
+                if (thresholdHigh <= thresholdLow) {
+                    showCustomAlert('Threshold Upper must be greater than Threshold Lower!');
+                    return;
+                }
+                
+                const diceCount = document.getElementById('custom-entry-dice-count').value;
+                const dieType = document.getElementById('custom-entry-die-type').value;
+                const damageMod = parseInt(document.getElementById('custom-entry-damage-mod').value) || 0;
+                
+                // Build damage string
+                let damageString = `${diceCount}d${dieType}`;
+                if (damageMod > 0) {
+                    damageString += `+${damageMod}`;
+                } else if (damageMod < 0) {
+                    damageString += `${damageMod}`;
+                }
+                
+                const customEntry = {
+                    id: nextEntryId++,
+                    initiative: 0,
+                    name: name,
+                    type: 'custom',
+                    evasion: parseInt(document.getElementById('custom-entry-evasion').value) || 10,
+                    hp: hp,
+                    maxHp: hp,
+                    stress: stress,
+                    maxStress: stress,
+                    threshold: `${thresholdLow}|${thresholdHigh}`,
+                    damage: damageString,
+                    conditions: [],
+                    hidden: false
+                };
+
+                initiativeEntries.push(customEntry);
+                renderInitiativeList();
                 modal.remove();
             });
             
-            // Allow Enter key to confirm
-            modal.addEventListener('keydown', (e) => {
+            // Allow Enter key to confirm (only on name field to avoid conflicts)
+            document.getElementById('custom-entry-name').addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     document.getElementById('confirm-custom-entry').click();
-                } else if (e.key === 'Escape') {
+                }
+            });
+            
+            // Allow Escape key to cancel
+            modal.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
                     document.getElementById('cancel-custom-entry').click();
                 }
             });
+        }
+        
+        // Helper functions for custom entry modal
+        function populateCustomMonsterDropdown() {
+            const select = document.getElementById('custom-monster-select');
+            select.innerHTML = '<option value="">Select monster...</option>';
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            allMonsters.forEach(monster => {
+                const option = document.createElement('option');
+                option.value = monster.name;
+                option.textContent = `${monster.name} (T${monster.tier})`;
+                select.appendChild(option);
+            });
+        }
+        
+        function filterCustomMonsterSelect() {
+            const search = document.getElementById('custom-monster-search').value.toLowerCase();
+            const select = document.getElementById('custom-monster-select');
+            
+            // Clear existing options except first
+            select.innerHTML = '<option value="">Select monster...</option>';
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const filtered = allMonsters.filter(monster => 
+                monster.name.toLowerCase().includes(search)
+            );
+            
+            filtered.forEach(monster => {
+                const option = document.createElement('option');
+                option.value = monster.name;
+                option.textContent = `${monster.name} (T${monster.tier})`;
+                select.appendChild(option);
+            });
+        }
+        
+        function loadSelectedMonsterToCustomForm() {
+            const selectedName = document.getElementById('custom-monster-select').value;
+            if (!selectedName) {
+                showCustomAlert('Please select a monster first!');
+                return;
+            }
+            
+            const allMonsters = [...defaultMonsters, ...customMonsters];
+            const monster = allMonsters.find(m => m.name === selectedName);
+            
+            if (monster) {
+                document.getElementById('custom-entry-name').value = monster.name;
+                document.getElementById('custom-entry-evasion').value = monster.evasion;
+                document.getElementById('custom-entry-hp').value = monster.hp;
+                document.getElementById('custom-entry-stress').value = monster.stress;
+                document.getElementById('custom-entry-threshold-low').value = monster.thresholdLow;
+                document.getElementById('custom-entry-threshold-high').value = monster.thresholdHigh;
+                
+                // Parse damage dice (e.g., "2d6" or "1d8+3")
+                const damageString = monster.damageDice || '1d6';
+                const damageMatch = damageString.match(/(\d+)d(\d+)(?:\+(\d+))?/);
+                if (damageMatch) {
+                    document.getElementById('custom-entry-dice-count').value = damageMatch[1];
+                    document.getElementById('custom-entry-die-type').value = damageMatch[2];
+                    
+                    // Handle modifier from monster.attackMod or from damage string
+                    let modifier = 0;
+                    if (damageMatch[3]) {
+                        modifier = parseInt(damageMatch[3]);
+                    } else if (monster.attackMod) {
+                        modifier = monster.attackMod;
+                    }
+                    document.getElementById('custom-entry-damage-mod').value = modifier;
+                }
+                
+                updateDamageDisplay();
+            }
+        }
+        
+        function updateDamageDisplay() {
+            const diceCount = document.getElementById('custom-entry-dice-count').value;
+            const dieType = document.getElementById('custom-entry-die-type').value;
+            const damageMod = parseInt(document.getElementById('custom-entry-damage-mod').value) || 0;
+            
+            let damageString = `${diceCount}d${dieType}`;
+            if (damageMod > 0) {
+                damageString += `+${damageMod}`;
+            } else if (damageMod < 0) {
+                damageString += `${damageMod}`;
+            }
+            
+            document.getElementById('damage-display').textContent = damageString;
         }
 
         // Show monster details from initiative tracker
