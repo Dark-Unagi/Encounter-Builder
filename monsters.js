@@ -15,9 +15,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>1 Stress: Armor - can reduce Hits by points equal to Modifier.</li><li>1 Stress: Breath Acid - Roll damage dice equal to the monster Tier and reduce the targets Threshold by +2 per Tier.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large insectoid creatures with chitinous armor and powerful mandibles. Ankhegs burrow through earth and emerge to ambush prey with acidic breath.",
+        ecology: "Ankhegs live in underground tunnel networks beneath forests and plains. They hunt by detecting vibrations and burst from the ground to attack livestock and travelers.",
+        combat: "Ankhegs prefer ambush attacks from underground, using their acid breath to weaken armor before closing for melee combat with their powerful mandibles."
     },
     {
         name: "Animated Armor",
@@ -31,9 +31,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Armor - can reduce Hits by points equal to Modifier.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Enchanted suits of armor that move and fight without a wearer. They appear as normal armor until they suddenly animate to attack intruders.",
+        ecology: "Created by magic to guard specific locations, animated armor remains motionless until triggered by proximity or commands. They patrol ancient ruins and wizard towers.",
+        combat: "Animated armor relies on surprise attacks and heavy armor protection. It fights methodically, using its false appearance to gain the upper hand in initial combat."
     },
     {
         name: "Awakened Shrub",
@@ -47,9 +47,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small bushes granted sentience through druidic magic or fey influence. They have tiny eyes and can move their branches like limbs.",
+        ecology: "Awakened shrubs serve as guardians of sacred groves and druid circles. They communicate with other plants and animals to protect their territory from threats.",
+        combat: "These small plants use surprise and entanglement to their advantage, appearing as normal vegetation before springing to life to grab and trip opponents."
     },
         {
         name: "Azer",
@@ -63,9 +63,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Illumination - Shed bright light 30ft.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Humanoid beings of living bronze and fire from the Elemental Plane of Fire. Their bodies glow with internal flames and radiate intense heat.",
+        ecology: "Azers live in great forge-cities on the Elemental Plane of Fire, crafting weapons and armor. They value skilled craftsmanship and despise slavery.",
+        combat: "Azers fight with flaming weapons and use their burning aura to damage nearby enemies. They prefer tactical combat and work well in coordinated groups."
     },
             {
         name: "Balor",
@@ -79,9 +79,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Death Burst - When the creature is reduced to 0HP they explode and cause 2 Hits to all creatures within Melee range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive winged demons wreathed in flames, wielding whips of fire and shadow. Balors are among the most powerful demons in the Abyss.",
+        ecology: "Balors command vast demon armies in the chaotic layers of the Abyss. They seek to corrupt and destroy all order, leading invasions into other planes.",
+        combat: "Balors fight with overwhelming aggression, using their flaming weapons and aura to devastate multiple enemies. Their death explosion makes killing them dangerous even in victory."
     }, 
             {
         name: "Banshee",
@@ -95,9 +95,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Incorporeal undead spirits of elven women who died in emotional anguish. They appear as translucent, mournful figures with flowing hair and tattered garments.",
+        ecology: "Banshees haunt locations tied to their mortal lives - typically ruins of their former homes or sites of great tragedy. They are bound by their grief and rage.",
+        combat: "Banshees use hit-and-run tactics with invisibility, draining life from the living while staying out of reach. Their wail can terrify and weaken entire groups."
     },
             {
         name: "Barbed Devil",
@@ -111,9 +111,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Reactive - If this creature is hit or a creature moves out of it's range they can make an Attack on that creature.</li><li>2 Stress: Damage Transfer - When taking damage the creature can return half the Damage to another creature within Melee range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fierce devils covered in sharp barbs and spines. They delight in pain and combat, using their spined hides as both armor and weapon.",
+        ecology: "Barbed devils serve as shock troops in Hell's armies and as guards for important locations. They eagerly seek combat and torture assignments.",
+        combat: "These devils fight aggressively in melee, using their barbed hide to damage attackers and transferring incoming damage to nearby enemies when possible."
     },
                 {
         name: "Barlgura",
@@ -127,9 +127,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Pounce - Can jump onto the a target requiring a STR Save or be knocked prone.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Reckless - The creature can roll next Attack with Advantage. But the next Attack made against them will also have Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Demonic apes with orange fur and cruel intelligence. Barlguras have long arms, powerful claws, and enjoy causing mayhem and destruction.",
+        ecology: "Barlguras roam the chaotic layers of the Abyss, often summoned to the material plane to serve more powerful demons or wicked spellcasters.",
+        combat: "Barlguras favor brutal frontal assaults, pouncing on enemies and fighting with reckless abandon. They use their superior reach and multiple attacks to overwhelm foes."
     },  
             {
         name: "Basilisk",
@@ -143,9 +143,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>3 Stress: Petrifying Gaze - Force any creature looking at the creature to roll a CON Save or at the end of their next round turn to Stone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large reptilian creatures with eight legs and deadly gazes that can turn living creatures to stone. Their hides are dark green with yellowish underbellies.",
+        ecology: "Basilisks dwell in underground caverns and desolate rocky areas, leaving behind stone statues of their victims as grim territorial markers.",
+        combat: "Basilisks rely primarily on their petrifying gaze, attempting to turn enemies to stone before moving in for physical attacks with claws and bite."
     },
         {
         name: "Behir",
@@ -159,9 +159,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Breath Lightning - Roll damage dice equal to the monster Tier and add the Lightning condition.</li><li>1 Stress: Constrict - The target is Restrained unable to move, on this turn and the start of this creature's turn the target will take 1d6 damage.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Serpentine creatures with multiple legs and crackling electrical energy. Behirs are natural enemies of dragons and rival them in size and ferocity.",
+        ecology: "Behirs inhabit rocky highlands and mountain ranges, claiming large territories. They aggressively drive out dragons and other large predators from their domain.",
+        combat: "Behirs use lightning breath at range, then close to constrict or swallow enemies. They can grab multiple foes with their many legs while breathing lightning."
     },
                 {
         name: "Beholder",
@@ -175,9 +175,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>1 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>1 Stress: Aura Magic Suppression - Any magic within 30ft will fail and be suppressed. (Spells cast outside the area into the aura act normally.)</li><li>3 Stress: Level Drain - Remove 1 Level from the target. (Returned after a Greater Restoration.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Floating spherical aberrations with a large central eye and numerous smaller eyestalks. Each eyestalk can produce different magical effects.",
+        ecology: "Beholders are paranoid tyrants that rule underground lairs, constantly scheming against other beholders and lesser creatures. They collect treasure and magical items obsessively.",
+        combat: "Beholders hover out of melee range, using their various eye rays to disable, charm, or destroy enemies while their central eye suppresses magic in their vicinity."
     },
             {
         name: "Black Pudding",
@@ -191,9 +191,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Pseudopod - Make a ranged attack out to 10ft.</li><li>Acid Immunity - Immune to acid damage and conditions.</li><li>1 Stress: Corrode Metal - Each time the creature is hit, any item made of metal will begin to corrode and lose -1 to the Attack Roll (Until it is repaired.).</li><li>1 Stress: Split - If the target has been attacked with a bladed weapon the creature can cause itself to split into 2 separate creatures.</li><li>1 Stress: Engulf - Force the target into your own space and apply the Restrained condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large amorphous oozes of black acidic slime that can dissolve organic matter and corrode metal with ease.",
+        ecology: "Black puddings inhabit dungeons, sewers, and underground areas where they scavenge for organic matter. They grow larger by consuming debris and corpses.",
+        combat: "Black puddings engulf enemies to digest them alive while corroding their equipment. Cutting weapons cause them to split, making them more dangerous."
     },
         {
         name: "Blink Dog",
@@ -207,9 +207,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Teleport to any where within sight and 60ft range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Intelligent canines with the ability to teleport at will. They appear as large dogs with shimmering, slightly translucent fur.",
+        ecology: "Blink dogs live in packs in forests and plains, using their teleportation to hunt and avoid predators. They are generally good-natured and protect their territory.",
+        combat: "Blink dogs use hit-and-run tactics, teleporting in to attack then blinking away before enemies can retaliate. They coordinate pack attacks through telepathic links."
     },
         {
         name: "Bone Devil",
@@ -223,9 +223,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Stench - All target's within 20ft must make a CON Save, on a fail take a Stress and roll all Attacks and Checks at Disadvantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Skeletal devils with insectoid features and sharp bone protrusions. Their bodies emit a horrific stench that weakens enemies.",
+        ecology: "Bone devils serve as enforcers and interrogators in Hell's hierarchy. They delight in causing fear and extracting information through torture.",
+        combat: "Bone devils use their frightening presence and nauseating stench to weaken enemies before engaging in melee with their sharp claws and bone spikes."
     },
         {
         name: "Bugbear",
@@ -239,9 +239,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>1 Stress: Surprise Attack - If attacking from stealth, deal extra 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large, hairy goblinoids with long limbs and surprising stealth abilities despite their size. They have yellowish fur and cruel dispositions.",
+        ecology: "Bugbears live in loose tribal groups, often dominating goblin and hobgoblin communities through intimidation. They prefer ambush hunting and raiding.",
+        combat: "Bugbears excel at stealth attacks despite their size, using surprise to deliver devastating opening strikes before relying on brute force in prolonged combat."
     },   
         {
         name: "Bullywug",
@@ -255,9 +255,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Pounce - Can jump onto the a target requiring a STR Save or be knocked prone.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Bipedal frog-like humanoids with warty green skin and bulging eyes. They croak constantly and have a primitive, tribal culture.",
+        ecology: "Bullywugs inhabit swamps and marshlands, building crude villages on stilts or floating platforms. They worship frog deities and practice ritualistic combat.",
+        combat: "Bullywugs fight in coordinated groups, using their powerful legs to leap at enemies and knock them prone before overwhelming them with numbers."
     },
             {
         name: "Cambion",
@@ -271,9 +271,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Half-fiend offspring of demons and mortals, combining humanoid features with demonic traits like horns, wings, and fiery eyes.",
+        ecology: "Cambions often infiltrate mortal societies, using their charm and magic to manipulate others. They serve as agents for their demonic parents or pursue their own ambitions.",
+        combat: "Cambions blend spellcasting with melee combat, using charm magic to turn enemies against each other before engaging with weapons and fiendish abilities."
     },
             {
         name: "Carrion Crawler",
@@ -287,9 +287,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large worm-like scavengers with multiple legs and paralytic tentacles. They have segmented bodies and feed primarily on carrion and decay.",
+        ecology: "Carrion crawlers inhabit dungeons, caves, and battlefields where they can find abundant dead matter. They help clean ecosystems by consuming corpses.",
+        combat: "Carrion crawlers use their wall-climbing ability to attack from unexpected angles, then paralyze prey with their tentacles before feeding."
     },
             {
         name: "Centaur",
@@ -303,9 +303,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>1 Stress: Charge - If this creature has at least 10ft of movement, deal extra 1d6 damage and target must make STR Save or be knocked prone.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Noble creatures with the upper body of a humanoid and the lower body of a horse. They are proud, territorial, and skilled in both archery and melee combat.",
+        ecology: "Centaurs roam forests and grasslands in small tribes, protecting sacred groves and natural sites from desecration. They distrust most humanoids but may ally with druids.",
+        combat: "Centaurs use their mobility for devastating charge attacks, trampling enemies while striking with weapons. They prefer to fight from range when possible."
     },
                 {
         name: "Chain Devil",
@@ -319,9 +319,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>1 Stress: Reactive - If this creature is hit or a creature moves out of it's range they can make an Attack on that creature.</li><li>2 Stress: Redirect Attack - Cause any successful melee attack to be redirected to any target within Melee range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Devils wrapped in animated chains that serve as both armor and weapons. The chains move independently, allowing complex combat maneuvers.",
+        ecology: "Chain devils serve as jailers and torturers in Hell, guarding important prisoners and enforcing diabolic contracts. They take pride in their binding techniques.",
+        combat: "Chain devils use their animated chains for multiple simultaneous attacks, grappling enemies while redirecting incoming attacks to nearby targets."
     }, 
                 {
         name: "Chimera",
@@ -335,9 +335,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Breath Fire - Roll damage dice equal to the monster Tier and add the burning condition.</li><li>1 Stress: Pounce - Can jump onto the a target requiring a STR Save or be knocked prone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Monstrous creatures with the body of a lion, wings of a dragon, and heads of a lion, goat, and dragon. Each head can attack independently.",
+        ecology: "Chimeras inhabit remote mountainous regions and desolate highlands, claiming large territories. They are solitary predators that collect treasure in their lairs.",
+        combat: "Chimeras attack with all three heads simultaneously - biting, goring, and breathing fire. They use their wings to pounce from above and maintain aerial advantage."
     },    
             {
         name: "Chuul",
@@ -351,9 +351,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Crustacean-like aberrations with large claws and paralytic tentacles around their mouths. They have chitinous shells and multiple eyes.",
+        ecology: "Chuuls inhabit underground pools and coastal waters, often serving aboleth masters. They collect treasure and feast on paralyzed victims.",
+        combat: "Chuuls grab enemies with their powerful claws, then paralyze them with their facial tentacles. They use telepathy to coordinate with allies or gather intelligence."
     },      
         {
         name: "Cloaker",
@@ -367,9 +367,25 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>1 Stress: Engulf - Force the target into your own space and apply the Restrained condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Flying creatures that resemble leather cloaks when motionless. They have pale undersides with rows of red eyes and can produce haunting moans.",
+        ecology: "Cloakers inhabit underground ruins and caverns, hanging from ceilings disguised as discarded cloaks. They are intelligent but alien in their thinking.",
+        combat: "Cloakers drop onto unsuspecting prey, engulfing them in their wing-like body while emitting fear-inducing moans to terrify other enemies."
+    },
+        {
+        name: "Clockwork Sentinel (Mechanical)",
+        tier: 2,
+        hp: 6,
+        stress: 3,
+        evasion: 15,
+        thresholdLow: 14,
+        thresholdHigh: 24,
+        damageDice: "1d8",
+        attackMod: 5,
+        features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Precision Strike - Ignore all armor and cover bonuses, attack hits automatically.</li><li>2 Stress: Overcharge Mode - Double all stats for 3 rounds, then shut down for 1 round.</li><li>2 Stress: Self-Repair - Restore 1d6 HP and remove one condition.</li></ul>",
+        image: "monsters/",
+        description: "Mechanical guardians with intricate gearing and precise movements, designed for perfect accuracy and reliable defense protocols.",
+        ecology: "Clockwork sentinels are crafted by master artificers to guard vaults and important locations, operating on precise timing mechanisms.",
+        combat: "Clockwork sentinels fight with mechanical precision, using calculated strikes and overcharged systems to eliminate threats efficiently."
     },   
         {
         name: "Cockatrice",
@@ -383,9 +399,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>3 Stress: Petrifying Gaze - Force any creature looking at the creature to roll a CON Save or at the end of their next round turn to Stone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small draconic creatures with the body of a dragon, wings of a bat, and head of a rooster. Their gaze can turn living creatures to stone.",
+        ecology: "Cockatrices nest in rocky outcroppings and ruins, often decorating their lairs with the stone statues of their victims. They are territorial and aggressive.",
+        combat: "Cockatrices rely on their petrifying gaze to disable enemies before moving in for physical attacks. They prefer to fight from elevated positions."
     },
             {
         name: "Couatl",
@@ -399,9 +415,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Poison Bite - Target must make CON Save or be poisoned and fall unconscious.</li><li>2 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Feathered serpents with rainbow-colored plumage and benevolent nature. These celestial beings have wings and radiate divine magic.",
+        ecology: "Couatls are guardians of ancient temples and sacred sites, protecting them from evil influences. They rarely interact with mortals unless great need arises.",
+        combat: "Couatls prefer to avoid combat, but when forced to fight, they use spells and shapechanging to confuse enemies before delivering paralyzing bites."
     }, 
         {
         name: "Crawling Claw",
@@ -415,9 +431,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Severed hands animated by necromantic magic. They skitter about on their fingers and retain fragments of their former owner's muscle memory.",
+        ecology: "Crawling claws are created by necromancers from the hands of the dead. They serve as scouts, thieves, and minor guardians in undead-controlled areas.",
+        combat: "Crawling claws rely on stealth and numbers, overwhelming enemies with multiple small attacks while draining their life force through necrotic touch."
     },
             {
         name: "Cyclops",
@@ -431,9 +447,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Giant humanoids with a single large eye in the center of their forehead. They are primitive but possess great strength and crude cunning.",
+        ecology: "Cyclopes live in caves and ruins, crafting crude tools and weapons. They keep flocks of sheep and goats, living largely solitary lives except during mating season.",
+        combat: "Cyclopes rely on overwhelming physical strength and intimidation, wielding massive clubs or throwing boulders with devastating accuracy."
     },
             {
         name: "Death Dog",
@@ -447,9 +463,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Two-Headed - Advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</li><li>1 Stress: Disease Bite - Target must make CON Save or contract a disease, losing 1HP per day until cured.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead canines with two heads and rotting flesh. Their bite carries supernatural diseases that can weaken and eventually kill victims.",
+        ecology: "Death dogs roam graveyards, battlefields, and areas touched by necromantic magic. They hunt in packs and are drawn to the scent of decay and death.",
+        combat: "Death dogs attack with both heads simultaneously, spreading disease through their infectious bites while using their dual nature to resist mental effects."
     },
         {
         name: "Demi-Lich",
@@ -463,9 +479,9 @@ const defaultMonsters = [
         attackMod: 9,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Level Drain - Remove 1 Level from the target. (Returned after a Greater Restoration.)</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The remains of a lich that has existed for so long that only its skull remains, floating and crackling with arcane energy.",
+        ecology: "Demi-liches are found in the deepest parts of ancient dungeons, often served by lesser undead. They care little for the material world, focused on cosmic mysteries.",
+        combat: "Demi-liches fight primarily through devastating magic and life-draining abilities, using their vast experience and power to crush enemies with ancient spells."
     },
                 {
         name: "Death Knight",
@@ -479,9 +495,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead warriors cursed for their evil deeds in life. They retain their martial skills and memories, clad in dark armor and wielding unholy weapons.",
+        ecology: "Death knights are bound to serve dark powers or pursue twisted goals from their mortal lives. They command undead armies and haunt battlefields and fortresses.",
+        combat: "Death knights combine masterful swordplay with necromantic magic, terrifying enemies with their presence while draining life from the living."
     }, 
         {
         name: "Dire Wolf",
@@ -495,9 +511,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive wolves the size of horses with intelligence to match their size. They have dark fur, glowing eyes, and fearsome howls.",
+        ecology: "Dire wolves hunt in packs through ancient forests and wilderness areas. They sometimes ally with druids or other nature-focused creatures.",
+        combat: "Dire wolves coordinate pack attacks with frightening howls, using their size and numbers to overwhelm prey through coordinated strikes."
     },
         {
         name: "Displacer Beast",
@@ -511,9 +527,25 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Pseudopod - Make a ranged attack out to 10ft.</li><li>2 Stress: Displacement - The target's Evasion increases by +2 and all Attack rolls against it are made with Disadvantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Panther-like creatures with six legs and two tentacles ending in pads. They can bend light around themselves to appear elsewhere than they actually are.",
+        ecology: "Displacer beasts inhabit dense forests and jungles, using their displacement ability to hunt prey. They are solitary and highly territorial.",
+        combat: "Displacer beasts use their optical displacement to confuse enemies, striking with tentacles from unexpected angles while remaining difficult to target accurately."
+    },
+        {
+        name: "Displacer Beast Lord",
+        tier: 3,
+        hp: 8,
+        stress: 5,
+        evasion: 16,
+        thresholdLow: 18,
+        thresholdHigh: 28,
+        damageDice: "2d6",
+        attackMod: 7,
+        features: "<ul><li>Pseudopod - Make a ranged attack out to 15ft.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Reality Displacement - Swap positions of any two creatures within 60ft instantly.</li><li>3 Stress: Dimensional Rift - Create a 20ft area where space is twisted, movement is random direction.</li></ul>",
+        image: "monsters/",
+        description: "An evolved displacer beast with enhanced reality-warping abilities that can manipulate space and position of multiple creatures.",
+        ecology: "Displacer beast lords are alpha specimens that have learned to warp reality itself, ruling territories where space bends to their will.",
+        combat: "Displacer beast lords control battlefield positioning by swapping creature locations and creating areas of twisted space that confuse enemy tactics."
     },
         {
         name: "Djinni",
@@ -527,11 +559,11 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Noble genies of the Elemental Plane of Air with blue skin and flowing garments. They command wind and storm with aristocratic bearing.",
+        ecology: "Djinn live in magnificent floating palaces in the Plane of Air, ruling over cloud kingdoms. They occasionally visit the material plane on mysterious errands.",
+        combat: "Djinn fight with elemental magic and scimitar mastery, using wind control and invisibility to outmaneuver enemies while unleashing devastating spell combinations."
     },
-            {
+                {
         name: "Doppleganger",
         tier: 2,
         hp: 4,
@@ -543,9 +575,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li><li>1 Stress: Surprise Attack - If attacking from stealth, deal extra 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Shapeshifting humanoids with gray skin and pale eyes. In their natural form, they appear as tall, thin humanoids with elongated limbs.",
+        ecology: "Dopplegangers infiltrate humanoid societies by assuming the identities of others. They form secret networks and manipulate events from the shadows.",
+        combat: "Dopplegangers prefer to avoid direct combat, using shapeshifting for ambushes and telepathy to read enemy intentions and exploit weaknesses."
     },
         {
         name: "Dragon (Ancient)",
@@ -559,9 +591,9 @@ const defaultMonsters = [
         attackMod: 11,
         features: "<ul><li>Legendary Actions - Can take 3 legendary actions at the end of other creatures' turns.</li><li>Legendary Resistance - Can choose to succeed a failed saving throw (3/day).</li><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Breath Weapon - Choose fire, cold, acid, lightning or poison - Roll damage dice equal to the monster Tier.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li><li>5 Stress: Reality Warp - Alter fundamental aspects of reality within 60ft.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Colossal dragons of immense age and power, with scales that shimmer with magical energy. Their presence alone can terrify lesser beings.",
+        ecology: "Ancient dragons rule vast territories from enormous lairs, accumulating treasure and knowledge over millennia. They are revered and feared as near-godlike beings.",
+        combat: "Ancient dragons use every advantage - magic, breath weapons, physical attacks, and environmental control - to dominate battlefields completely."
     },
                     {
         name: "Dragon (Black)",
@@ -575,9 +607,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Acid Immunity - Immune to acid damage and conditions.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Acid - Roll damage dice equal to the monster Tier and reduce the targets Threshold by +2 per Tier.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Evil chromatic dragons with black scales and acid breath. They are cruel, sadistic, and prefer to toy with victims before killing them.",
+        ecology: "Black dragons lair in swamps and marshlands, building their hoards in flooded ruins. They corrupt their territory with acid pools and toxic vegetation.",
+        combat: "Black dragons use their aquatic environment to their advantage, attacking from underwater and using acid breath to melt armor and weapons."
     },   
         {
         name: "Dragon (Blue)",
@@ -591,9 +623,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Lightning - Roll damage dice equal to the monster Tier and add the Lightning condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Proud chromatic dragons with blue scales and lightning breath. They are vain, territorial, and delight in showing off their power.",
+        ecology: "Blue dragons inhabit desert regions and rocky badlands, creating elaborate lairs with electrical storms overhead. They demand tribute from desert settlements.",
+        combat: "Blue dragons strike from the sky with lightning breath, then land to finish weakened enemies with claws and teeth while maintaining aerial superiority."
     },
                 {
         name: "Dragon (Bronze)",
@@ -607,9 +639,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Lightning - Roll damage dice equal to the monster Tier and add the Lightning condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Good-aligned metallic dragons with bronze scales and lightning breath. They are curious, playful, and enjoy interacting with smaller creatures.",
+        ecology: "Bronze dragons lair near coastlines and large bodies of water, often disguising themselves to observe and interact with coastal communities.",
+        combat: "Bronze dragons prefer to test opponents' intentions before fighting seriously, using lightning breath and aquatic advantages when combat becomes necessary."
     },   
         {
         name: "Dragon (Copper)",
@@ -623,9 +655,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Acid Immunity - Immune to acid damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Acid - Roll damage dice equal to the monster Tier and reduce the targets Threshold by +2 per Tier.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Metallic dragons with copper-colored scales and acid breath. They are witty, mischievous, and love riddles, jokes, and intellectual games.",
+        ecology: "Copper dragons inhabit rocky hills and mountain regions, creating complex lairs filled with traps and puzzles. They collect stories and jokes rather than just treasure.",
+        combat: "Copper dragons toy with enemies using tricks and terrain advantages, preferring to confuse and disorient foes before using acid breath and physical attacks."
     },
                 {
         name: "Dragon (Green)",
@@ -639,9 +671,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Poison Immunity - Immune to poison damage and conditions.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Poison - Roll damage dice equal to the monster Tier and add the Poison condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Cunning chromatic dragons with green scales and poison breath. They are master manipulators who prefer intrigue and schemes to direct confrontation.",
+        ecology: "Green dragons inhabit ancient forests, corrupting them with poison and decay. They manipulate local politics and create networks of agents and spies.",
+        combat: "Green dragons prefer psychological warfare and manipulation, using poison breath to weaken enemies before engaging in melee from advantageous positions."
     },   
         {
         name: "Dragon (Gold)",
@@ -655,9 +687,25 @@ const defaultMonsters = [
         attackMod: 9,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Fire - Roll damage dice equal to the monster Tier and add the burning condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Noble metallic dragons with golden scales and fire breath. They are wise, just, and dedicated to protecting the innocent from evil.",
+        ecology: "Gold dragons often live among humanoids in disguise, serving as guardians and advisors. They prefer remote mountain peaks for their true lairs.",
+        combat: "Gold dragons assess threats carefully, using spells and shapechanging to avoid unnecessary violence, but fight with righteous fury when evil must be stopped."
+    },
+        {
+        name: "Dragon (Prismatic)",
+        tier: 5,
+        hp: 22,
+        stress: 11,
+        evasion: 19,
+        thresholdLow: 44,
+        thresholdHigh: 59,
+        damageDice: "4d10",
+        attackMod: 10,
+        features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Prismatic Spray - Roll 1d8 for each target: 1-2 Fire, 3-4 Lightning, 5-6 Poison, 7-8 choose any condition.</li><li>3 Stress: Light Refraction - Become immune to all damage until start of next turn.</li><li>4 Stress: Spectrum Split - Create 3 temporary copies of itself, each immune to different damage types.</li></ul>",
+        image: "monsters/",
+        description: "Legendary dragons whose scales contain all colors of light, capable of manipulating the entire visible spectrum as weapons.",
+        ecology: "Prismatic dragons inhabit crystal caves and rainbow bridges between planes, guarding ancient secrets about the nature of light and magic.",
+        combat: "Prismatic dragons attack with unpredictable light-based effects, using their spectrum control to become nearly invulnerable while creating multiple tactical advantages."
     },
                 {
         name: "Dragon (Red)",
@@ -671,9 +719,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Fire - Roll damage dice equal to the monster Tier and add the burning condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The most arrogant and greedy of chromatic dragons, with red scales and devastating fire breath. They consider themselves the pinnacle of dragonkind.",
+        ecology: "Red dragons claim volcanic mountain ranges as their territory, ruling through fear and demanding tribute from all lesser creatures in their domain.",
+        combat: "Red dragons attack with overwhelming aggression, leading with fire breath before closing for melee. They fight to demonstrate their superiority over all other beings."
     },   
         {
         name: "Dragon (Silver)",
@@ -687,9 +735,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Cold - Roll damage dice equal to the monster Tier and add the Cold condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Benevolent metallic dragons with silver scales and ice breath. They are noble protectors who enjoy helping worthy humanoids and fighting evil.",
+        ecology: "Silver dragons often live near human settlements in mountainous regions, taking humanoid form to walk among people and learn about their lives.",
+        combat: "Silver dragons prefer to test enemies' intentions before engaging fully, using cold breath and aerial tactics while protecting innocent bystanders."
     },
             {
         name: "Dragon Turtle",
@@ -703,9 +751,9 @@ const defaultMonsters = [
         attackMod: 10,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Fire - Roll damage dice equal to the monster Tier and add the burning condition.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive sea creatures combining the features of dragons and giant sea turtles. They have armored shells and can breathe both steam and fire.",
+        ecology: "Dragon turtles inhabit deep ocean waters and coastal regions, occasionally surfacing near tropical islands. They are ancient and wise but generally avoid humanoids.",
+        combat: "Dragon turtles use their aquatic environment strategically, breathing superheated steam and using their massive size to capsize ships and swallow enemies."
     },
                 {
         name: "Dragon (White)",
@@ -719,9 +767,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Breath Cold - Roll damage dice equal to the monster Tier and add the Cold condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Savage chromatic dragons with white scales and freezing breath. They are the most feral and bestial of the chromatic dragons.",
+        ecology: "White dragons inhabit arctic regions and high mountain peaks, creating ice-filled lairs. They are less intelligent than other dragons but extremely aggressive.",
+        combat: "White dragons rely on brute force and ice breath, preferring direct assault over cunning tactics. They use their icy environment to hinder enemy movement."
     },
     {
         name: "Dragon (Young)",
@@ -733,7 +781,26 @@ const defaultMonsters = [
         thresholdHigh: 44,
         damageDice: "5d8",
         attackMod: 8,
-        features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Breath Weapon - Choose fire, cold, acid, lightning or poison - Roll damage dice equal to the monster Tier.</li></ul>"
+        features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Breath Weapon - Choose fire, cold, acid, lightning or poison - Roll damage dice equal to the monster Tier.</li></ul>",
+        description: "Dragons in their adolescent stage, large and dangerous but not yet possessing the full power and wisdom of adult dragons.",
+        ecology: "Young dragons establish their first independent territories, often choosing lairs near trade routes or settlements to begin accumulating their hoards.",
+        combat: "Young dragons fight with the arrogance of dragonkind but lack the experience of adults, relying heavily on breath weapons and physical prowess."
+    },
+        {
+        name: "Dream Leech",
+        tier: 2,
+        hp: 3,
+        stress: 6,
+        evasion: 14,
+        thresholdLow: 9,
+        thresholdHigh: 16,
+        damageDice: "1d6",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Dream Logic - Target must make WIS Save or their next action follows dream logic (GM decides result).</li><li>1 Stress: Sleep Attack - Target makes CON Save or falls unconscious for 1d4 rounds.</li><li>2 Stress: Nightmare Fuel - Sleeping or unconscious targets take 1d8 psychic damage and gain a random condition.</li><li>3 Stress: Reality Blur - For 1 round, all creatures must roll twice and take the worse result.</li></ul>",
+        image: "monsters/",
+        description: "Psychic parasites that exist partially in the dream realm, attacking through sleep and making reality function like nightmare logic.",
+        ecology: "Dream leeches inhabit areas where the boundary between dreams and reality is thin, feeding on the psychic energy of sleeping minds.",
+        combat: "Dream leeches force enemies to fall asleep then attack through nightmares, making reality itself follow the illogical rules of dreams."
     },
                 {
         name: "Drider",
@@ -747,9 +814,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li><li>1 Stress: Web - Send forth a string of stick webbing, Requiring a DEX Save or be encased. A STR check to break free.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Cursed drow transformed into half-spider monstrosities as punishment by their spider goddess. They retain their intelligence but gain arachnid features.",
+        ecology: "Driders are outcasts from drow society, dwelling in the deepest parts of the Underdark. They are bitter and seek revenge against those who wronged them.",
+        combat: "Driders combine drow magic with spider abilities, using webs to trap enemies before attacking with spells and weapons from walls or ceilings."
     }, 
         {
         name: "Drow",
@@ -763,9 +830,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Poison Weapon - Target must make CON Save or be poisoned for 2 rounds.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Dark elves with obsidian skin and white hair who dwell in the Underdark. They are cruel, scheming, and worship the spider goddess Lolth.",
+        ecology: "Drow live in underground cities built around spider-themed temples. Their society is matriarchal and filled with political intrigue and betrayal.",
+        combat: "Drow use poison-coated weapons, magic, and stealth tactics. They prefer to weaken enemies with spells before engaging in melee combat."
     },        
         {
         name: "Dryad",
@@ -779,9 +846,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Teleport to any where within sight and 60ft range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Beautiful fey spirits bound to specific trees, appearing as attractive humanoids with bark-like skin and leaf-green hair.",
+        ecology: "Dryads are guardians of ancient forests, each bonded to a particular tree. They die if their tree is destroyed and protect their groves fiercely.",
+        combat: "Dryads prefer to avoid combat, using charm magic and natural allies. When forced to fight, they use hit-and-run tactics with teleportation."
     },
             {
         name: "Duergar",
@@ -795,9 +862,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Gray dwarves corrupted by mind flayer experiments and diabolic influence. They have ashen skin and can alter their size at will.",
+        ecology: "Duergar inhabit the deep Underdark, building fortress-cities where they craft weapons and armor. Their society is militaristic and based on strict hierarchy.",
+        combat: "Duergar use tactical coordination, growing to giant size when needed and turning invisible to gain advantages in positioning and surprise attacks."
     },
             {
         name: "Dust Devil",
@@ -811,9 +878,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Blinding - Select the target and Cause them to become Blinded. (Until the end of their next turn.)</li><li>2 Stress: Stench - All target's within 20ft must make a CON Save, on a fail take a Stress and roll all Attacks and Checks at Disadvantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Elemental beings of swirling sand and wind that take the form of small tornadoes. They are chaotic and unpredictable in nature.",
+        ecology: "Dust devils form spontaneously in arid regions during windstorms, dissipating when the winds calm. They are drawn to areas of magical disturbance.",
+        combat: "Dust devils use their whirling form to blind enemies with sand and debris while striking with concentrated wind forces."
     },
         {
         name: "Dust Mephit",
@@ -827,9 +894,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Blinding - Select the target and Cause them to become Blinded. (Until the end of their next turn.)</li><li>1 Stress: Death Burst - When the creature is reduced to 0HP they explode and cause 1 Hit to all creatures within Melee range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small elemental creatures made of swirling dust and sand. They have mischievous personalities and enjoy creating minor chaos.",
+        ecology: "Dust mephits inhabit arid regions and areas where earth and air elements meet. They form small communities and serve more powerful elemental beings.",
+        combat: "Dust mephits blind enemies with sand clouds and explode when killed, preferring to harass and confuse rather than engage in direct combat."
     },
                 {
         name: "Efreeti",
@@ -843,9 +910,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Powerful genies of the Elemental Plane of Fire with dark skin and flames wreathing their bodies. They are proud, cruel, and enslaving by nature.",
+        ecology: "Efreet rule the City of Brass on the Elemental Plane of Fire, commanding armies of fire elementals and trading in slave markets across the planes.",
+        combat: "Efreet fight with magical scimitars wreathed in flame, using their size-changing abilities and fire magic to dominate battlefields."
     },  
                 {
         name: "Elemental (Air)",
@@ -859,9 +926,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Living whirlwinds of pure air that can become visible as swirling clouds or remain completely invisible. They speak in whistling wind sounds.",
+        ecology: "Air elementals exist on the Elemental Plane of Air and can be summoned to the material plane. They prefer open skies and hate being confined.",
+        combat: "Air elementals use their speed and invisibility to strike enemies from unexpected angles, creating whirlwinds and using their intangible nature defensively."
     },   
         {
         name: "Elemental (Earth)",
@@ -875,9 +942,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive humanoid forms composed of stone, dirt, and rock. They move with grinding, boulder-like sounds and leave tremors in their wake.",
+        ecology: "Earth elementals inhabit rocky regions and underground areas, occasionally emerging to the surface. They are patient and methodical in their actions.",
+        combat: "Earth elementals use their massive strength to grapple and crush enemies, growing larger to increase their devastating physical attacks."
     },
             {
         name: "Elemental (Fire)",
@@ -891,9 +958,25 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Illumination - Shed bright light 30ft.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Living flames in roughly humanoid shape that dance and flicker with intense heat. They illuminate their surroundings with crackling fire.",
+        ecology: "Fire elementals come from the Elemental Plane of Fire and seek fuel to consume. They are drawn to areas of combustion and magical fire.",
+        combat: "Fire elementals burn everything around them with their fiery aura, growing larger as combat intensifies while igniting flammable materials nearby."
+    },
+        {
+        name: "Elemental (Mana Burn )",
+        tier: 3,
+        hp: 7,
+        stress: 8,
+        evasion: 15,
+        thresholdLow: 17,
+        thresholdHigh: 27,
+        damageDice: "1d10",
+        attackMod: 6,
+        features: "<ul><li>1 Stress: Spell Steal - Absorb a spell being cast and use it next turn at the same level.</li><li>1 Stress: Mana Burn - Target spellcaster loses 1d4 spell slots and takes psychic damage equal to slots lost.</li><li>2 Stress: Anti-Magic Field - Create 30ft area where magic fails completely for 1d4 rounds.</li><li>3 Stress: Magical Overload - All magical items within 60ft explode for 1d6 damage each.</li></ul>",
+        image: "monsters/",
+        description: "Elemental beings that consume magical energy, appearing as swirling voids surrounded by crackling anti-magic fields.",
+        ecology: "Mana burn elementals form spontaneously in areas of intense magical activity, feeding on spell energy and growing stronger from magical conflicts.",
+        combat: "Mana burn elementals target spellcasters specifically, draining their magical abilities while creating dead magic zones that favor mundane combat."
     },   
         {
         name: "Elemental (Water)",
@@ -907,9 +990,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Flowing masses of water in vaguely humanoid form. They can alter their consistency from mist to solid waves of crushing water.",
+        ecology: "Water elementals inhabit oceans, rivers, and large bodies of water. They can be summoned but prefer to remain in their natural aquatic environments.",
+        combat: "Water elementals grapple enemies to drag them underwater while growing in size, using their liquid form to flow around obstacles and defenses."
     },
         {
         name: "Ettercap",
@@ -923,9 +1006,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Web - Send forth a string of stick webbing, Requiring a DEX Save or be encased. A STR check to break free.</li><li>1 Stress: Poison Bite - Target must make CON Save or be poisoned.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Humanoid spider-creatures with long limbs and the ability to spin webs. They have greenish skin and multiple eyes like spiders.",
+        ecology: "Ettercaps live in dark forests where they build elaborate web networks. They often ally with giant spiders and create trap-filled territories.",
+        combat: "Ettercaps use web traps and poison bites, climbing on walls and ceilings to attack from unexpected angles while controlling the battlefield with webbing."
     },        
         {
         name: "Ettin",
@@ -939,9 +1022,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Two-Headed - Advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Two-headed giants with crude intelligence and savage dispositions. Each head has its own personality and they often argue with each other.",
+        ecology: "Ettins inhabit remote hills and forests, living in crude shelters. The two heads often disagree on decisions, making them unpredictable and chaotic.",
+        combat: "Ettins attack with both heads simultaneously using different weapons, their dual nature making them difficult to surprise or mentally influence."
     }, 
         {
         name: "Faerie Dragon",
@@ -955,9 +1038,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Breath Euphoria - Target must make a WIS Save or become charmed for 2 rounds. While charmed, they cannot take aggressive actions and move at half speed.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Tiny, colorful dragons with butterfly-like wings and playful, mischievous personalities. Their scales change color based on age and mood.",
+        ecology: "Faerie dragons inhabit magical forests and fey crossings, playing pranks on travelers and protecting woodland creatures from harm.",
+        combat: "Faerie dragons avoid serious combat, preferring to use charm magic and euphoric breath to pacify enemies rather than cause real harm."
     },
         {
         name: "Fire Snake",
@@ -971,9 +1054,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li><li>1 Stress: Constrict - The target is Restrained unable to move, on this turn and the start of this creature's turn the target will take 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Serpentine creatures made of living flame that slither through hot environments. Their bodies burn constantly with magical fire.",
+        ecology: "Fire snakes inhabit volcanic regions and areas of intense heat, often serving fire elementals or efreet. They nest in lava tubes and hot springs.",
+        combat: "Fire snakes coil around enemies to burn them with their fiery bodies while constricting them, using their heat aura to damage multiple nearby foes."
     },
                 {
         name: "Flame Skull",
@@ -987,9 +1070,25 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead skulls wreathed in green flames, created by powerful spellcasters to guard important locations after death.",
+        ecology: "Flameskull guardians are found in wizard towers, temples, and ancient libraries, eternally bound to protect their assigned areas and knowledge.",
+        combat: "Flameskull rely on fire-based spells and invisibility, using their magical resistance and undead nature to outlast enemies in magical duels."
+    },
+    {
+        name: "Flumph",
+        tier: 1,
+        hp: 3,
+        stress: 4,
+        evasion: 11,
+        thresholdLow: 5,
+        thresholdHigh: 8,
+        damageDice: "1d4",
+        attackMod: 2,
+        features: "<ul><li>1 Stress: Acid Spray - Target all creatures in a 15ft cone, dealing acid damage and reducing Evasion by -2.</li><li>1 Stress: Telepathic Bond - Can communicate with any creature and share emotions/memories.</li><li>2 Stress: Stench - All target's within 10ft must make a CON Save, on a fail take a Stress and roll all Attacks and Checks at Disadvantage.</li></ul>",
+        image: "monsters/",
+        description: "Floating jellyfish-like aberrations with tentacles and acidic spray glands. Uniquely among aberrations, they are good-aligned and seek to help others.",
+        ecology: "Flumphs inhabit the Underdark where they feed on psychic energy from evil thoughts, serving as an early warning system for aberrant threats.",
+        combat: "Flumphs avoid combat when possible, using acid spray defensively while attempting to communicate and find peaceful solutions."
     }, 
         {
         name: "Flying Sword",
@@ -1003,9 +1102,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Enchanted swords that float and fight independently. They retain the craftsmanship of their original form while moving through the air.",
+        ecology: "Flying swords are animated by protective magic in treasure rooms, armories, and wizard sanctums. They patrol designated areas tirelessly.",
+        combat: "Flying swords use their mobility and surprise to strike exposed enemies, darting in for precise attacks before retreating out of retaliation range."
     },
         {
         name: "Formorian",
@@ -1019,9 +1118,25 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Twisted giant-kin with deformed features and evil dispositions. They have warped bodies, asymmetrical limbs, and harbor deep hatred for beauty.",
+        ecology: "Fomorians rule portions of the Feywild through fear and corruption, dwelling in dark fortresses and commanding armies of twisted fey creatures.",
+        combat: "Fomorians rely on brute strength and intimidation, using their size and deformity to terrify enemies before crushing them with massive weapons."
+    },
+        {
+        name: "Froghemoth",
+        tier: 4,
+        hp: 15,
+        stress: 8,
+        evasion: 15,
+        thresholdLow: 32,
+        thresholdHigh: 42,
+        damageDice: "3d8",
+        attackMod: 7,
+        features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (4) - Attack 4 times with tentacles in a single action.</li><li>2 Stress: Lightning Lash - Electrical discharge hits all creatures within 20ft, adding Lightning condition.</li><li>3 Stress: Swallow Multiple - Can swallow up to 3 Medium creatures simultaneously.</li></ul>",
+        image: "monsters/",
+        description: "Colossal frog-like creatures with four powerful tentacles and electrical organs, dwelling in primordial swamps and prehistoric waters.",
+        ecology: "Froghemoths are ancient predators from the dawn of time, inhabiting the deepest swamps where they rule as apex predators over all aquatic life.",
+        combat: "Froghemoths use their tentacles to grab multiple enemies while discharging electricity, attempting to swallow several foes at once."
     },
         {
         name: "Gas Spore",
@@ -1035,9 +1150,9 @@ const defaultMonsters = [
         attackMod: 0,
         features: "<ul><li>1 Stress: Aura Poison - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li><li>1 Stress: Suffocate - By removing the breathing air around the target they cannot breathe.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Sphere-shaped fungi that release toxic spores when disturbed. They resemble beholders but are actually dangerous plant-like organisms.",
+        ecology: "Gas spores grow in deep underground areas, particularly where beholders once lived. They spread through spore clouds and feed on organic decay.",
+        combat: "Gas spores rely on their poisonous aura and suffocating spores, preferring to remain stationary while their toxic emanations weaken and kill enemies."
     },
             {
         name: "Gargoyle",
@@ -1051,9 +1166,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Flyby - Moving quickly the creature can make an Attack without any retaliation and move out of Melee range. (Move out 60ft plus.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Living stone creatures that appear as decorative statues when motionless. They have wings, claws, and grotesque features carved in stone.",
+        ecology: "Gargoyles are created as guardians for temples, towers, and important buildings. They remain motionless for years, watching for intruders.",
+        combat: "Gargoyles use surprise attacks from their statue disguises, then employ hit-and-run tactics with their wings to avoid prolonged melee combat."
     },
         {
         name: "Gelatinous Cube",
@@ -1067,9 +1182,25 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Engulf - Force the target into your own space and apply the Restrained condition.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Nearly transparent cubes of acidic gelatin that digest organic matter. They contain partially dissolved remains of previous victims.",
+        ecology: "Gelatinous cubes serve as dungeon cleaners, slowly moving through corridors to digest debris and corpses. They often contain valuable items from victims.",
+        combat: "Gelatinous cubes engulf enemies to digest them alive while remaining nearly invisible. They rely on their transparency for surprise attacks."
+    },
+        {
+        name: "Gear Swarm (Mechanical)",
+        tier: 1,
+        hp: 3,
+        stress: 4,
+        evasion: 14,
+        thresholdLow: 6,
+        thresholdHigh: 10,
+        damageDice: "1d8",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Disassemble - Target's armor or weapon loses -2 to effectiveness until repaired.</li><li>1 Stress: Gear Storm - All creatures in 15ft area take damage and have movement reduced by half.</li><li>2 Stress: Reconstruct - Combine with destroyed mechanical creatures to restore 1d6 HP.</li><li>2 Stress: Mechanical Maze - Create 20ft area of spinning gears that blocks movement and line of sight.</li></ul>",
+        image: "monsters/",
+        description: "Collections of animated gears, springs, and mechanical parts that move as a coordinated swarm, disassembling anything they touch.",
+        ecology: "Gear swarms form when clockwork devices are destroyed in areas of high magical energy, the parts gaining collective consciousness.",
+        combat: "Gear swarms surround enemies to disassemble their equipment while creating mechanical obstacles and rebuilding themselves from destroyed constructs."
     },
             {
         name: "Ghast",
@@ -1083,9 +1214,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>2 Stress: Stench - All target's within 20ft must make a CON Save, on a fail take a Stress and roll all Attacks and Checks at Disadvantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Powerful undead with rotting flesh and paralyzing claws. They emit a horrific stench that weakens living creatures nearby.",
+        ecology: "Ghasts lead groups of ghouls in graveyards and abandoned areas, spreading undeath and seeking fresh corpses to add to their ranks.",
+        combat: "Ghasts use their nauseating stench to weaken groups of enemies before paralyzing them with claws, coordinating attacks with lesser undead."
     },
                 {
         name: "Ghost",
@@ -1099,9 +1230,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Incorporeal spirits of the dead bound to the material plane by unfinished business or strong emotions. They appear translucent and mournful.",
+        ecology: "Ghosts haunt locations significant to their mortal lives, unable to rest until their earthly concerns are resolved or they are properly laid to rest.",
+        combat: "Ghosts phase in and out of visibility, using fear and life drain to weaken enemies while remaining largely untouchable by physical attacks."
     },       
         {
         name: "Ghoul",
@@ -1115,9 +1246,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Flesh-eating undead with long claws and paralyzing touch. They retain cunning intelligence and an insatiable hunger for living flesh.",
+        ecology: "Ghouls gather in graveyards, crypts, and battlefields, forming pack-like groups led by the strongest among them. They spread by feeding on humanoids.",
+        combat: "Ghouls coordinate pack attacks to overwhelm enemies, using their paralyzing claws to immobilize victims before feeding on helpless prey."
     },   
         {
         name: "Ghast",
@@ -1131,9 +1262,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>2 Stress: Stench - All target's within 20ft must make a CON Save, on a fail take a Stress and roll all Attacks and Checks at Disadvantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Enhanced ghouls with more putrid flesh and nauseating stench. They are stronger and more cunning than common ghouls.",
+        ecology: "Ghasts serve as leaders in undead hierarchies, commanding lesser ghouls and zombies while seeking to expand their territories of corruption.",
+        combat: "Ghasts lead undead assaults with their stench weakening enemy formations, then paralyze key targets while their minions overwhelm the group."
     },
             {
         name: "Giant (Cloud)",
@@ -1147,9 +1278,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Majestic giants who live among the clouds with pale blue skin and silver hair. They are noble but distant, viewing smaller beings as insects.",
+        ecology: "Cloud giants dwell in sky castles floating among the clouds, ruling from above with detached superiority. They rarely involve themselves in earthbound affairs.",
+        combat: "Cloud giants use magic and their aerial advantage, hurling boulders and lightning from their cloud fortresses while remaining out of reach."
     },
                 {
         name: "Giant (Fire)",
@@ -1163,9 +1294,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive giants with red hair and bronze skin who inhabit volcanic regions. They are master smiths and crafters with fiery tempers.",
+        ecology: "Fire giants live in fortresses built within volcanoes, creating legendary weapons and armor. Their society values martial prowess and craftsmanship.",
+        combat: "Fire giants fight with masterwork weapons and their innate fire immunity, growing larger in battle while using their superior equipment and strength."
     },   
         {
         name: "Giant (Frost)",
@@ -1179,9 +1310,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Brutal giants with blue-white skin and frost-covered beards who thrive in arctic environments. They are raiders and warriors by nature.",
+        ecology: "Frost giants inhabit glacial regions and frozen peaks, raiding warmer lands for resources and slaves. They respect only strength and martial prowess.",
+        combat: "Frost giants fight with ice-covered weapons and their massive size, using their cold immunity to fight in harsh conditions that hinder enemies."
     },
             {
         name: "Giant (Hill)",
@@ -1195,9 +1326,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The most primitive and brutish of the giant races, with dim intelligence but enormous strength. They have tan skin and crude features.",
+        ecology: "Hill giants live in tribal groups in hills and mountains, surviving through raiding and scavenging. They keep crude livestock and practice simple crafts.",
+        combat: "Hill giants rely purely on physical strength and size, hurling boulders and wielding massive clubs with brutal effectiveness but little strategy."
     },
                     {
         name: "Giant (Stone)",
@@ -1211,9 +1342,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Reclusive giants with gray skin and exceptional skill in stonework. They prefer solitude and have deep connections to the earth itself.",
+        ecology: "Stone giants inhabit remote mountain peaks and underground caverns, creating elaborate stone sculptures and living in harmony with their rocky environment.",
+        combat: "Stone giants use their knowledge of terrain and stone-throwing prowess, preferring to fight from elevated positions using rocks as projectile weapons."
     },   
         {
         name: "Giant (Storm)",
@@ -1227,9 +1358,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The most powerful and noble of giant-kind, with purple skin and silver hair. They command weather and lightning with divine authority.",
+        ecology: "Storm giants rule from underwater palaces or cloud-top citadels, seeing themselves as protectors of the natural order and judges of mortal affairs.",
+        combat: "Storm giants fight with lightning-wreathed weapons and weather magic, calling down storms and growing to enormous size to match their divine authority."
     },
         {
         name: "Giant Rat",
@@ -1243,25 +1374,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Diseased - Any target that is hit by the Giant rat must make a CON Save of gain the Diseased Condition.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
-    },
-        {
-        name: "Giant Spider",
-        tier: 1,
-        hp: 3,
-        stress: 2,
-        evasion: 12,
-        thresholdLow: 5,
-        thresholdHigh: 8,
-        damageDice: "1d8",
-        attackMod: 5,
-        features: "<ul><li>Poisoned - Any target that is hit by the Giant spider must make a CON Save of gain the Poisoned Condition.</li><li>1 Stress: Web - Send forth a string of stick webbing, Requiring a DEX Save or be encased. A STR check to break free.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
-        image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Oversized rodents with matted fur and glowing red eyes. They carry diseases and are more aggressive than normal rats.",
+        ecology: "Giant rats infest sewers, dungeons, and abandoned buildings, forming large colonies. They spread disease and multiply rapidly in unsanitary conditions.",
+        combat: "Giant rats swarm enemies in large numbers, spreading disease through their bites while using pack tactics to overwhelm larger foes."
     },
         {
         name: "Gnoll",
@@ -1275,9 +1390,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>2 Stress: Aggressive - Add +1 to all Damage dice rolled totals. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Hyena-like humanoids with savage instincts and a taste for carnage. They have muscular builds, mottled fur, and crude weaponry.",
+        ecology: "Gnolls form nomadic war bands that follow demon lords, raiding and destroying settlements while leaving only bones and destruction behind.",
+        combat: "Gnolls fight with frenzied aggression, becoming more dangerous as combat continues. They prefer to overwhelm enemies with savage, unrelenting attacks."
     },
         {
         name: "Goblin",
@@ -1307,9 +1422,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Acid Immunity - Immune to acid damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Berserk - Roll Attack rolls at Advantage. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Hulking constructs made from clay and animated by divine magic. They are slow but incredibly strong and nearly indestructible.",
+        ecology: "Clay golems are created by powerful clerics to guard temples and holy sites. They follow simple commands and cannot be reasoned with or deceived.",
+        combat: "Clay golems advance relentlessly on enemies, becoming more dangerous when damaged as they enter berserk frenzies that increase their combat effectiveness."
     },
             {
         name: "Golem (Flesh)",
@@ -1323,9 +1438,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Berserk - Roll Attack rolls at Advantage. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Grotesque constructs stitched together from corpses and animated by arcane magic. They have patchwork skin and move with lurching gaits.",
+        ecology: "Flesh golems are created by necromancers and mad wizards as servants and guardians. They require constant maintenance to prevent decay.",
+        combat: "Flesh golems shamble toward enemies with relentless determination, becoming increasingly frenzied and dangerous as they take damage in combat."
     },   
         {
         name: "Golem (Iron)",
@@ -1339,9 +1454,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>1 Stress: Breath Poison - Roll damage dice equal to the monster Tier and add the Poison condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive constructs forged from iron and steel, animated by powerful magic. They have humanoid forms but are clearly artificial in nature.",
+        ecology: "Iron golems guard the most important treasures and locations, created by master wizards as ultimate guardians. They are nearly indestructible.",
+        combat: "Iron golems methodically advance on enemies, using their poison breath and incredible durability to outlast opponents in prolonged battles."
     },
             {
         name: "Golem (Stone)",
@@ -1355,9 +1470,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Constructs carved from solid stone and brought to life through divine or arcane magic. They have roughly humanoid shapes with carved features.",
+        ecology: "Stone golems guard temples, tombs, and wizard towers, following simple programmed commands. They remain active for centuries without maintenance.",
+        combat: "Stone golems use their massive stone fists and incredible durability, growing larger when threatened to deliver devastating crushing attacks."
     },
             {
         name: "Gorgon",
@@ -1371,9 +1486,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Charge - If this creature has at least 5ft of movement they can ram an enemy forcing them back 10ft on a failed STR Save.</li><li>2 Stress: Breath Poison - Roll damage dice equal to the monster Tier and add the Poison condition.</li><li>3 Stress: Petrifying Gaze - Force any creature looking at the creature to roll a CON Save or at the end of their next round turn to Stone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Bull-like creatures with metallic hides and the ability to breathe petrifying gas. Despite their name, they are not related to the mythological gorgons.",
+        ecology: "Gorgons inhabit rocky hills and mountain valleys, grazing in herds while defending their territory aggressively from intruders.",
+        combat: "Gorgons charge enemies with their massive bulk, then use their petrifying breath to turn opponents to stone while trampling those who remain."
     },
         {
         name: "Gray Ooze",
@@ -1387,9 +1502,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>Pseudopod - Make a ranged attack out to 10ft.</li><li>Corrode Metal - Each time the creature is hit, any item made of metal will begin to corrode and lose -1 to the Attack Roll (Until it is repaired.).</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Amorphous blobs of gray acidic slime that can corrode metal and organic matter. They move slowly but relentlessly toward potential food.",
+        ecology: "Gray oozes inhabit dungeons and underground areas, slowly consuming organic debris and metal objects. They reproduce by dividing when they grow large enough.",
+        combat: "Gray oozes corrode weapons and armor on contact, slowly wearing down enemies' equipment while engulfing them with pseudopods."
     },   
         {
         name: "Grell",
@@ -1403,9 +1518,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Echolocation - Immune to the Blinded condition.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Floating aberrations with bulbous bodies and ten tentacles ending in sharp barbs. They have no eyes but navigate through echolocation.",
+        ecology: "Grells inhabit deep underground areas and caverns, hunting in small groups. They are intelligent but alien, with incomprehensible motivations.",
+        combat: "Grells float above combat, using their tentacles to grab and paralyze enemies while remaining out of reach of ground-based attackers."
     },   
         {
         name: "Grick",
@@ -1419,9 +1534,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Camouflage - Can blend in with the environment causing Attacks and Perception checks against to be rolled at Disadvantage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Damage Resistance - Take half damage from non-magical weapons.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Worm-like aberrations with rubbery hide and four tentacles surrounding a beak-like mouth. They can blend perfectly with stone surfaces.",
+        ecology: "Gricks inhabit underground areas and cave systems, using their camouflage to ambush prey. They feed on flesh and are drawn to areas with regular traffic.",
+        combat: "Gricks use their natural camouflage for ambush attacks, then rely on their damage resistance and multiple tentacle strikes to wear down enemies."
     },
         {
         name: "Griffon",
@@ -1435,9 +1550,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Aggressive - Add +1 to all Damage dice rolled totals. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Majestic creatures with the body of a lion and the head and wings of an eagle. They are fierce predators with keen intelligence.",
+        ecology: "Griffons nest in high mountain peaks and cliff faces, hunting across wide territories. They mate for life and fiercely protect their young and nests.",
+        combat: "Griffons attack with both claw and beak, using their aerial mobility to dive-bomb enemies before landing to fight with increasing aggression."
     },
             {
         name: "Grimlock",
@@ -1451,9 +1566,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Echolocation - Immune to the Blinded condition.</li><li>Camouflage - Can blend in with the environment causing Attacks and Perception checks against to be rolled at Disadvantage.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Blind humanoids with pale skin and heightened senses who have adapted to life in complete darkness. They navigate by echolocation and touch.",
+        ecology: "Grimlocks inhabit the deepest parts of the Underdark, forming primitive tribal societies. They often serve mind flayers or other aberrant masters.",
+        combat: "Grimlocks fight in coordinated groups using their superior senses in darkness, relying on pack tactics and their ability to hide in rocky terrain."
     },
                 {
         name: "Hag (Green)",
@@ -1467,9 +1582,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Vicious Mockery - Deal psychic damage and target has disadvantage on next attack.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Wicked fey creatures with green skin who delight in corrupting beauty and innocence. They appear as hideous old women with long claws.",
+        ecology: "Green hags inhabit swamps and marshlands, luring travelers to their doom. They make deals with desperate mortals, always ensuring the bargains favor them.",
+        combat: "Green hags use illusion magic and shapeshifting to confuse enemies, preferring psychological warfare and trickery over direct physical confrontation."
     },     
                 {
         name: "Hag (Night)",
@@ -1483,9 +1598,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The most powerful type of hag, with blue-black skin and the ability to invade dreams. They feed on nightmares and fear.",
+        ecology: "Night hags travel between the material plane and plane of dreams, trading in souls and nightmares. They often lead covens of lesser hags.",
+        combat: "Night hags use invisibility and dream magic to torment enemies, draining life force while remaining intangible and difficult to target."
     },
             {
         name: "Hag (Sea)",
@@ -1499,9 +1614,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Aquatic hags with blue-green skin and seaweed-like hair who dwell in coastal waters. They have webbed hands and shark-like teeth.",
+        ecology: "Sea hags inhabit underwater caves and coral reefs, preying on sailors and coastal dwellers. They collect shipwrecks and drowned treasures.",
+        combat: "Sea hags use their frightening appearance and aquatic environment to their advantage, terrifying enemies before attacking with claws and teeth."
     }, 
         {
         name: "Half-Ogre",
@@ -1515,9 +1630,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large humanoids born from the union of ogres and humans. They are stronger than humans but more intelligent than ogres.",
+        ecology: "Half-ogres often serve as mercenaries or bandits, using their strength to intimidate others. They struggle to fit into either human or ogre societies.",
+        combat: "Half-ogres rely on their superior strength and intimidating presence, using fear tactics before engaging in brutal melee combat."
     },   
         {
         name: "Harpy",
@@ -1531,9 +1646,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Flyby - Moving quickly the creature can make an Attack without any retaliation and move out of Melee range. (Move out 60ft plus.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Foul creatures with the torso and head of a woman and the wings and talons of a vulture. They lure victims with enchanting songs.",
+        ecology: "Harpies nest in high cliffs and rocky outcroppings near trade routes, luring travelers to their deaths with magical songs before feeding on them.",
+        combat: "Harpies use their captivating song to charm enemies, then employ hit-and-run tactics with their flight, striking with talons before retreating."
     },  
     {
         name: "Hell Hound",
@@ -1547,9 +1662,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Breath Fire - Roll damage dice equal to the monster Tier and add the burning condition.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fiendish hounds with rust-colored fur and glowing red eyes. They breathe fire and serve devils as hunting companions and guards.",
+        ecology: "Hell hounds inhabit the Nine Hells and are sometimes summoned to guard important locations on the material plane. They hunt in packs.",
+        combat: "Hell hounds coordinate pack attacks with fire breath, using their keen senses to track enemies and overwhelming them with numbers and flames."
     },
                 {
         name: "Helmed Horror",
@@ -1563,9 +1678,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li><li>2 Stress: Spell Reflection - Roll Divine Dice to cause any spell that has targeted the creature to be reflected back on to the Caster.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Magical constructs resembling animated suits of plate armor with distinctive winged helmets. They hover slightly above the ground.",
+        ecology: "Helmed horrors are created by powerful wizards as elite guardians, programmed with specific spells and combat tactics tailored to their purpose.",
+        combat: "Helmed horrors combine martial prowess with magical abilities, using spell resistance and reflection to counter enemy magic while fighting with weapons."
     }, 
     {
         name: "Hippogriff",
@@ -1579,9 +1694,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>Flyby - Moving quickly the creature can make an Attack without any retaliation and move out of Melee range. (Move out 60ft plus.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Creatures with the front half of an eagle and the back half of a horse. They are proud, intelligent, and can be trained as flying mounts.",
+        ecology: "Hippogriffs nest in mountainous regions and open grasslands, flying in small flocks. They can be domesticated by patient handlers who earn their respect.",
+        combat: "Hippogriffs use aerial attacks with diving strikes, preferring to stay airborne and use their superior mobility rather than engaging in ground combat."
     },
         {
         name: "Hobgoblin",
@@ -1590,14 +1705,14 @@ const defaultMonsters = [
         stress: 2,
         evasion: 15,
         thresholdLow: 11,
-        thresholdHigh: 0,
+        thresholdHigh: 20,
         damageDice: "1d8",
         attackMod: 4,
         features: "<ul><li>1 Stress: Armor - can reduce Hits by points equal to Modifier.</li><li>1 Stress: Advanced Tactics - If the Hobgoblin makes a successful Attack, add +1 Hit for all allies within 15ft.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Disciplined goblinoids with reddish-brown skin and military organization. They are larger and more intelligent than goblins, with warrior cultures.",
+        ecology: "Hobgoblins form militaristic societies with strict hierarchies, building fortresses and conducting organized warfare against other races.",
+        combat: "Hobgoblins fight in disciplined formations using superior tactics and equipment, coordinating attacks to give advantages to their allies."
     },
         {
         name: "Homunculus",
@@ -1611,9 +1726,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Poison Bite - the target must make a CON Save of gain the Poisoned condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Tiny artificial beings created by wizards as familiars. They resemble miniature humanoids with bat-like wings and impish features.",
+        ecology: "Homunculi are created to serve their wizard masters, carrying out simple tasks and serving as scouts or messengers. They are loyal but limited in intelligence.",
+        combat: "Homunculi avoid direct combat when possible, using their size and flight to deliver poison attacks before retreating to safety."
     },
         {
         name: "Hook Horror",
@@ -1627,9 +1742,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Echolocation - Immune to the Blinded condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Bipedal creatures with chitinous exoskeletons and large hooks instead of hands. They navigate underground areas through echolocation clicks.",
+        ecology: "Hook horrors inhabit deep underground tunnels and caverns, feeding on minerals and organic matter. They communicate through complex clicking sounds.",
+        combat: "Hook horrors use their natural hooks as weapons, relying on their echolocation to fight effectively in complete darkness where others are blind."
     },
                     {
         name: "Horned Devil",
@@ -1643,9 +1758,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>1 Stress: Charge - If this creature has at least 5ft of movement they can ram an enemy forcing them back 10ft on a failed STR Save.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive devils with bull-like heads, leathery wings, and enormous horns. They serve as elite shock troops in Hell's armies.",
+        ecology: "Horned devils command lesser devils in Hell's military hierarchy, leading charges in infernal wars and serving as enforcers for greater devils.",
+        combat: "Horned devils charge into battle with devastating horn attacks, using their size and intimidating presence to scatter enemy formations."
     },   
         {
         name: "Hydra",
@@ -1659,9 +1774,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Multi-Attack (5) - Attack 5 times in a single action.</li><li>1 Stress: Reactive - If this creature is hit or a creature moves out of it's range they can make an Attack on that creature.</li><li>2 Stress: Regeneration - The creature will gain 1d8 Hit Points at the start of its turn. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive reptilian creatures with multiple snake-like heads that can regenerate when severed. They grow more heads as they age and survive battles.",
+        ecology: "Hydras inhabit swamps and marshlands, claiming large territories around bodies of water. They are ancient predators that grow more dangerous over time.",
+        combat: "Hydras attack with all heads simultaneously, regenerating damage while making opportunity attacks against anyone who approaches or retreats."
     },
         {
         name: "Hyena",
@@ -1675,9 +1790,25 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Bone Crunch - The target of a successful Attack will roll Attack rolls with Disadvantage. (Until they receive healing, or a rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Scavenging predators with powerful jaws capable of crushing bones. They have spotted fur and are known for their distinctive laughing calls.",
+        ecology: "Hyenas roam savannas and scrublands in packs, following larger predators to scavenge their kills. They are opportunistic hunters and very social.",
+        combat: "Hyenas target wounded enemies with bone-crushing bites, using their pack mentality to coordinate attacks and bring down larger prey."
+    },
+        {
+        name: "Incarnate of Wrath",
+        tier: 3,
+        hp: 8,
+        stress: 6,
+        evasion: 15,
+        thresholdLow: 18,
+        thresholdHigh: 28,
+        damageDice: "2d6",
+        attackMod: 6,
+        features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Growing Fury - Each time this creature takes damage, gain +1 to all damage rolls (cumulative).</li><li>2 Stress: Rage Aura - All creatures within 30ft must make WIS Save or attack the nearest creature (friend or foe).</li><li>3 Stress: Explosive Anger - Deal damage equal to accumulated fury bonus to all creatures within 15ft.</li></ul>",
+        image: "monsters/",
+        description: "A living manifestation of pure rage and anger that grows more dangerous as it takes damage, feeding on violence and hatred.",
+        ecology: "Incarnates of Wrath spontaneously form in areas of great conflict and anger, growing stronger from the emotions of battle until they dissipate.",
+        combat: "Incarnates become increasingly dangerous as combat progresses, using their growing fury to spread rage and eventually explode with accumulated anger."
     },
         {
         name: "Incubus",
@@ -1691,9 +1822,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Seductive fiends that appear as attractive humanoids to lure victims. They feed on life energy and corrupt souls through temptation.",
+        ecology: "Incubi infiltrate mortal societies by taking pleasing forms, seeking to corrupt individuals through temptation and drain their life force over time.",
+        combat: "Incubi avoid direct combat, preferring to charm enemies and drain their life while shapeshifting to escape dangerous situations."
     }, 
         {
         name: "Imp",
@@ -1707,9 +1838,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small winged fiends with red skin, horns, and barbed tails. They are cunning spies and messengers who serve more powerful devils.",
+        ecology: "Imps serve as familiars to evil spellcasters and scouts for devil armies. They delight in corrupting mortals and reporting on their activities.",
+        combat: "Imps use invisibility and flight to avoid direct confrontation, preferring to harass enemies with magic and poison before retreating."
     },
         {
         name: "Intellect Devourer",
@@ -1723,9 +1854,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Brain-like creatures with four clawed legs that feed on intelligence and psychic energy. They appear as walking brains with sharp talons.",
+        ecology: "Intellect devourers are created by mind flayers to serve as scouts and hunters, seeking intelligent creatures to drain or possess.",
+        combat: "Intellect devourers use telepathy to confuse and control enemies, preferring to manipulate minds rather than engage in direct physical combat."
     },
         {
         name: "Invisible Stalker",
@@ -1739,9 +1870,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>1 Stress: Surprise Attack - If attacking from stealth, deal extra 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Air elementals bound to serve specific tasks, completely invisible and nearly undetectable. They appear as slight distortions in the air when moving.",
+        ecology: "Invisible stalkers are summoned to track specific targets or guard locations, bound until their task is complete. They resent this servitude.",
+        combat: "Invisible stalkers use their permanent invisibility for devastating surprise attacks, remaining undetected while systematically eliminating targets."
     },
         {
         name: "Kobold",
@@ -1755,9 +1886,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Tricky - The Kobold has the ability to pull something out of nothing. The GM may choose to appropriate action.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small draconic humanoids with reptilian features and a talent for traps and ambushes. They have bronze scales and worship dragons.",
+        ecology: "Kobolds live in underground warrens and mine systems, serving dragons when possible. They create elaborate trap networks to defend their communities.",
+        combat: "Kobolds rely on traps, pack tactics, and cunning ambushes rather than direct confrontation, using their small size and numbers to overwhelm enemies."
     },
             {
         name: "Kraken",
@@ -1771,9 +1902,9 @@ const defaultMonsters = [
         attackMod: 10,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Multi-Attack (4) - Attack 4 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Colossal sea monsters with massive tentacles and ancient intelligence. They are among the most powerful creatures in the ocean depths.",
+        ecology: "Krakens rule vast underwater domains from deep ocean trenches, commanding sea life and occasionally rising to destroy ships and coastal cities.",
+        combat: "Krakens use their massive tentacles to grapple multiple enemies while swallowing the largest threats, creating whirlpools and tidal waves to control the battlefield."
     },
         {
         name: "Kuo-Toa",
@@ -1787,9 +1918,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Slippery - The Creature cannot be Restrained or Grappled.</li><li>1 Stress: Shield Bash - Make an attack with the shield add the Damage to the total, also push the target back 5ft on a failed STR Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fish-like humanoids with bulging eyes and slimy skin. They are mad, religious fanatics who worship aberrant deities they create from their beliefs.",
+        ecology: "Kuo-toa inhabit underground lakes and coastal areas in the Underdark, building shrine-cities to their invented gods. Their madness gives their faith power.",
+        combat: "Kuo-toa fight with nets, shields, and spears, using their slippery skin to escape grapples while coordinating attacks in shallow water."
     },
         {
         name: "Lamia",
@@ -1803,9 +1934,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Creatures with the upper body of a woman and the lower body of a lion. They are manipulative predators who enjoy corrupting mortals.",
+        ecology: "Lamias inhabit desert ruins and ancient temples, ruling over cults of devoted followers who serve their twisted desires for power and revenge.",
+        combat: "Lamias use charm magic to turn enemies against each other, then attack with claws and weapons while their charmed victims provide support."
     },
             {
         name: "Lich",
@@ -1819,9 +1950,41 @@ const defaultMonsters = [
         attackMod: 9,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Level Drain - Remove 1 Level from the target. (Returned after a Greater Restoration.)</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead wizards who achieved immortality through dark magic, becoming skeletal figures in tattered robes with glowing eyes.",
+        ecology: "Liches inhabit towers, dungeons, and laboratories where they pursue arcane knowledge for eternity, served by undead minions and magical guardians.",
+        combat: "Liches rely primarily on devastating magic spells, using their centuries of experience and vast spell knowledge to overwhelm enemies from range."
+    },
+        {
+        name: "Living Dungeon",
+        tier: 5,
+        hp: 24,
+        stress: 10,
+        evasion: 16,
+        thresholdLow: 48,
+        thresholdHigh: 63,
+        damageDice: "4d8",
+        attackMod: 8,
+        features: "<ul><li>1 Stress: Shifting Walls - Rearrange the battlefield, creating or removing cover and changing terrain.</li><li>2 Stress: Floor Trap - Any creature touching the ground takes 2d6 damage and must make DEX Save or fall prone.</li><li>3 Stress: Room Compression - Reduce available space by half, forcing creatures together and limiting movement.</li><li>4 Stress: Dungeon Spawn - Summon 1d4 creatures of Tier 2 or lower from absorbed victims.</li></ul>",
+        image: "monsters/",
+        description: "An entire structure that has gained malevolent consciousness, with walls, floors, and ceilings that move to trap and crush intruders.",
+        ecology: "Living dungeons are ancient constructs or cursed buildings that absorbed the life force of countless victims, gaining sentience and hunger.",
+        combat: "Living dungeons control the entire battlefield environment, using architecture itself as weapons while spawning creatures from absorbed souls."
+    },
+        {
+        name: "Living Wall",
+        tier: 3,
+        hp: 10,
+        stress: 5,
+        evasion: 12,
+        thresholdLow: 22,
+        thresholdHigh: 32,
+        damageDice: "2d8",
+        attackMod: 5,
+        features: "<ul><li>1 Stress: Absorption - Any creature touching the wall must make STR Save or be pulled in and Restrained.</li><li>1 Stress: Multi-Attack (3) - Attack with faces/limbs of absorbed creatures.</li><li>2 Stress: Borrowed Abilities - Use any ability from a currently absorbed creature.</li><li>3 Stress: Mass Release - Expel all absorbed creatures in random directions, each takes 2d6 damage.</li></ul>",
+        image: "monsters/",
+        description: "A grotesque wall made of fused living creatures with reaching arms and faces that constantly try to pull new victims into its mass.",
+        ecology: "Living walls form in dungeons and prisons where many died in despair, their bodies and souls fusing into a collective consciousness.",
+        combat: "Living walls attempt to absorb enemies into their mass, then use the abilities of absorbed creatures while growing stronger with each victim."
     },
         {
         name: "Lizardfolk",
@@ -1835,9 +1998,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>Hold Breath - The creature can indefinitely hold their breath. If they take 2 or more Hits they must take a breath.</li><li>1 Stress: Shield Bash - Make an attack with the shield add the Damage to the total, also push the target back 5ft on a failed STR Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Reptilian humanoids with scaly skin and primitive culture. They are practical, territorial, and view other races primarily as potential food or threats.",
+        ecology: "Lizardfolk inhabit swamps and coastal wetlands, building tribal communities on stilts or floating platforms. They are expert fishers and hunters.",
+        combat: "Lizardfolk fight with simple weapons and shields, using their aquatic advantages and shield techniques to control enemy positioning."
     },
             {
         name: "Manticore",
@@ -1851,9 +2014,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Pounce - Can jump onto the a target requiring a STR Save or be knocked prone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Monstrous creatures with a lion's body, human head, and bat wings. They have rows of sharp teeth and can shoot spikes from their tails.",
+        ecology: "Manticores inhabit rocky badlands and desolate mountains, hunting from elevated perches. They are solitary but intelligent predators.",
+        combat: "Manticores attack with claws, bite, and tail spikes simultaneously, pouncing from above to knock enemies prone before unleashing multiple attacks."
     },
         {
         name: "Medusa",
@@ -1867,9 +2030,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>3 Stress: Petrifying Gaze - Force any creature looking at the creature to roll a CON Save or at the end of their next round turn to Stone.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Cursed beings with snake hair and a gaze that turns living creatures to stone. They were once beautiful but are now hideously transformed.",
+        ecology: "Medusas live in isolation in remote lairs, surrounded by the stone statues of their victims. They are bitter and seek revenge against those who wronged them.",
+        combat: "Medusas use their petrifying gaze as their primary weapon, attempting to turn enemies to stone while fighting with weapons and snake-hair bites."
     },
         {
         name: "Merfolk",
@@ -1883,9 +2046,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Aquatic humanoids with fish tails instead of legs. They have peaceful societies and beautiful singing voices that can enchant listeners.",
+        ecology: "Merfolk live in underwater cities built from coral and pearls, maintaining peaceful relationships with sea life. They rarely interact with surface dwellers.",
+        combat: "Merfolk prefer to avoid combat, but when threatened they fight with tridents and nets, using their aquatic mobility to outmaneuver land-based enemies."
     },
         {
         name: "Merrow",
@@ -1899,9 +2062,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Aquatic ogres with webbed hands and feet, adapted for underwater life. They are the savage, corrupted cousins of peaceful merfolk.",
+        ecology: "Merrow inhabit coastal waters and underwater caves, raiding fishing vessels and coastal settlements. They form primitive tribes led by the strongest warriors.",
+        combat: "Merrow use their aquatic advantages and superior strength to drag enemies underwater, where they can fight without hindrance while enemies struggle."
     },
         {
         name: "Mimic",
@@ -1915,9 +2078,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>Pseudopod - Make a ranged attack out to 10ft.</li><li>1 Stress: Adhere - Any target within Melee range must make a STR Save to resist the Grappled condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Shapeshifting predators that disguise themselves as mundane objects, particularly treasure chests and furniture. They have acidic adhesive surfaces.",
+        ecology: "Mimics inhabit dungeons and ruins where they can blend in as furniture or treasure. They are patient hunters that can wait years for the perfect victim.",
+        combat: "Mimics rely on perfect ambushes, using their false appearance to get close before grappling enemies with adhesive pseudopods and crushing them."
     },
         {
         name: "Mind Flayer",
@@ -1931,9 +2094,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li><li>3 Stress: Level Drain - Remove 1 Level from the target. (Returned after a Greater Restoration.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Aberrant humanoids with octopus-like heads and powerful psychic abilities. They consider themselves superior to all other life forms.",
+        ecology: "Mind flayers live in underground cities in the Underdark, ruling over slave colonies and conducting experiments on other intelligent beings.",
+        combat: "Mind flayers use telepathic attacks and mind control to dominate enemies, preferring to turn foes against each other while staying protected."
     },
             {
         name: "Minotaur",
@@ -1947,9 +2110,41 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Charge - If this creature moves at least 10ft, deal extra 1d8 damage and target must make STR Save or be knocked prone.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large humanoids with bull heads and powerful builds. They are savage but intelligent, with an innate knowledge of labyrinthine passages.",
+        ecology: "Minotaurs inhabit maze-like ruins and underground complexes, often guarding important locations or treasures. They have perfect memory of their territory.",
+        combat: "Minotaurs use charging attacks with their horns to knock enemies prone, then follow up with powerful weapon strikes using their superior strength."
+    },
+        {
+        name: "Mirror Wraith",
+        tier: 3,
+        hp: 7,
+        stress: 6,
+        evasion: 16,
+        thresholdLow: 17,
+        thresholdHigh: 27,
+        damageDice: "2d6",
+        attackMod: 6,
+        features: "<ul><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Attack Reflection - Any attack that hits this creature also hits the attacker for half damage.</li><li>2 Stress: Mirror Image - Create 1d4 illusory duplicates that must be destroyed separately.</li><li>3 Stress: Soul Mirror - Force target to attack themselves with their own weapon and modifier.</li></ul>",
+        image: "monsters/",
+        description: "Undead spirits bound to reflective surfaces that can turn attacks back on their enemies and create confusing mirror duplicates.",
+        ecology: "Mirror wraiths form in places where people died while looking at their reflection, binding their souls to mirrors, windows, and reflective water.",
+        combat: "Mirror wraiths create tactical confusion with duplicates while reflecting damage back to attackers, forcing enemies to harm themselves."
+    },
+        {
+        name: "Modron (Mechanical)",
+        tier: 2,
+        hp: 5,
+        stress: 2,
+        evasion: 14,
+        thresholdLow: 12,
+        thresholdHigh: 22,
+        damageDice: "1d8",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Axiomatic Strike - If attack roll is exactly the target's Evasion, deal double damage.</li><li>1 Stress: Perfect Formation - All allies within 30ft gain +1 to Attack rolls and Evasion.</li><li>2 Stress: Dimensional Anchor - Prevent all teleportation and planar travel within 60ft.</li></ul>",
+        image: "monsters/",
+        description: "Mechanical beings of pure law with geometric forms who follow absolute order and speak only in mathematical precision.",
+        ecology: "Modrons inhabit the plane of Mechanus, emerging on great marches to collect information and correct perceived imbalances in cosmic order.",
+        combat: "Modrons fight in perfect formation with calculated precision, using mathematical strategies and order-based magic to impose structure on chaos."
     },
         {
         name: "Mummy",
@@ -1963,9 +2158,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Level Drain - Remove 1 Level from the target. (Returned after a Greater Restoration.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Preserved corpses wrapped in burial linens and animated by ancient curses. They move with jerky, unnatural gaits and emanate dread.",
+        ecology: "Mummies guard ancient tombs and burial sites, awakening when their rest is disturbed. They are bound to protect treasures and sacred areas for eternity.",
+        combat: "Mummies inspire fear in living creatures while draining their life force through cursed touch, using their undead resilience to outlast enemies."
     },  
         {
         name: "Myconid",
@@ -1979,9 +2174,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Breath Euphoria - Target must make a WIS Save or become charmed for 2 rounds. While charmed, they cannot take aggressive actions and move at half speed.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Peaceful mushroom-folk with humanoid shapes made of fungal matter. They communicate through spore releases and telepathic networks.",
+        ecology: "Myconids inhabit underground fungal forests, living in communal societies. They decompose organic matter and maintain the balance of their ecosystem.",
+        combat: "Myconids prefer to pacify enemies with euphoric spores rather than kill them, using their calming effects to end conflicts peacefully when possible."
     },
                    {
         name: "Naga (Bone)",
@@ -1995,9 +2190,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Poison Bite - Target must make CON Save or take ongoing poison damage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead serpentine creatures with skeletal features and necrotic magic. They are the corrupted remains of guardian nagas.",
+        ecology: "Bone nagas are created when guardian nagas fail in their duties and become corrupted by dark magic. They haunt the ruins they once protected.",
+        combat: "Bone nagas combine necromantic spells with poisonous bites, using their undead nature to resist many attacks while spreading decay and death."
     },
         {
         name: "Naga (Guardian)",
@@ -2011,9 +2206,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Poison Bite - Target must make CON Save or take ongoing poison damage.</li><li>2 Stress: Spell Reflection - Roll Divine Dice to cause any spell that has targeted the creature to be reflected back on to the Caster.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Noble serpentine beings with humanoid torsos and powerful magic. They are wise, ancient guardians of sacred places and artifacts.",
+        ecology: "Guardian nagas are appointed by gods to protect important temples, artifacts, and places of power. They are patient, wise, and dedicated to their duties.",
+        combat: "Guardian nagas use defensive magic and spell reflection while delivering poisonous bites, preferring to disable rather than kill unless absolutely necessary."
     },
         {
         name: "Naga (Spirit)",
@@ -2027,9 +2222,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Ethereal serpentine beings that exist partially in the spirit world. They appear translucent and glow with inner light.",
+        ecology: "Spirit nagas are bound to guard specific locations or treasures, existing in a state between life and death. They are patient but can become corrupted over time.",
+        combat: "Spirit nagas use invisibility and charm magic to confuse enemies, phasing in and out of visibility while casting spells from unexpected angles."
     },
                 {
         name: "Nalfeshnee",
@@ -2043,9 +2238,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>2 Stress: Teleport to any where within sight and 60ft range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive demons with boar-like heads, wings, and corpulent bodies. They are among the judges and magistrates of the Abyss.",
+        ecology: "Nalfeshnee serve as judges in the chaotic courts of the Abyss, determining the fate of captured souls and lesser demons. They are cunning and manipulative.",
+        combat: "Nalfeshnee use their terrifying presence and teleportation to control battlefields, appearing where least expected to deliver devastating attacks."
     },
         {
         name: "Needle Blight",
@@ -2059,9 +2254,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Armor - can reduce Hits by points equal to Modifier.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Animated coniferous trees with needle-covered branches that can launch sharp projectiles. They appear as normal pine trees until they attack.",
+        ecology: "Needle blights are created by dark druids or fey magic to guard forest groves. They work together to form defensive perimeters around sacred areas.",
+        combat: "Needle blights use their tree appearance for ambushes, then coordinate volley attacks with other blights, launching volleys of sharp needles."
     },
             {
         name: "Nightmare",
@@ -2075,9 +2270,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fiendish horses with flaming manes and the ability to travel between planes. They serve as mounts for powerful evil beings.",
+        ecology: "Nightmares inhabit the Lower Planes and are summoned to serve devils, demons, and evil creatures as mounts and companions.",
+        combat: "Nightmares use teleportation for hit-and-run attacks, burning enemies with their fiery aura while their riders deliver devastating charges."
     }, 
         {
         name: "Nothic",
@@ -2091,9 +2286,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Cursed humanoids transformed by exposure to forbidden knowledge. They have one large central eye and hunched, emaciated forms.",
+        ecology: "Nothics inhabit ruins and underground areas, particularly ancient libraries and wizard towers. They are obsessed with secrets and hidden knowledge.",
+        combat: "Nothics use their telepathic abilities to read enemy thoughts and extract secrets, preferring to manipulate information rather than engage in direct combat."
     },
         {
         name: "Ochre Jelly",
@@ -2107,9 +2302,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Pseudopod - Make a ranged attack out to 10ft.</li><li>1 Stress: Split - If the target has been attacked with a bladed weapon the creature can cause itself to split into 2 separate creatures.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Yellow-brown oozes that can climb walls and split when damaged by slashing weapons. They digest organic matter but ignore metal and stone.",
+        ecology: "Ochre jellies inhabit underground areas and ruins, flowing through cracks and crevices to find organic matter to consume.",
+        combat: "Ochre jellies use their climbing ability to attack from unexpected angles, splitting into multiple threats when cut with bladed weapons."
     },
         {
         name: "Ogre",
@@ -2123,9 +2318,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Multi-Attack (2) - Attack 2 times in a single action hitting all adjacent targets.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large, brutish humanoids with dim intelligence but enormous strength. They have crude features, warty skin, and primitive behavior.",
+        ecology: "Ogres inhabit caves, ruins, and crude shelters, surviving through hunting and raiding. They sometimes serve as muscle for more intelligent creatures.",
+        combat: "Ogres rely on overwhelming physical strength, wielding massive clubs to crush multiple enemies with wide, sweeping attacks."
     },
         {
         name: "Oni",
@@ -2139,9 +2334,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fiendish giants with blue or green skin, horns, and tusks. They delight in disguising themselves to infiltrate humanoid communities.",
+        ecology: "Oni prefer to live among humans in disguise, using their shapeshifting to hide their true nature while pursuing schemes of corruption and domination.",
+        combat: "Oni use magic and shapeshifting for deception, preferring to manipulate enemies before revealing their true form for devastating melee attacks."
     },
         {
         name: "Orc",
@@ -2155,9 +2350,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>2 Stress: Aggressive - Add +1 to all Damage dice rolled totals. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Savage humanoids with gray-green skin, prominent fangs, and aggressive dispositions. They value strength above all else and live for battle.",
+        ecology: "Orcs form warlike tribes that raid civilized areas for resources and slaves. Their society is based on strength and dominated by the strongest warriors.",
+        combat: "Orcs fight with brutal aggression, becoming more dangerous as combat continues. They prefer direct assault and overwhelming force over tactics."
     },
         {
         name: "Owlbear",
@@ -2171,9 +2366,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Brute - Add +1 Damage die to the total damage roll.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fearsome creatures combining the body of a bear with the head and foreclaws of an owl. They are territorial predators with keen senses.",
+        ecology: "Owlbears inhabit forests and wilderness areas, nesting in caves or dense undergrowth. They are fiercely protective of their territory and young.",
+        combat: "Owlbears attack with both claws and beak simultaneously, using their keen senses to detect hidden enemies and their brute strength to overwhelm prey."
     }, 
         {
         name: "Pegasus",
@@ -2187,25 +2382,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Charge - If this creature has at least 5ft of movement they can ram an enemy forcing them back 10ft on a failed STR Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
-    },
-        {
-        name: "Phase Spider",
-        tier: 2,
-        hp: 4,
-        stress: 4,
-        evasion: 14,
-        thresholdLow: 10,
-        thresholdHigh: 18,
-        damageDice: "1d8",
-        attackMod: 4,
-        features: "<ul><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>1 Stress: Poison Bite - Target must make CON Save or be poisoned and paralyzed.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
-        image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Winged horses with pure white coats and noble bearing. They are celestial creatures associated with good and purity.",
+        ecology: "Pegasi inhabit high mountain meadows and clouds, serving good-aligned deities and occasionally bonding with pure-hearted mortals as mounts.",
+        combat: "Pegasi prefer to avoid combat but will fight to protect the innocent, using diving attacks and their hooves in righteous fury when necessary."
     },
             {
         name: "Pit Fiend",
@@ -2219,9 +2398,9 @@ const defaultMonsters = [
         attackMod: 10,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "The greatest of devils, with massive wings, horns, and the ability to command lesser fiends. They are cunning generals in Hell's armies.",
+        ecology: "Pit fiends rule layers of Hell and command vast diabolic legions. They are master strategists who plot across millennia to expand Hell's influence.",
+        combat: "Pit fiends combine devastating physical attacks with powerful magic, using their fear aura and ancient spells to dominate entire battlefields."
     }, 
     {
         name: "Pixie",
@@ -2235,9 +2414,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Tiny fey creatures with butterfly wings and mischievous personalities. They glow with inner light and delight in playing pranks.",
+        ecology: "Pixies inhabit magical forests and fey crossings, living in small communities within flowers or mushroom rings. They are guardians of natural beauty.",
+        combat: "Pixies avoid direct combat, preferring to use illusion magic and confusion spells to bewilder enemies rather than cause serious harm."
     },
     {
         name: "Pseudodragon",
@@ -2251,9 +2430,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Tiny dragons with cat-like intelligence and the ability to form telepathic bonds with humanoids. They have iridescent scales and insect-like wings.",
+        ecology: "Pseudodragons inhabit forests and sometimes serve as familiars to good-aligned spellcasters. They are curious and helpful to those they trust.",
+        combat: "Pseudodragons use their poisonous sting to paralyze threats, preferring to hide and use their magic resistance rather than engage in direct combat."
     },
                     {
         name: "Purple Worm",
@@ -2267,9 +2446,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Colossal purple worms that burrow through earth and stone with ease. They have circular mouths filled with rows of sharp teeth.",
+        ecology: "Purple worms inhabit deep underground areas, creating vast tunnel networks. They are apex predators that feed on anything they encounter.",
+        combat: "Purple worms burst from underground to surprise enemies, attempting to swallow the largest threats whole while using their massive size to crush others."
     },
         {
         name: "Quasit",
@@ -2283,9 +2462,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small bat-winged demons with poisonous claws and shapeshifting abilities. They serve as familiars and spies for evil spellcasters.",
+        ecology: "Quasits inhabit the Abyss and are summoned to serve demon lords or evil wizards. They delight in corrupting mortals and spreading chaos.",
+        combat: "Quasit use invisibility and fear to harass enemies, preferring to avoid direct combat while using their magic resistance to survive spells."
     },
         {
         name: "Rakshasa",
@@ -2299,9 +2478,25 @@ const defaultMonsters = [
         attackMod: 9,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fiendish spirits that appear as humanoids with tiger heads and backward hands. They are master manipulators who enjoy corrupting civilization.",
+        ecology: "Rakshasas infiltrate mortal societies through shapechanging and illusion, building cults and criminal organizations while pursuing power and luxury.",
+        combat: "Rakshasas use illusion magic and charm effects to turn enemies against each other, avoiding direct combat while their magic resistance protects them."
+    },
+        {
+        name: "Rast",
+        tier: 2,
+        hp: 4,
+        stress: 4,
+        evasion: 13,
+        thresholdLow: 10,
+        thresholdHigh: 18,
+        damageDice: "1d8",
+        attackMod: 4,
+        features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Energy Drain - Magical items lose 1 charge/use, spellcasters lose 1 spell slot.</li><li>1 Stress: Electrical Discharge - Deal lightning damage to all creatures within 10ft.</li><li>2 Stress: Magic Disruption - Cancel any spell being cast within 30ft.</li></ul>",
+        image: "monsters/",
+        description: "Desert predators that feed on electrical and magical energy, appearing as four-legged creatures with metallic spines and energy-absorbing organs.",
+        ecology: "Rasts inhabit arid regions where they hunt by sensing magical auras, often drawn to settlements with magical items or spellcasters.",
+        combat: "Rasts target spellcasters and magic users first, draining their magical energy while using electrical attacks to disable groups of enemies."
     },
                 {
         name: "Remorhaz",
@@ -2315,9 +2510,25 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Massive insectoid creatures that generate intense heat along their backs. They tunnel through ice and snow despite their fiery nature.",
+        ecology: "Remorhaz inhabit arctic regions, creating networks of tunnels beneath glaciers. Their internal heat allows them to survive in frozen wastelands.",
+        combat: "Remorhaz burrow through ice to surprise enemies, using their burning carapace to damage melee attackers while attempting to swallow large threats."
+    },
+        {
+        name: "Resonance Beast",
+        tier: 2,
+        hp: 5,
+        stress: 5,
+        evasion: 13,
+        thresholdLow: 11,
+        thresholdHigh: 20,
+        damageDice: "1d8",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Sonic Blast - All creatures in 30ft cone must make CON Save or be Deafened and take sonic damage.</li><li>2 Stress: Harmonic Disruption - Destroy 1 non-magical item per target within 20ft (armor, weapons, etc).</li><li>2 Stress: Resonant Frequency - Deal double damage to creatures wearing metal armor or carrying metal weapons.</li></ul>",
+        image: "monsters/",
+        description: "Crystalline creatures that produce destructive sound frequencies capable of shattering stone and disrupting magical harmonics.",
+        ecology: "Resonance beasts form in areas of intense magical resonance, particularly around crystal formations and ancient tuning chambers.",
+        combat: "Resonance beasts use sound as their primary weapon, targeting equipment and using harmonic frequencies to devastate armored enemies."
     },
             {
         name: "Revenant",
@@ -2331,9 +2542,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Revenge - If an ally is reduced to 0HP, this creature can make an attack on that Attacker if they are within Range.</li><li>2 Stress: Regeneration - The creature will gain 1d4 Hit Points at the start of its turn. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead beings returned from death to pursue vengeance against their killers. They retain their mortal appearance but with an undead pallor.",
+        ecology: "Revenants are created by unfinished business or desires for revenge, relentlessly pursuing their targets until their mission is complete.",
+        combat: "Revenants fight with single-minded determination, regenerating damage and becoming more dangerous when their allies are harmed."
     },
                         {
         name: "Roc",
@@ -2347,9 +2558,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Gargantuan birds of prey with wingspans that can block out the sun. They are intelligent and capable of lifting elephants in their talons.",
+        ecology: "Rocs nest on the highest mountain peaks and floating islands, ruling vast territories from above. They hunt large game across enormous ranges.",
+        combat: "Rocs use their incredible size and flight to grab large enemies, carrying them aloft before dropping them or crushing them in their massive talons."
     },
         {
         name: "Roper",
@@ -2363,9 +2574,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Multi-Attack (4) - Attack 4 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>1 Stress: Constrict - The target is Restrained unable to move, on this turn and the start of this creature's turn the target will take 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Aberrant creatures that resemble rock formations with a central mouth and multiple grasping tendrils. They are patient ambush predators.",
+        ecology: "Ropers inhabit caverns and underground areas, disguising themselves as stalagmites or rock columns until prey comes within reach.",
+        combat: "Ropers use their perfect camouflage for ambushes, then grab multiple enemies with their tendrils while remaining anchored to attack from range."
     }, 
         {
         name: "Rug of Smothering",
@@ -2379,9 +2590,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Enchanted carpets that animate to smother and suffocate intruders. They appear as valuable rugs until they spring to life.",
+        ecology: "Rugs of smothering are created as guardians for treasure rooms and private chambers, lying dormant until stepped on by unauthorized individuals.",
+        combat: "Rugs of smothering wrap around enemies to suffocate them, using their fabric nature to grapple and restrain victims while cutting off their air supply."
     },
         {
         name: "Rust Monster",
@@ -2395,9 +2606,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Corrode Metal - Each time the creature is hit, any item made of metal will begin to corrode and lose -1 to the Attack Roll (Until it is repaired.).</li><li>1 Stress: Reactive - If this creature is hit or a creature moves out of it's range they can make an Attack on that creature.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Armadillo-like creatures with antennae that can instantly rust and destroy metal objects. They feed on metal oxides and corrosion.",
+        ecology: "Rust monsters inhabit underground areas where they can find metal to consume, particularly old battlefields, ruins, and abandoned mines.",
+        combat: "Rust monsters target heavily armored enemies, using their metal-corroding abilities to destroy equipment while making reactive attacks against retreating foes."
     }, 
             {
         name: "Salamander",
@@ -2411,9 +2622,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Aura Fire - Any enemy creature in 10ft Range at the start of their turn also takes +5 per monster Tier damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Serpentine creatures from the Elemental Plane of Fire with humanoid torsos and snake-like lower bodies wreathed in flames.",
+        ecology: "Salamanders inhabit volcanic regions and serve as guards for efreet nobility. They are skilled metalworkers who forge weapons in lava.",
+        combat: "Salamanders fight with heated weapons while their fiery aura burns nearby enemies, using their serpentine mobility to strike from multiple angles."
     }, 
         {
         name: "Satyr",
@@ -2427,9 +2638,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charge - If this creature has at least 5ft of movement they can ram an enemy forcing them back 10ft on a failed STR Save.</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Fey creatures with goat legs, horns, and a love of music and revelry. They are charismatic and hedonistic, living for pleasure and entertainment.",
+        ecology: "Satyrs inhabit magical forests and fey groves, hosting eternal parties and celebrations. They protect natural areas while pursuing artistic endeavors.",
+        combat: "Satyrs prefer to charm and confuse enemies with magic and music, using their ram charges only when their peaceful approaches fail."
     },
         {
         name: "Scarecrow",
@@ -2443,9 +2654,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Animated farm constructs made of straw, cloth, and sticks. They are created to frighten away crows but can terrorize larger threats.",
+        ecology: "Scarecrows are found in farmlands and rural areas, animated by fey magic or curses to protect crops from more than just birds.",
+        combat: "Scarecrows use their frightening appearance and false nature to terrify enemies, relying on fear and surprise rather than physical strength."
     },
         {
         name: "Shadow",
@@ -2459,9 +2670,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead spirits that appear as dark, humanoid silhouettes. They drain life force from living creatures and hide in areas of darkness.",
+        ecology: "Shadows inhabit ruins, tombs, and areas touched by necromantic magic. They are drawn to places where death and despair linger.",
+        combat: "Shadows use darkness and invisibility to drain life from enemies, preferring to attack from concealment and retreat when faced with strong opposition."
     },
         {
         name: "Shadow Demon",
@@ -2475,9 +2686,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Incorporeal demons that exist as living shadows with malevolent intelligence. They appear as dark silhouettes with glowing eyes.",
+        ecology: "Shadow demons inhabit the Abyss and areas of deep shadow on the material plane, serving more powerful demons as spies and assassins.",
+        combat: "Shadow demons use teleportation and invisibility for hit-and-run attacks, striking from shadows before retreating to plan their next assault."
     },        
         {
         name: "Shambling Mound",
@@ -2491,9 +2702,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Engulf - Force the target into your own space and apply the Restrained condition.</li><li>2 Stress: Regeneration - The creature will gain 1d4 Hit Points at the start of its turn. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large masses of rotting vegetation animated by swamp magic. They appear as walking compost heaps with glowing eyes and grasping vines.",
+        ecology: "Shambling mounds inhabit swamps and marshlands, slowly moving through their territory while absorbing organic matter and growing larger.",
+        combat: "Shambling mounds engulf enemies in their mass of vegetation, regenerating damage while slowly digesting captured victims within their bodies."
     },  
         {
         name: "Skeleton",
@@ -2507,9 +2718,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Armor - can reduce Hits by points equal to Modifier.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Animated bones held together by necromantic magic. They retain the basic shape of their former selves but lack flesh and organs.",
+        ecology: "Skeletons are created by necromancers as tireless servants and guards. They follow simple commands and can remain active indefinitely without rest.",
+        combat: "Skeletons fight with whatever weapons they possessed in life, using their undead nature and armor to absorb damage while delivering consistent attacks."
     },
         {
         name: "Slaad",
@@ -2523,9 +2734,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Regeneration - The creature will gain 1d6 Hit Points at the start of its turn. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Chaotic frog-like creatures from Limbo with the ability to infect others with their spawn. They embody pure chaos and change.",
+        ecology: "Slaadi inhabit the plane of Limbo and are summoned to spread chaos on other planes. They reproduce by implanting eggs in living hosts.",
+        combat: "Slaadi fight unpredictably, changing tactics and even form during combat while regenerating damage through their chaotic nature."
     }, 
         {
         name: "Smoke Mephit",
@@ -2539,9 +2750,9 @@ const defaultMonsters = [
         attackMod: 2,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Death Burst - When the creature is reduced to 0HP they explode and cause 1 Hit to all creatures within Melee range.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small elemental creatures made of smoke and vapor with mischievous personalities. They enjoy creating confusion and minor chaos.",
+        ecology: "Smoke mephits inhabit areas where fire and air elements meet, often serving fire elementals or dwelling near volcanic activity.",
+        combat: "Smoke mephits harass enemies with smoke clouds and explode when destroyed, preferring to obscure vision rather than deal direct damage."
     },
             {
         name: "Spectator",
@@ -2555,9 +2766,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Multi-Attack (4) - Attack 4 times in a single action.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Spell Reflection - Roll Divine Dice to cause any spell that has targeted the creature to be reflected back on to the Caster.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Lesser beholder-kin with four eyestalks and a single central eye. They are summoned as guardians and are less paranoid than true beholders.",
+        ecology: "Spectators are summoned to guard specific objects or locations for set periods, after which they return to their home plane. They follow orders literally.",
+        combat: "Spectators use their multiple eye rays to control and manipulate enemies, reflecting spells back at casters while maintaining their guard duties."
     },
         {
         name: "Specter",
@@ -2571,9 +2782,57 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Incorporeal undead spirits filled with hate and malice. They appear as translucent, twisted versions of their former living selves.",
+        ecology: "Specters are created from those who died in terrible anguish or evil acts. They haunt battlefields, execution sites, and places of great suffering.",
+        combat: "Specters phase in and out of visibility to drain life from living creatures, using their incorporeal nature to avoid most physical attacks."
+    },
+            {
+        name: "Spider (Giant)",
+        tier: 1,
+        hp: 3,
+        stress: 2,
+        evasion: 12,
+        thresholdLow: 5,
+        thresholdHigh: 8,
+        damageDice: "1d8",
+        attackMod: 5,
+        features: "<ul><li>Poisoned - Any target that is hit by the Giant spider must make a CON Save of gain the Poisoned Condition.</li><li>1 Stress: Web - Send forth a string of stick webbing, Requiring a DEX Save or be encased. A STR check to break free.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
+        image: "monsters/",
+        description: "Horse-sized arachnids with venomous fangs and web-spinning abilities. They have multiple eyes and move with predatory grace.",
+        ecology: "Giant spiders inhabit deep forests, caves, and ruins, creating extensive web networks to trap prey. They often ally with ettercaps or drow.",
+        combat: "Giant spiders use webs to trap enemies before delivering poisonous bites, utilizing their wall-climbing ability to attack from unexpected angles."
+    },
+            {
+        name: "Spider (Phase)",
+        tier: 2,
+        hp: 4,
+        stress: 4,
+        evasion: 14,
+        thresholdLow: 10,
+        thresholdHigh: 18,
+        damageDice: "1d8",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>1 Stress: Poison Bite - Target must make CON Save or be poisoned and paralyzed.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground. (Terrain challenges may still apply.)</li></ul>",
+        image: "monsters/",
+        description: "Large spiders that can shift between the material plane and the Ethereal Plane at will. They appear to flicker in and out of existence.",
+        ecology: "Phase spiders inhabit areas where the planes overlap, building webs that span multiple dimensions. They hunt by phasing in to attack unsuspecting prey.",
+        combat: "Phase spiders use their dimensional shifting for perfect ambushes, teleporting in to deliver poisonous bites before phasing away from retaliation."
+    },
+        {
+        name: "Spider (Sword)",
+        tier: 2,
+        hp: 4,
+        stress: 4,
+        evasion: 14,
+        thresholdLow: 11,
+        thresholdHigh: 20,
+        damageDice: "1d6",
+        attackMod: 5,
+        features: "<ul><li>1 Stress: Multi-Attack (6) - Attack 6 times with sword-legs in a single action.</li><li>1 Stress: Sword Dance - Move through enemy spaces without provoking attacks, hitting each one passed through.</li><li>1 Stress: Spider Climb - The Creature can walk on Walls or Ceilings as if they are on flat ground.</li><li>2 Stress: Blade Barrier - Create a 10ft radius area of spinning sword-legs that damages anyone entering.</li></ul>",
+        image: "monsters/",
+        description: "Giant spiders whose legs have been replaced with razor-sharp sword blades, creating a deadly fusion of arachnid agility and cutting weapons.",
+        ecology: "Sword spiders are created by mad artificers or found in ancient weapon forges where spider eggs were exposed to enchanted metals.",
+        combat: "Sword spiders use their multiple blade-legs for devastating flurries of attacks while maintaining spider mobility to strike from walls and ceilings."
     },
         {
         name: "Spined Devil",
@@ -2587,9 +2846,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>Flyby - Moving quickly the creature can make an Attack without any retaliation and move out of Melee range. (Move out 60ft plus.)</li><li>3 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small winged devils covered in sharp spines that they can launch at enemies. They serve as messengers and scouts for greater devils.",
+        ecology: "Spined devils inhabit the Nine Hells and serve in Hell's military hierarchy as reconnaissance units, carrying messages between devil commanders.",
+        combat: "Spined devils use hit-and-run tactics with their flight, launching spine attacks before retreating out of retaliation range."
     },
             {
         name: "Sprite",
@@ -2603,9 +2862,25 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Poison Bite - Target must make CON Save or fall unconscious for 1 hour.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>1 Stress: Probing Telepathy - The creature can locate, talk and gain information with any other creature within 100ft. It can also attack with 1d6 Psychic Damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Tiny fey creatures with dragonfly wings and pointed ears. They are curious, mischievous, and possess potent magic despite their small size.",
+        ecology: "Sprites inhabit deep forests and fey crossings, serving as scouts and messengers for more powerful fey creatures while protecting woodland areas.",
+        combat: "Sprites use invisibility and sleep poison to incapacitate enemies rather than kill them, preferring to neutralize threats peacefully when possible."
+    },
+        {
+        name: "Steam Automaton (Mechanical)",
+        tier: 3,
+        hp: 9,
+        stress: 4,
+        evasion: 13,
+        thresholdLow: 20,
+        thresholdHigh: 30,
+        damageDice: "2d6",
+        attackMod: 6,
+        features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Steam Burst - Create 20ft cloud of scalding steam, obscuring vision and dealing fire damage.</li><li>1 Stress: Pressure Release - Gain +2 to next attack roll and damage by venting internal pressure.</li><li>2 Stress: Boiler Explosion - When destroyed, explode for 3d6 fire damage to all within 15ft.</li></ul>",
+        image: "monsters/",
+        description: "Large mechanical constructs powered by steam engines with visible pipes, gauges, and pressure vents that release scalding vapor.",
+        ecology: "Steam automatons are industrial constructs used in factories and workshops, powered by coal or magical heat sources that require constant fuel.",
+        combat: "Steam automatons use pressurized steam attacks and controlled explosions, building pressure for devastating strikes while creating concealing vapor clouds."
     },    
         {
         name: "Stirge",
@@ -2619,9 +2894,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Flying creatures resembling large mosquitoes with needle-like proboscis for draining blood. They swarm around larger creatures.",
+        ecology: "Stirges inhabit caves, ruins, and dense forests, clustering around areas where larger creatures gather. They feed exclusively on blood.",
+        combat: "Stirges swarm enemies in large numbers, attaching to drain blood while using their small size and flight to avoid being easily targeted."
     },
             {
         name: "Succubus",
@@ -2635,9 +2910,25 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Seductive demonesses that appear as beautiful women with small horns and bat wings. They corrupt souls through temptation and desire.",
+        ecology: "Succubi infiltrate mortal societies by taking pleasing forms, building cults of devoted followers while seeking to corrupt influential individuals.",
+        combat: "Succubi avoid direct combat, preferring to charm enemies and drain their life force while shapeshifting to escape dangerous situations."
+    },
+        {
+        name: "Symbiotic Horror",
+        tier: 2,
+        hp: 4,
+        stress: 5,
+        evasion: 13,
+        thresholdLow: 10,
+        thresholdHigh: 18,
+        damageDice: "1d6",
+        attackMod: 4,
+        features: "<ul><li>1 Stress: Parasitic Bond - Attach to target, they take -2 to all rolls but gain +1 damage die to attacks.</li><li>2 Stress: Symbiotic Healing - While bonded, both creature and host regenerate 1d4 HP per turn.</li><li>2 Stress: Host Override - Take control of bonded creature for 1d4 rounds, using their stats.</li><li>3 Stress: Explosive Separation - When bond is broken, both take 2d6 damage.</li></ul>",
+        image: "monsters/",
+        description: "Parasitic aberrations that bond with hosts, enhancing their abilities while slowly taking control of their bodies and minds.",
+        ecology: "Symbiotic horrors seek powerful hosts to bond with, creating mutually beneficial relationships that gradually shift in the parasite's favor.",
+        combat: "Symbiotic horrors attempt to bond with the strongest enemy, creating complicated situations where harming the creature also harms the host."
     },
                 {
         name: "Tarrasque",
@@ -2651,9 +2942,25 @@ const defaultMonsters = [
         attackMod: 11,
         features: "<ul><li>Legendary Actions - Can take 3 legendary actions at the end of other creatures' turns.</li><li>Legendary Resistance - Can choose to succeed a failed saving throw (3/day).</li><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (5) - Attack 5 times in a single action.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li><li>3 Stress: Swallow Whole - Can swallow a Large or smaller creature, dealing ongoing damage.</li><li>4 Stress: Ancient Magic - Cast any spell without components or preparation.</li><li>5 Stress: Reality Warp - Alter fundamental aspects of reality within 60ft.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "A legendary world-ending monster of colossal size with impenetrable carapace and an insatiable appetite for destruction.",
+        ecology: "The Tarrasque slumbers deep underground for centuries at a time, awakening periodically to devastate the surface world before returning to dormancy.",
+        combat: "The Tarrasque is a force of nature in combat, capable of destroying armies single-handedly through sheer size, multiple attacks, and reality-warping abilities."
+    },
+        {
+        name: "Temporal Stalker",
+        tier: 3,
+        hp: 8,
+        stress: 7,
+        evasion: 15,
+        thresholdLow: 18,
+        thresholdHigh: 28,
+        damageDice: "1d12",
+        attackMod: 6,
+        features: "<ul><li>2 Stress: Time Echo - Make an additional attack from a previous position as if still there.</li><li>2 Stress: Temporal Rewind - Undo the last action taken (yours or enemy's) and repeat it differently.</li><li>3 Stress: Paradox Strike - Attack target from past, present, and future simultaneously (3 attacks, roll once).</li></ul>",
+        image: "monsters/",
+        description: "Aberrant hunters that exist across multiple timestreams simultaneously, able to attack from temporal echoes of their past and future positions.",
+        ecology: "Temporal stalkers emerge from areas where time magic has been misused, hunting across timelines to eliminate temporal paradoxes and threats.",
+        combat: "Temporal stalkers confuse enemies by attacking from multiple time periods at once, making them extremely difficult to predict or counter."
     },
                 {
         name: "Treant",
@@ -2667,9 +2974,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Enlarge - the creature can grow double in size and double its modifier, gain 1 Damage die and add +2HP.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Ancient trees granted sentience and mobility. They appear as massive humanoid trees with bark skin and branch-like limbs.",
+        ecology: "Treants are guardians of ancient forests, awakening to defend their groves from threats. They can command other trees and plants to aid them.",
+        combat: "Treants use their massive size and strength to grab and crush enemies, growing larger when threatened while commanding the forest itself to assist."
     }, 
                 {
         name: "Troll",
@@ -2683,9 +2990,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Acid Immunity - Immune to acid damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>2 Stress: Regeneration - The creature will gain 1d6 Hit Points at the start of its turn. (Until the end of Combat.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large humanoids with rubbery hide and incredible regenerative abilities. They have long arms, sharp claws, and constantly healing wounds.",
+        ecology: "Trolls inhabit caves, ruins, and wilderness areas where they can hunt freely. They are solitary hunters with enormous appetites and primitive intelligence.",
+        combat: "Trolls rely on their regeneration to outlast enemies, fighting with wild abandon knowing their wounds will heal unless burned with fire or acid."
     },   
         {
         name: "Twig Blight",
@@ -2699,9 +3006,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Small animated shrubs and bushes that appear as dead wood until they spring to life. They have gnarled branches and glowing eyes.",
+        ecology: "Twig blights are created by dark druids to guard forest groves. They work in groups to form defensive perimeters around corrupted natural areas.",
+        combat: "Twig blights rely on surprise attacks and pack coordination, appearing as harmless brush before springing coordinated ambushes on intruders."
     },
                         {
         name: "Ultroloth",
@@ -2715,9 +3022,9 @@ const defaultMonsters = [
         attackMod: 8,
         features: "<ul><li>Fire Immunity - Immune to fire damage and conditions.</li><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Powerful yugoloth fiends with insectoid features and four arms. They are mercenary commanders who serve as generals in fiendish armies.",
+        ecology: "Ultroloths inhabit the neutral evil planes, serving as mercenary leaders and brokers of infernal contracts between demons and devils.",
+        combat: "Ultroloths use tactical brilliance and teleportation to command battlefields, employing fear tactics while striking with multiple weapons simultaneously."
     },
             {
         name: "Umber Hulk",
@@ -2731,9 +3038,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li><li>1 Stress: Confusion - Target must make WIS Save or become confused and attack random targets.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large insectoid creatures with powerful mandibles and four eyes that can confuse onlookers. They tunnel through solid rock with ease.",
+        ecology: "Umber hulks inhabit deep underground tunnel systems, creating complex networks of passages. They are territorial and attack anything that enters their domain.",
+        combat: "Umber hulks use their confusing gaze to turn enemies against each other, then close for devastating melee attacks with their powerful mandibles."
     },
             {
         name: "Unicorn",
@@ -2747,9 +3054,9 @@ const defaultMonsters = [
         attackMod: 5,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>1 Stress: Heal Self - Roll 1d4 and add the result to HP.</li><li>1 Stress: Teleport to any where within sight and 60ft range.</li><li>2 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Majestic horse-like creatures with a single spiraling horn and pure white coats. They are symbols of purity and can only be approached by the pure of heart.",
+        ecology: "Unicorns inhabit pristine forests and sacred groves, serving as guardians of natural purity. They can detect evil and flee from corruption.",
+        combat: "Unicorns prefer to avoid combat, using teleportation to escape. When forced to fight, they use healing magic and their horn's power to defend their territory."
     },
                 {
         name: "Vampire",
@@ -2763,9 +3070,9 @@ const defaultMonsters = [
         attackMod: 7,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Charm - Select 1 Target force a WIS Save on a fail you charm them. (Until the end of Combat, or target takes damage.)</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead nobles who feed on blood and can transform into bats or wolves. They retain their intelligence and memories from life.",
+        ecology: "Vampires rule from hidden lairs, often maintaining normal social lives while feeding on the local population. They create vampire spawn and thrall networks.",
+        combat: "Vampires use charm magic and shapeshifting to confuse enemies, preferring to isolate victims for feeding rather than engage in open warfare."
     }, 
         {
         name: "Vine Blight",
@@ -2779,9 +3086,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>False Appearance - It impossible to tell this from any other item of its type. Gains Advantage on Surprise Attacks.</li><li>1 Stress: Grapple - Select a target and force them to roll a STR/DEX Save to resist. On a fail the target gains the Grappled condition.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Animated masses of thorny vines that can move and attack independently. They appear as normal vegetation until they strike.",
+        ecology: "Vine blights are created by corrupt druids or dark fey magic to guard corrupted groves and natural areas from intruders.",
+        combat: "Vine blights use their plant appearance for ambushes, then coordinate with other blights to grapple and strangle enemies with thorny vines."
     },
             {
         name: "Water Weird",
@@ -2795,9 +3102,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Amphibious - Can breath both air and in water. Has no restrictions on Attacks underwater.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>1 Stress: Constrict - The target is Restrained unable to move, on this turn and the start of this creature's turn the target will take 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Elemental creatures made of living water that can become invisible in aquatic environments. They appear as serpentine columns of water.",
+        ecology: "Water weirds are bound to specific pools or water sources, serving as guardians. They cannot travel far from their home waters.",
+        combat: "Water weirds remain hidden in their pools, becoming invisible until enemies approach, then striking with constricting water tendrils."
     }, 
             {
         name: "Wight",
@@ -2811,9 +3118,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead warriors with glowing red eyes and the ability to drain life force. They retain their combat skills and cruel intelligence from life.",
+        ecology: "Wights inhabit ancient battlefields, barrows, and crypts, often commanding lesser undead in their eternal pursuit of expanding their ranks.",
+        combat: "Wights fight with weapons and tactics from their mortal lives, using life drain to weaken enemies while creating new undead from the fallen."
     },   
         {
         name: "Will-o-Wisp",
@@ -2827,9 +3134,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Lightning Immunity - Immune to lightning damage and conditions.</li><li>1 Stress: Nimble - Reduce incoming Hits by 1. Also cannot be Grappled or Restrained.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Undead spirits that appear as floating balls of light. They lure travelers into dangerous areas with their hypnotic glow.",
+        ecology: "Will-o-wisps inhabit swamps, bogs, and marshlands, feeding on the life force of creatures that die in despair. They mark territory with their lights.",
+        combat: "Will-o-wisps use invisibility and their intangible nature to drain life from enemies while remaining nearly impossible to catch or pin down."
     },
             {
         name: "Winter Wolf",
@@ -2843,9 +3150,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Breath Cold - Roll damage dice equal to the monster Tier and add the Cold condition.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large wolves with white fur and the ability to breathe freezing wind. They are more intelligent than normal wolves and speak their own language.",
+        ecology: "Winter wolves inhabit arctic regions and frozen mountains, hunting in packs across vast snowy territories. They sometimes ally with frost giants.",
+        combat: "Winter wolves coordinate pack attacks with freezing breath, using their cold immunity to fight in blizzard conditions that hinder their enemies."
     },
         {
         name: "Wolf",
@@ -2859,9 +3166,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Intelligent predators with gray fur and keen hunting instincts. They live and hunt in coordinated packs with complex social structures.",
+        ecology: "Wolves inhabit forests, plains, and mountain regions, forming territorial packs led by alpha pairs. They are crucial to ecosystem balance as apex predators.",
+        combat: "Wolves use coordinated pack tactics to surround and bring down larger prey, relying on their keen senses and teamwork rather than individual strength."
     },
             {
         name: "Worg",
@@ -2875,9 +3182,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Keen Senses - The creature can Roll and Skill check for perception at Advantage.</li><li>1 Stress: Pounce - Can jump onto the a target requiring a STR Save or be knocked prone.</li><li>2 Stress: Pack Tactics - Add +1 to attack rolls for each ally, combine damage roll total.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large, evil wolves with intelligence and the ability to speak. They have dark fur and red eyes, serving as mounts for goblins and orcs.",
+        ecology: "Worgs inhabit dark forests and serve goblinoid tribes as mounts and hunting companions. They form their own packs when not in service.",
+        combat: "Worgs use pouncing attacks to knock enemies prone, then coordinate with pack members or goblinoid riders for devastating follow-up attacks."
     },
         {
         name: "Wraith",
@@ -2891,9 +3198,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Necrotic Immunity - Immune to necrotic damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Invisibility - The target cannot be seen. All Attacks against it are at Disadvantage all Attacks it makes are with Advantage.</li><li>3 Stress: Life Drain - Remove 1HP from the target's total HP. (Until after a Long Rest.)</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Incorporeal undead spirits wrapped in darkness and shadow. They are the spirits of evil creatures who refused to pass on after death.",
+        ecology: "Wraiths haunt places of great evil or tragedy, often leading groups of lesser undead. They seek to create more of their kind through life drain.",
+        combat: "Wraiths phase in and out of visibility to drain life from enemies, using their incorporeal nature to avoid physical attacks while spreading undeath."
     },
         {
         name: "Wyvern",
@@ -2907,9 +3214,9 @@ const defaultMonsters = [
         attackMod: 6,
         features: "<ul><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Multi-Attack (2) - Attack 2 times in a single action.</li><li>1 Stress: Poison Bite - Target must make CON Save or take ongoing poison damage.</li><li>2 Stress: Frightful Presence - Cause any target in 30ft range to take a Stress at the start of the creature's turn, no Save.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Dragon-like creatures with two legs, wings, and poisonous stingers on their tails. They are less intelligent than true dragons but equally dangerous.",
+        ecology: "Wyverns inhabit mountainous regions and coastal cliffs, nesting in high places where they can survey their territory and hunt large game.",
+        combat: "Wyverns attack from the air with poisonous stingers and intimidating roars, using their mobility to stay out of reach while delivering hit-and-run attacks."
     },
             {
         name: "Xorn",
@@ -2923,9 +3230,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>1 Stress: Multi-Attack (3) - Attack 3 times in a single action.</li><li>1 Stress: Surprise Attack - If attacking from stealth, deal extra 1d6 damage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Elemental creatures with radial symmetry, three arms, and three legs arranged around their body. They can phase through earth and stone.",
+        ecology: "Xorn inhabit the Elemental Plane of Earth and sometimes appear on the material plane seeking precious metals and gems to consume.",
+        combat: "Xorn emerge from solid stone to surprise enemies, attacking with all three arms simultaneously before retreating back into the earth."
     },
         {
         name: "Yeti",
@@ -2939,9 +3246,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Cold Immunity - Immune to cold damage and conditions.</li><li>Camouflage - Can blend in with the environment causing Attacks and Perception checks against to be rolled at Disadvantage.</li><li>1 Stress: Fear - Force a WIS Save a creature that fails takes a Stress.</li><li>2 Stress: Paralyzing Touch - On a successful Melee Attack the target must succeed a CON Save or become paralyzed for 1d4 rounds.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Large humanoid creatures covered in white fur who inhabit arctic regions. They are intelligent but reclusive, avoiding most contact with civilization.",
+        ecology: "Yeti live in small family groups in remote mountain regions, creating ice caves and hunting large game across their snowy territories.",
+        combat: "Yeti use their natural camouflage for ambush attacks, then intimidate and paralyze enemies with their fearsome roar and chilling touch."
     },   
         {
         name: "Yuan-Ti",
@@ -2955,9 +3262,9 @@ const defaultMonsters = [
         attackMod: 4,
         features: "<ul><li>Spell Caster - Can cast limited number of spells.</li><li>Poison Immunity - Immune to poison damage and conditions.</li><li>1 Stress: Shapechanger - The Creature can change the shape and attributes of their body.</li><li>2 Stress: Magic Resistance - The creature has X Level Spell Resistance, taking half damage or Save with Advantage.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Serpentine humanoids with various degrees of snake features. They are ancient, decadent, and view other races as inferior beings.",
+        ecology: "Yuan-ti inhabit jungle temples and ancient cities, ruling over human slave populations while pursuing arcane knowledge and serpentine transformation.",
+        combat: "Yuan-ti use magic and shapeshifting to confuse enemies, preferring manipulation and poison over direct confrontation when possible."
     },
         {
         name: "Zombie",
@@ -2971,9 +3278,9 @@ const defaultMonsters = [
         attackMod: 3,
         features: "<ul><li>1 Stress: Relentless - If the creature drops to 0HP they can instead drop to 1HP.</li><li>1 Stress: Brute - Add +1 Damage die to the total damage roll.</li></ul>",
         image: "monsters/",
-        description: "",
-        ecology: "",
-        combat: ""
+        description: "Reanimated corpses with rotting flesh and mindless hunger. They shamble forward relentlessly, driven by necromantic magic.",
+        ecology: "Zombies are created by necromancers or arise spontaneously in areas of great death. They gather in hordes and follow simple commands from their creators.",
+        combat: "Zombies advance relentlessly despite damage, using their undead durability and relentless nature to overwhelm enemies through sheer persistence."
     },
 ];
 
